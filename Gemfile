@@ -17,7 +17,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'httparty'
 gem "therubyracer"
 gem "twitter-bootstrap-rails"
-gem 'pg'
+
+group :production do
+  gem 'pg'
+end
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
