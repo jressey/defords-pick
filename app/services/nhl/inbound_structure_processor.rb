@@ -1,4 +1,4 @@
-class NHL::DataService
+class NHL::InboundStructureProcessor
 
   class << self
 
