@@ -2,7 +2,7 @@ class NFL::InboundScheduleProcessor
 
   class << self
 
-      def process_schedule_data
+      def call
         weeks.each do |week|
           games_for_week(week).each do |game|
             store_game(game)

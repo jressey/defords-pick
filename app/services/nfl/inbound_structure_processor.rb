@@ -1,7 +1,7 @@
 class NFL::InboundStructureProcessor
   class << self
 
-    def process_league_data
+    def call
       conferences.each do |c|
         store_conference(c)
         divisions_for(c).each do |d|
