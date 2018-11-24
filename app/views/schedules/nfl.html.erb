@@ -1,9 +1,9 @@
 <% @games.each do |game| %>
-  <%= pretty_time(game.start_time) %>
-  <br />
-  <%= game.away_team.name %>
-  <br />
-  <%= game.home_team.name %>
-  <hr>
-  <br />
+<% if game.id == @game_of_the_week.id %>
+<div style="background-color:pink;">
+<% else %>
+<div>
+<% end %>
+<%= render partial: "nfl_game", locals: { game: game }%>
+</div>
 <% end %>

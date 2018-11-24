@@ -14,4 +14,14 @@ class Game < ApplicationRecord
     where('start_time BETWEEN ? AND ?', Date.new(2018, 11, 22), Date.new(2018, 11, 29))
   end
 
+  def self.of_the_week
+    games = this_week
+    power_diffs = {}
+    games.each do |game|
+      power_diffs[game.id] = (game.away_team.win_percentage - game.home_team.win_percentage).abs
+    end
+    power_diffs.sort_by(&:last).reverse
+    games.find(power_diffs.keys.first)
+  end
+
 end
