@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.5.1"
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -15,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'httparty'
 gem "therubyracer"
 gem "twitter-bootstrap-rails"
+gem 'pg'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
