@@ -21,6 +21,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.8'
   gem 'dotenv-rails'
+  gem 'pry'
 end
 
 group :development do
