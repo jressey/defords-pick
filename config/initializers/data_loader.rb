@@ -4,9 +4,9 @@ if Rails.env == "production"
   Sport.find_or_create_by(name: "Hockey", league_name: "NHL")
   Sport.find_or_create_by(name: "Basketball", league_name: "NBA")
 
-  NFL::InboundStructureProcessor.call
-  NFL::InboundScheduleProcessor.call
+  # NFL::InboundStructureProcessor.call
+  # NFL::InboundScheduleProcessor.call
 
-  NHL::InboundScheduleProcessor.call
+  # NHL::InboundScheduleProcessor.call
 
 end
