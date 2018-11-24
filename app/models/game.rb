@@ -11,7 +11,9 @@ class Game < ApplicationRecord
   end
 
   def self.this_week
-    where('start_time BETWEEN ? AND ?', Date.new(2018, 11, 22), Date.new(2018, 11, 29))
+    week_number = NFL::WeekNumberForDate.call(Date.today)
+    date_range = NFL::DateForWeekNumber.call(week_number)
+    where('start_time BETWEEN ? AND ?', date_range[:start_day], date_range[:end_day])
   end
 
   def self.of_the_week
