@@ -1,1 +1,9 @@
-Hey!
+<% @games.each do |game| %>
+  <%= pretty_time(game.start_time) %>
+  <br />
+  <%= game.away_team.name %>
+  <br />
+  <%= game.home_team.name %>
+  <hr>
+  <br />
+<% end %>

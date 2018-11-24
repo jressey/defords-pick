@@ -10,4 +10,8 @@ class Game < ApplicationRecord
     }
   end
 
+  def self.this_week
+    where('start_time BETWEEN ? AND ?', Date.new(2018, 11, 22), Date.new(2018, 11, 29))
+  end
+
 end

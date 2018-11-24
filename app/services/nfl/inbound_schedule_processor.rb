@@ -1,6 +1,6 @@
 class NFL::InboundScheduleProcessor
-#         NFL::InboundScheduleProcessor.process_schedule_data
-    class << self
+
+  class << self
 
       def process_schedule_data
         weeks.each do |week|
@@ -33,7 +33,7 @@ class NFL::InboundScheduleProcessor
           {
             sport: sport,
             api_id: game["id"],
-            start_time: game["scheduled"].to_date,
+            start_time: game["scheduled"].to_datetime,
             home_team_id: home_team.id,
             away_team_id: away_team.id
           }

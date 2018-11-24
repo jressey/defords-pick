@@ -17,6 +17,6 @@ class NHL::HttpClient
     def key
       @key || ENV["NHL_KEY"]
     end
-    
+
   end
 end
