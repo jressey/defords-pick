@@ -1,5 +1,5 @@
-class NHL::InboundStructureProcessor
-
+class NFL::InboundStructureProcessor
+#NFL::InboundStructureProcessor.process_league_data
   class << self
 
     def process_league_data
@@ -19,7 +19,7 @@ class NHL::InboundStructureProcessor
     end
 
     def dat
-      @dat || NHL::HttpClient.get_standings
+      @dat || NFL::HttpClient.get_standings
     end
 
     def divisions_for(conference)
@@ -31,7 +31,7 @@ class NHL::InboundStructureProcessor
     end
 
     def sport
-      @sport || Sport.find_by_name("Hockey")
+      @sport || Sport.find_by_name("Football")
     end
 
     def store_conference(conference)
@@ -52,8 +52,8 @@ class NHL::InboundStructureProcessor
           division_id: division.id,
           wins: team["wins"],
           losses: team["losses"],
-          overtime_losses: team["overtime_losses"],
-          points: team["points"]
+          ties: team["ties"],
+          win_percentage: team["win_pct"]
         }
       )
     end
