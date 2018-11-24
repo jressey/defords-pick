@@ -17,6 +17,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'httparty'
 gem "therubyracer"
 gem "twitter-bootstrap-rails"
+#keeping this out here keeps config from breaking
+gem 'dotenv-rails'
 
 group :production do
   gem 'pg'
@@ -27,7 +29,6 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.8'
-  gem 'dotenv-rails'
   gem 'pry'
   gem 'factory_bot_rails'
   gem 'faker'
