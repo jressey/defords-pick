@@ -1,5 +1,4 @@
 class NFL::InboundStructureProcessor
-#NFL::InboundStructureProcessor.process_league_data
   class << self
 
     def process_league_data

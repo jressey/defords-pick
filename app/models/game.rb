@@ -9,4 +9,5 @@ class Game < ApplicationRecord
       home_team: home_team
     }
   end
+
 end

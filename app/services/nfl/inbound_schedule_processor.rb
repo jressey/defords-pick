@@ -33,7 +33,7 @@ class NFL::InboundScheduleProcessor
           {
             sport: sport,
             api_id: game["id"],
-            start_time: game["scheduled_at"],
+            start_time: game["scheduled"].to_date,
             home_team_id: home_team.id,
             away_team_id: away_team.id
           }
