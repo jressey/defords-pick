@@ -1,4 +1,4 @@
-class NHL::InboundStructureProcessor
+class NHL::InboundStructureCreator
 
   class << self
 

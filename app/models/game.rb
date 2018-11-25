@@ -3,6 +3,10 @@ class Game < ApplicationRecord
   belongs_to :home_team, class_name: "Team", foreign_key: "home_team_id"
   belongs_to :sport
 
+  scope :football, -> { where(sport: Sport.find_by_name("Football")) }
+  scope :hockey, -> { where(sport: Sport.find_by_name("Hockey")) }
+  scope :for_day, ->(day) { where(start_time: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day  )}
+
   def teams
     {
       away_team: away_team,
@@ -10,7 +14,7 @@ class Game < ApplicationRecord
     }
   end
 
-  def self.this_week
+  def self.for_week
     week_number = NFL::WeekNumberForDate.call(Date.today)
     date_range = NFL::DateForWeekNumber.call(week_number)
     where('start_time BETWEEN ? AND ?', date_range[:start_day], date_range[:end_day])
@@ -21,7 +25,7 @@ class Game < ApplicationRecord
   end
 
   def self.by_winning_pct
-    games = this_week
+    games = for_week
     power_diffs = {}
     games.each do |game|
       power_diffs[game.id] = (game.away_team.win_percentage - game.home_team.win_percentage).abs
