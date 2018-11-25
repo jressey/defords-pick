@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20181124152307) do
     t.integer "home_team_id"
     t.integer "away_team_id"
     t.datetime "start_time"
-    t.integer "sport_id" 
+    t.integer "sport_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "api_id"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20181124152307) do
     t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "api_id"
     t.decimal "win_percentage"
     t.index ["division_id"], name: "index_teams_on_division_id"
   end

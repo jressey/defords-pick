@@ -7,6 +7,6 @@ if Rails.env == "production"
   # NFL::InboundStructureProcessor.call
   # NFL::InboundScheduleProcessor.call
 
-  # NHL::InboundScheduleProcessor.call
+  # NHL::InboundStructureProcessor.call
 
 end
