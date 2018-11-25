@@ -1,11 +1,11 @@
 namespace :data_updater do
   desc "TODO"
   task hockey: :environment do
-    puts "thanks fam!"
   end
 
   desc "TODO"
   task football: :environment do
+    NFL::InboundStructureUpdater.call
   end
 
   desc "TODO"
