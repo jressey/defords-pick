@@ -10,6 +10,7 @@ class DataSetup
     NFL::InboundScheduleProcessor.call
 
     NHL::InboundStructureProcessor.call
+    NHL::InboundScheduleProcessor.call
   end
 
 end
