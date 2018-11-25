@@ -6,8 +6,10 @@
         <%= image_tag("deford-portrait.jpg", class: "img-fluid") %>
       </div>
       <div class="col-6">
-        <%= render partial: "schedules/spotlight_game", locals: { game: @hockey_game_of_the_day }%>
-        <%= render partial: "schedules/spotlight_game", locals: { game: @football_game_of_the_week }%>
+        Best Hockey Game Today:
+        <%= render partial: "shared/game", locals: { game: @hockey_game_of_the_day }%>
+        Best Football Game this Week:
+        <%= render partial: "shared/game", locals: { game: @football_game_of_the_week }%>
       </div>
     </div>
   </div>

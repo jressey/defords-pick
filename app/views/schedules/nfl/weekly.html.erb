@@ -4,6 +4,6 @@
   </a>
 
   <% @games.each do |game| %>
-  <%= render partial: "schedules/game", locals: { game: game }%>
+  <%= render partial: "shared/game", locals: { game: game }%>
   <% end %>
 </div>
