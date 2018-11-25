@@ -1,9 +1,0 @@
-<% @games.each do |game| %>
-<% if game.id == @game_of_the_week.id %>
-<div style="background-color:pink;">
-<% else %>
-<div>
-<% end %>
-<%= render partial: "schedules/game", locals: { game: game }%>
-</div>
-<% end %>

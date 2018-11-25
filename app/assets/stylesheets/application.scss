@@ -1,5 +1,22 @@
 @import "bootstrap";
 
+// universal
 .navbar-inner-container {
   width: 100%;
+}
+
+//shedules
+
+  //recommendations
+.game-reco-container {
+  margin-top: 20px;
+  background-color: #969696;
+  padding: 5px;
+  color: #e5e5e5;
+  border-radius: 5px;
+}
+
+  //games
+.spotlight-game-container {
+  font-size: 2em;
 }

@@ -5,7 +5,7 @@ class Game < ApplicationRecord
 
   scope :football, -> { where(sport: Sport.find_by_name("Football")) }
   scope :hockey, -> { where(sport: Sport.find_by_name("Hockey")) }
-  scope :for_day, ->(day) { where(start_time: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day  )}
+  scope :for_day, ->(day=Time.zone.now) { where(start_time: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day  )}
 
   def teams
     {
@@ -21,14 +21,28 @@ class Game < ApplicationRecord
   end
 
   def self.of_the_week
-    by_winning_pct
+    games = for_week
+    by_winning_pct(games)
   end
 
-  def self.by_winning_pct
-    games = for_week
+  def self.by_winning_pct(games)
     power_diffs = {}
     games.each do |game|
       power_diffs[game.id] = (game.away_team.win_percentage - game.home_team.win_percentage).abs
+    end
+    min = power_diffs.min_by{|k,v| v}
+    find(min[0])
+  end
+
+  def self.of_the_day
+    games = for_day
+    by_points(games)
+  end
+
+  def self.by_points(games)
+    power_diffs = {}
+    games.each do |game|
+      power_diffs[game.id] = (game.away_team.points - game.home_team.points).abs
     end
     min = power_diffs.min_by{|k,v| v}
     find(min[0])
