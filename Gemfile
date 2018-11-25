@@ -15,8 +15,9 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'httparty'
-gem "therubyracer"
-gem "twitter-bootstrap-rails"
+gem "mini_racer"
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.1.3'
 #keeping this out here keeps config from breaking
 gem 'dotenv-rails'
 
