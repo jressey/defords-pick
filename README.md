@@ -6,4 +6,4 @@ You'll need the following:
 - NHL v6 (I think the version number is excluded from some of their docs)
 - NFL v5
 
-Create a `.env` file and copy the contents of `sample.env`. Fill in the API keys you got from sportradar.
+Create an `.env` file and copy the contents of `sample.env`. Fill in the API keys you got from sportradar.
