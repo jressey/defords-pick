@@ -5,7 +5,7 @@ class Game < ApplicationRecord
 
   scope :football, -> { where(sport: Sport.find_by_name("Football")) }
   scope :hockey, -> { where(sport: Sport.find_by_name("Hockey")) }
-  scope :for_day, ->(day=Time.zone.now) { where(start_time: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day  )}
+  scope :for_day, ->(day=Time.zone.now) { where(start_time: begging_of_day_utc(day)..end_of_day_utc(day)  )}
 
   def teams
     {
@@ -48,4 +48,13 @@ class Game < ApplicationRecord
     find(min[0])
   end
 
+  # assuming UTC
+  # yes, I hate this but it works
+  def self.begging_of_day_utc(day)
+    day.beginning_of_day + 5.hours
+  end
+
+  def self.end_of_day_utc(day)
+    day.end_of_day + 5.hours
+  end
 end
