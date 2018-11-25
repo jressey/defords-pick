@@ -1,7 +1,9 @@
-<a href="/schedules/nfl/game_of_the_week">
-  See Frank's pick for Game of the Week
-</a>
+<div class="page-container">
+  <a href="/schedules/nfl/game_of_the_week">
+    See Frank's pick for Game of the Week
+  </a>
 
-<% @games.each do |game| %>
-<%= render partial: "schedules/game", locals: { game: game }%>
-<% end %>
+  <% @games.each do |game| %>
+  <%= render partial: "schedules/game", locals: { game: game }%>
+  <% end %>
+</div>

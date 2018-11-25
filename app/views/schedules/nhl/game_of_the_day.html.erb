@@ -1,10 +1,12 @@
-<div class="game-reco-container">
-  <div class="row">
-    <div class="col-5">
-      <%= image_tag("deford-portrait.jpg", class: "img-fluid") %>
-    </div>
-    <div class="col-6">
-      <%= render partial: "schedules/spotlight_game", locals: { game: @game_of_the_day }%>
+<div class="page-container">
+  <div class="game-reco-container">
+    <div class="row">
+      <div class="col-5">
+        <%= image_tag("deford-portrait.jpg", class: "img-fluid") %>
+      </div>
+      <div class="col-6">
+        <%= render partial: "schedules/spotlight_game", locals: { game: @game_of_the_day }%>
+      </div>
     </div>
   </div>
 </div>

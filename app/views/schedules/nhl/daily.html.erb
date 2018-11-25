@@ -1,8 +1,10 @@
-<a href="/schedules/nhl/game_of_the_day">
-  See Frank's pick for Game of the Day
-</a>
-<% @games.each do |game| %>
-<div>
-<%= render partial: "schedules/game", locals: { game: game }%>
-</div>
-<% end %>
+<div class="page-container">
+  <a href="/schedules/nhl/game_of_the_day">
+    See Frank's pick for Game of the Day
+  </a>
+  <% @games.each do |game| %>
+  <div>
+  <%= render partial: "schedules/game", locals: { game: game }%>
+  </div>
+  <% end %>
+</div
