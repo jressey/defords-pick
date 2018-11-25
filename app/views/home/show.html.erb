@@ -1,0 +1,16 @@
+<div class="page-container">
+
+<div class="game-reco-container">
+    <div class="row">
+      <div class="col-5">
+        <%= image_tag("deford-portrait.jpg", class: "img-fluid") %>
+      </div>
+      <div class="col-6">
+        <%= render partial: "schedules/spotlight_game", locals: { game: @hockey_game_of_the_day }%>
+        <%= render partial: "schedules/spotlight_game", locals: { game: @football_game_of_the_week }%>
+      </div>
+    </div>
+  </div>
+
+  Learn more about the American treasure, <a href="https://en.wikipedia.org/wiki/Frank_Deford">Frank Deford</a>
+</div>

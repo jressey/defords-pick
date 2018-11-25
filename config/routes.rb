@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     get "/nhl/game_of_the_day", to: "nhl#game_of_the_day"
   end
 
-  root to: "static#home"
+  root to: "home#show"
 
 end
