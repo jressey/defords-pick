@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181124152307) do
+ActiveRecord::Schema.define(version: 20181127023247) do
 
   create_table "conferences", force: :cascade do |t|
     t.string "name"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20181124152307) do
     t.datetime "updated_at", null: false
     t.string "api_id"
     t.decimal "win_percentage"
+    t.string "abbreviation"
     t.index ["division_id"], name: "index_teams_on_division_id"
   end
 

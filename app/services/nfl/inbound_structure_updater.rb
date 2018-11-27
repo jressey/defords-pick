@@ -9,6 +9,7 @@ class NFL::InboundStructureUpdater
           end
         end
       end
+      true
     end
 
     def conferences
@@ -33,12 +34,16 @@ class NFL::InboundStructureUpdater
 
     def store_team(team, division, conference)
       team_record = Team.find_by_api_id(team["id"])
+      if team["alias"].nil?
+        Rails.logger.info("team: #{team["name"]}")
+      end
       team_record.update(
         {
           wins: team["wins"],
           losses: team["losses"],
           ties: team["ties"],
-          win_percentage: team["win_pct"]
+          win_percentage: team["win_pct"],
+          abbreviation: team["alias"]
         }
       )
     end

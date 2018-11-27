@@ -8,6 +8,7 @@ class NFL::InboundScheduleProcessor
             store_game(game)
           end
         end
+        true
       end
 
       def dat

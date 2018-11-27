@@ -11,6 +11,7 @@ class NFL::InboundStructureCreator
           end
         end
       end
+      true
     end
 
     def conferences
@@ -52,10 +53,10 @@ class NFL::InboundStructureCreator
           wins: team["wins"],
           losses: team["losses"],
           ties: team["ties"],
-          win_percentage: team["win_pct"]
+          win_percentage: team["win_pct"],
+          abbreviation: team["alias"]
         }
       )
     end
-
   end
 end
