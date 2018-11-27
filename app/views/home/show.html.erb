@@ -1,27 +1,19 @@
 <div class="page-container">
 
-<div class="game-reco-container card">
+<div class="card">
   <div class="row">
     <div class="col-sm-5">
+    <div class="portrait">
       <%= image_tag("deford-portrait.jpg", class: "img-fluid") %>
     </div>
+    </div>
     <div class="col-sm-7">
-      <div class="row">
-        <div class="col-sm-6">
-          <%= render partial: "shared/game_card", locals: { game: @hockey_game_of_the_day, sport: "Hockey", timeframe: "Today" } %>
-        </div>
-        <div class="col-sm-6">
-          <%= render partial: "shared/game_card", locals: { game: @football_game_of_the_week, sport: "Football", timeframe: "This Week" } %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-6">
-          <%= render partial: "shared/game_card", locals: { game: @hockey_game_of_the_day, sport: "Hockey", timeframe: "Today" } %>
-        </div>
-        <div class="col-sm-6">
-          <%= render partial: "shared/game_card", locals: { game: @football_game_of_the_week, sport: "Football", timeframe: "This Week" } %>
-        </div>
-      </div>
+    <ul class="game-card-list">
+      <li><%= render partial: "shared/game_card", locals: { game: @hockey_game_of_the_day, sport: "Hockey", timeframe: "Today" } %></li>
+      <li><%= render partial: "shared/game_card", locals: { game: @football_game_of_the_week, sport: "Football", timeframe: "This Week" } %></li>
+      <li><%= render partial: "shared/game_card", locals: { game: @hockey_game_of_the_day, sport: "Hockey", timeframe: "Today" } %></li>
+      <li><%= render partial: "shared/game_card", locals: { game: @football_game_of_the_week, sport: "Football", timeframe: "This Week" } %></li>
+    <ul class="game-card-list">
     </div>
   </div>
 </div>
