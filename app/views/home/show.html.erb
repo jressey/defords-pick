@@ -1,20 +1,31 @@
 <div class="page-container">
 
-<div class="game-reco-container">
-    <div class="row">
-      <div class="col-5">
-        <%= image_tag("deford-portrait.jpg", class: "img-fluid") %>
+<div class="game-reco-container card">
+  <div class="row">
+    <div class="col-sm-5">
+      <%= image_tag("deford-portrait.jpg", class: "img-fluid") %>
+    </div>
+    <div class="col-sm-7">
+      <div class="row">
+        <div class="col-sm-6">
+          <%= render partial: "shared/game_card", locals: { game: @hockey_game_of_the_day, sport: "Hockey", timeframe: "Today" } %>
+        </div>
+        <div class="col-sm-6">
+          <%= render partial: "shared/game_card", locals: { game: @football_game_of_the_week, sport: "Football", timeframe: "This Week" } %>
+        </div>
       </div>
-      <div class="col-6">
-        Best Hockey Game Today:
-        <%= render partial: "shared/game", locals: { game: @hockey_game_of_the_day }%>
-        Best Football Game this Week:
-        <%= render partial: "shared/game", locals: { game: @football_game_of_the_week }%>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= render partial: "shared/game_card", locals: { game: @hockey_game_of_the_day, sport: "Hockey", timeframe: "Today" } %>
+        </div>
+        <div class="col-sm-6">
+          <%= render partial: "shared/game_card", locals: { game: @football_game_of_the_week, sport: "Football", timeframe: "This Week" } %>
+        </div>
       </div>
     </div>
   </div>
+</div>
 
   Learn more about the American treasure, <a href="https://en.wikipedia.org/wiki/Frank_Deford">Frank Deford</a>
   <br />
   Listen to his incredible rendition of <a href="https://www.npr.org/2013/05/29/186913673/one-more-swing-casey-at-the-bat"><em>The Mighty Casey</em></a>
-</div>

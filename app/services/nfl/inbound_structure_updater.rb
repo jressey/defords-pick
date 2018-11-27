@@ -12,19 +12,19 @@ class NFL::InboundStructureUpdater
     end
 
     def conferences
-      @conferences || dat["conferences"]
+      dat["conferences"]
     end
 
     def dat
-      @dat || NFL::HttpClient.get_standings
+      NFL::HttpClient.get_standings
     end
 
     def divisions_for(conference)
-      @divisions || conference["divisions"]
+      conference["divisions"]
     end
 
     def teams_for(division)
-      @teams || division["teams"]
+      division["teams"]
     end
 
     def sport
