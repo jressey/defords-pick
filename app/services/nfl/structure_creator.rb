@@ -1,5 +1,4 @@
-class NHL::InboundStructureCreator
-
+class NFL::StructureCreator
   class << self
 
     def call
@@ -12,6 +11,7 @@ class NHL::InboundStructureCreator
           end
         end
       end
+      true
     end
 
     def conferences
@@ -19,7 +19,7 @@ class NHL::InboundStructureCreator
     end
 
     def dat
-      @dat || NHL::HttpClient.get_standings
+      @dat || NFL::HttpClient.get_standings
     end
 
     def divisions_for(conference)
@@ -31,7 +31,7 @@ class NHL::InboundStructureCreator
     end
 
     def sport
-      @sport || Sport.find_by_name("Hockey")
+      @sport || Sport.find_by_name("Football")
     end
 
     def store_conference(conference)
@@ -52,11 +52,11 @@ class NHL::InboundStructureCreator
           division_id: division.id,
           wins: team["wins"],
           losses: team["losses"],
-          overtime_losses: team["overtime_losses"],
-          points: team["points"]
+          ties: team["ties"],
+          win_percentage: team["win_pct"],
+          abbreviation: team["alias"]
         }
       )
     end
-
   end
 end

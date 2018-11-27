@@ -6,15 +6,17 @@ class DataSetup
     Sport.find_or_create_by(name: "Hockey", league_name: "NHL")
     Sport.find_or_create_by(name: "Basketball", league_name: "NBA")
 
-    NFL::InboundStructureCreator.call
+    NFL::StructureCreator.call
     sleep 2
-    NFL::InboundScheduleProcessor.call
+    NFL::ScheduleProcessor.call
     sleep 2
 
-    NHL::InboundStructureCreator.call
+    NHL::StructureCreator.call
     sleep 2
-    NHL::InboundScheduleProcessor.call
+    NHL::ScheduleProcessor.call
     sleep 2
+    NHL::AbbreviationProcessor.call
+
   end
 
 end

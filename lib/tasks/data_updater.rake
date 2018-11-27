@@ -5,7 +5,7 @@ namespace :data_updater do
 
   desc "TODO"
   task football: :environment do
-    NFL::InboundStructureUpdater.call
+    NFL::StructureUpdater.call
   end
 
   desc "TODO"
@@ -22,11 +22,11 @@ namespace :data_updater do
     Sport.find_or_create_by(name: "Hockey", league_name: "NHL")
     Sport.find_or_create_by(name: "Basketball", league_name: "NBA")
 
-    NFL::InboundStructureProcessor.call
-    NFL::InboundScheduleProcessor.call
+    NFL::StructureProcessor.call
+    NFL::ScheduleProcessor.call
 
-    NHL::InboundStructureProcessor.call
-    NHL::InboundScheduleProcessor.call
+    NHL::StructureProcessor.call
+    NHL::ScheduleProcessor.call
   end
 
 end

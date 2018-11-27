@@ -1,4 +1,4 @@
-class NFL::InboundScheduleProcessor
+class NFL::ScheduleProcessor
 
   class << self
 

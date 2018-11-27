@@ -1,4 +1,4 @@
-class NFL::InboundStructureUpdater
+class NFL::StructureUpdater
   class << self
 
     def call
@@ -34,9 +34,6 @@ class NFL::InboundStructureUpdater
 
     def store_team(team, division, conference)
       team_record = Team.find_by_api_id(team["id"])
-      if team["alias"].nil?
-        Rails.logger.info("team: #{team["name"]}")
-      end
       team_record.update(
         {
           wins: team["wins"],
