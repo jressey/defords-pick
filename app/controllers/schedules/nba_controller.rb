@@ -4,8 +4,4 @@ class Schedules::NbaController < ApplicationController
     @games = Game.basketball.for_day(Date.today).order(:start_time)
   end
 
-  def game_of_the_day
-    @game_of_the_day = Game.basketball_of_day
-  end
-
 end

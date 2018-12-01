@@ -1,9 +1,11 @@
 <div class="page-container">
-  <a href="/schedules/nfl/game_of_the_week">
-    See Frank's pick for Game of the Week
-  </a>
-
-  <% @games.each do |game| %>
-  <%= render partial: "shared/game", locals: { game: game }%>
+  <% @games.each_slice(3) do |game_slice| %>
+    <div class="row justify-content-center">
+    <% game_slice.each do |game| %>
+      <div class="col-sm-4">
+        <%= render partial: "shared/game_card", locals: { game: game }%>
+      </div>
+    <% end %>
+    </div>
   <% end %>
 </div>

@@ -1,20 +1,7 @@
-<div class="card game-card">
-  <div class="card-block">
-    <div class="game-card-title">
-      <% if game.nil? %>
-        <%= "No #{sport} Games Scheduled #{timeframe}" %>
+<% if game.present? %>
+  <div class="card">
+    <div class="card-block">
+      <%= render partial: "shared/game", locals: { game: game } %>
     </div>
-      <% else %>
-        <div class="row">
-          <div class="col-sm-6">
-            <%= "#{sport} #{timeframe}:" %>
-          </div>
-          <div class="col-sm-6 game-time">
-            <%= pretty_time(in_eastern(game.start_time)) %>
-          </div>
-        </div>
-    </div>
-        <%= render partial: "shared/game", locals: { game: game } %>
-      <% end %>
   </div>
-</div>
+<% end %>

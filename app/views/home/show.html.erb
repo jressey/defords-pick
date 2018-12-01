@@ -1,23 +1,41 @@
 <div class="page-container">
 
-<div class="card">
-  <div class="row">
-    <div class="col-sm-5">
-    <div class="portrait">
-      <%= image_tag("deford-portrait.jpg", class: "img-fluid") %>
-    </div>
-    </div>
-    <div class="col-sm-7">
-    <ul class="game-card-list">
-      <li><%= render partial: "shared/game_card", locals: { game: @hockey_game_of_the_day, sport: "Hockey", timeframe: "Today" } %></li>
-      <li><%= render partial: "shared/game_card", locals: { game: @football_game_of_the_week, sport: "Football", timeframe: "This Week" } %></li>
-      <li><%= render partial: "shared/game_card", locals: { game: @basketball_game_of_the_day, sport: "Basketball", timeframe: "Today" } %></li>
-      <li><%= render partial: "shared/game_card", locals: { game: @baseball_game_of_the_day, sport: "Baseball", timeframe: "Today" } %></li>
-    <ul class="game-card-list">
-    </div>
+<div class="row">
+  <div class="col-sm-5">
+  <div class="portrait">
+    <%= image_tag("deford-portrait.jpg", class: "img-fluid") %>
+  </div>
+  </div>
+  <div class="col-sm-7">
+  <ul class="game-card-list">
+    <li>
+      <div class="feature-game-card">
+        <%= render partial: "shared/game_card_intro", locals: { game: @hockey_game_of_the_day, sport: "Hockey", timeframe: "Today" } %>
+        <%= render partial: "shared/game_card", locals: { game: @hockey_game_of_the_day, sport: "Hockey", timeframe: "Today" } %>
+      </div>
+    </li>
+    <li>
+      <div class="feature-game-card">
+        <%= render partial: "shared/game_card_intro", locals: { game: @football_game_of_the_week, sport: "Football", timeframe: "This Week" } %>
+        <%= render partial: "shared/game_card", locals: { game: @football_game_of_the_week, sport: "Football", timeframe: "This Week" } %>
+      </div>
+    </li>
+    <li>
+      <div class="feature-game-card">
+        <%= render partial: "shared/game_card_intro", locals: { game: @basketball_game_of_the_day, sport: "Basketball", timeframe: "Today" } %>
+        <%= render partial: "shared/game_card", locals: { game: @basketball_game_of_the_day, sport: "Basketball", timeframe: "Today" } %>
+      </div>
+    </li>
+    <li>
+      <div class="feature-game-card">
+        <%= render partial: "shared/game_card_intro", locals: { game: @baseball_game_of_the_day, sport: "Baseball", timeframe: "Today" } %>
+        <%= render partial: "shared/game_card", locals: { game: @baseball_game_of_the_day, sport: "Baseball", timeframe: "Today" } %>
+      </div>
+    </li>
+  </ul>
   </div>
 </div>
 
-  Learn more about the American treasure, <a href="https://en.wikipedia.org/wiki/Frank_Deford">Frank Deford</a>
-  <br />
-  Listen to his incredible rendition of <a href="https://www.npr.org/2013/05/29/186913673/one-more-swing-casey-at-the-bat"><em>The Mighty Casey</em></a>
+Learn more about the American treasure, <a href="https://en.wikipedia.org/wiki/Frank_Deford">Frank Deford</a>
+<br />
+Listen to his incredible rendition of <a href="https://www.npr.org/2013/05/29/186913673/one-more-swing-casey-at-the-bat"><em>The Mighty Casey</em></a>
