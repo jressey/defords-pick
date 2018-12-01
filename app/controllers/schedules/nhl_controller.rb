@@ -5,7 +5,6 @@ class Schedules::NhlController < ApplicationController
   end
 
   def game_of_the_day
-    games = for_day
     @game_of_the_day = Game.hockey_of_day
   end
 

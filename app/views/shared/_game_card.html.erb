@@ -1,8 +1,13 @@
 <div class="card game-card">
   <div class="card-block">
     <h5 class="card-title">
-      <%= "#{sport} #{timeframe}:" %>
-    </h5>
-    <%= render partial: "shared/game", locals: { game: game } %>
+      <% if game.nil? %>
+        <%= "No #{sport} Games Scheduled #{timeframe}" %>
+        </h5>
+      <% else %>
+        <%= "#{sport} #{timeframe}:" %>
+        </h5>
+        <%= render partial: "shared/game", locals: { game: game } %>
+    <% end %>
   </div>
 </div>

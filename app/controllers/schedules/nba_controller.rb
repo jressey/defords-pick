@@ -5,7 +5,7 @@ class Schedules::NbaController < ApplicationController
   end
 
   def game_of_the_day
-    @game_of_the_day = Game.basketball.of_the_day
+    @game_of_the_day = Game.basketball_of_day
   end
 
 end
