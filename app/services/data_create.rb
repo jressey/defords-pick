@@ -17,6 +17,11 @@ class DataCreate
     sleep 2
     NHL::AbbreviationProcessor.call
     sleep 2
+
+    NBA::StructureCreator.call
+    sleep 2
+    NBA::ScheduleProcessor.call
+    sleep 2
     NBA::AbbreviationProcessor.call
   end
 
