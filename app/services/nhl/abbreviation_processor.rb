@@ -28,7 +28,7 @@ class NHL::AbbreviationProcessor
 
     #special rules to convert for espn images
     def get_abbreviation(abbreviation)
-      return "VGK" if abbreviation == "VGS"
+      return "VGS" if abbreviation == "VGK"
       return abbreviation
     end
 
