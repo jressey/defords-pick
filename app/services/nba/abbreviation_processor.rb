@@ -1,4 +1,4 @@
-class NHL::AbbreviationProcessor
+class NBA::AbbreviationProcessor
 
   class << self
 
@@ -9,7 +9,7 @@ class NHL::AbbreviationProcessor
     end
 
     def teams
-      Sport.where(name: "Hockey").first.teams
+      Sport.where(name: "Basketball").first.teams
     end
 
     def store_abbreviation(team)
@@ -23,12 +23,11 @@ class NHL::AbbreviationProcessor
     end
 
     def team_profile(api_id)
-      NHL::HttpClient.get_team_profile(api_id)
+      NBA::HttpClient.get_team_profile(api_id)
     end
 
     #special rules to convert for espn images
     def get_abbreviation(abbreviation)
-      return "VGK" if abbreviation == "VGS"
       return abbreviation
     end
 

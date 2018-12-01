@@ -1,4 +1,4 @@
-class DataSetup
+class DataCreate
 
   def self.call
     Sport.find_or_create_by(name: "Football", league_name: "NFL")
@@ -16,7 +16,8 @@ class DataSetup
     NHL::ScheduleProcessor.call
     sleep 2
     NHL::AbbreviationProcessor.call
-
+    sleep 2
+    NBA::AbbreviationProcessor.call
   end
 
 end

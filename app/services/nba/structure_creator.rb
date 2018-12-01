@@ -1,4 +1,4 @@
-class NFL::StructureCreator
+class NBA::StructureCreator
   class << self
 
     def call
@@ -19,7 +19,7 @@ class NFL::StructureCreator
     end
 
     def dat
-      @dat || NFL::HttpClient.get_standings
+      @dat || NBA::HttpClient.get_standings
     end
 
     def divisions_for(conference)
@@ -31,7 +31,7 @@ class NFL::StructureCreator
     end
 
     def sport
-      @sport || Sport.find_by_name("Football")
+      @sport || Sport.find_by_name("Basketball")
     end
 
     def store_conference(conference)
@@ -52,17 +52,9 @@ class NFL::StructureCreator
           division_id: division.id,
           wins: team["wins"],
           losses: team["losses"],
-          ties: team["ties"],
-          win_percentage: team["win_pct"],
-          abbreviation: get_abbreviation(team["alias"])
+          win_percentage: team["win_pct"]
         }
       )
-    end
-
-    #special rules to convert for espn images
-    def get_abbreviation(abbreviation)
-      return "WSH" if abbreviation == "WAS"
-      return abbreviation
     end
   end
 end

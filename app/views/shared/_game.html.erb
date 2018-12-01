@@ -1,4 +1,10 @@
+<% if game.nil? %>
+No games scheduled
+<% else %>
+
 <div class="game-team">
   <%= render partial: "shared/game_team", locals: { team: game.away_team }%>
   <%= render partial: "shared/game_team", locals: { team: game.home_team }%>
 </div>
+
+<% end %>

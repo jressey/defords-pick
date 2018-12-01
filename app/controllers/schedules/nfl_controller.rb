@@ -5,7 +5,7 @@ class Schedules::NflController < ApplicationController
   end
 
   def game_of_the_week
-    @game_of_the_week = Game.football.of_the_week
+    @game_of_the_week = Game.football_game_of_week
   end
 
 end

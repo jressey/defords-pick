@@ -1,4 +1,4 @@
-class NFL::StructureUpdater
+class NHL::StructureUpdater
   class << self
 
     def call
@@ -17,7 +17,7 @@ class NFL::StructureUpdater
     end
 
     def dat
-      NFL::HttpClient.get_standings
+      NHL::HttpClient.get_standings
     end
 
     def divisions_for(conference)
@@ -29,16 +29,18 @@ class NFL::StructureUpdater
     end
 
     def sport
-      @sport || Sport.find_by_name("Football")
+      @sport || Sport.find_by_name("Hockey")
     end
 
     def store_team(team, division, conference)
       team_record = Team.find_by_api_id(team["id"])
       team_record.update(
         {
+          name: team["name"],
+          api_id: team["id"],
           wins: team["wins"],
           losses: team["losses"],
-          ties: team["ties"],
+          overtime_losses: team["overtime_losses"],
           win_percentage: team["win_pct"]
         }
       )
