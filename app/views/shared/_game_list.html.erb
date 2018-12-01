@@ -3,7 +3,9 @@
     <div class="row justify-content-center">
     <% game_slice.each do |game| %>
       <div class="col-sm-4">
-        <%= render partial: "shared/game_card", locals: { game: game }%>
+        <div class="game-list-card-container">
+          <%= render partial: "shared/game_card", locals: { game: game }%>
+        </div>
       </div>
     <% end %>
     </div>
