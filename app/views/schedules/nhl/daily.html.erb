@@ -1,11 +1,1 @@
-<div class="page-container">
-  <% @games.each_slice(3) do |game_slice| %>
-    <div class="row justify-content-center">
-    <% game_slice.each do |game| %>
-      <div class="col-sm-4">
-        <%= render partial: "shared/game_card", locals: { game: game }%>
-      </div>
-    <% end %>
-    </div>
-  <% end %>
-</div>
+<%= render partial: "shared/game_list", locals: { games: @games }%>
