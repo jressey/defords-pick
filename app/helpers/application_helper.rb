@@ -8,6 +8,10 @@ module ApplicationHelper
   end
 
   def espn_image_for(team)
-    "http://a1.espncdn.com/combiner/i?img=/i/teamlogos/nfl/500/scoreboard/#{team.abbreviation.try(:upcase)}.png&h=55&w=55"
+    "http://a1.espncdn.com/combiner/i?img=/i/teamlogos/#{sport_url_segment(team)}/500/scoreboard/#{team.abbreviation.try(:upcase)}.png&h=55&w=55"
+  end
+
+  def sport_url_segment(team)
+    team.division.conference.sport.league_name.downcase
   end
 end
