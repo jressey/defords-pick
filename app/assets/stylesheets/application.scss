@@ -39,9 +39,26 @@
   font-size: 1.15em;
 }
 
+.game-card-title {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+
+  .game-time {
+    font-size: .75em;
+    color: darkgray;
+    text-align: right;
+    padding-top: 6px;
+  }
+}
+
 .game-record {
   font-size: .6em;
   color: darkgray;
+  padding-bottom: 4px;
+}
+
+.game-time-row {
+  font-size: .65em;
 }
 
 @media (max-width: 567px) {

@@ -1,13 +1,20 @@
 <div class="card game-card">
   <div class="card-block">
-    <h5 class="card-title">
+    <div class="game-card-title">
       <% if game.nil? %>
         <%= "No #{sport} Games Scheduled #{timeframe}" %>
-        </h5>
+    </div>
       <% else %>
-        <%= "#{sport} #{timeframe}:" %>
-        </h5>
+        <div class="row">
+          <div class="col-sm-6">
+            <%= "#{sport} #{timeframe}:" %>
+          </div>
+          <div class="col-sm-6 game-time">
+            <%= pretty_time(in_eastern(game.start_time)) %>
+          </div>
+        </div>
+    </div>
         <%= render partial: "shared/game", locals: { game: game } %>
-    <% end %>
+      <% end %>
   </div>
 </div>

@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def pretty_time(time)
-    time.strftime("%a, %b %d @ %I:%M%p")
+    time.strftime("%a, %b %d @ %-I:%M%p")
   end
 
   def espn_image_for(team)
