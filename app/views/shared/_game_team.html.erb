@@ -6,6 +6,13 @@
     <%= team.name %>
   </div>
   <div class="row">
-    <span class="game-record"><%= "(#{team.wins}-#{team.losses})" %></span>
+    <span class="game-record"><%= "(#{team.wins}-#{team.losses}" %></span>
+    <% if team.ties != 0 && team.ties.present? %>
+      <span class="game-record"><%= "-#{team.ties})" %></span>
+    <% elsif team.overtime_losses !=0 && team.overtime_losses.present? %>
+      <span class="game-record"><%= "-#{team.overtime_losses})" %></span>
+    <% else %>
+      <span class="game-record"><%= ")" %></span>
+    <% end %>
   </div>
 </div>
