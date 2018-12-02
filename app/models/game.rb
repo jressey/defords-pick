@@ -52,7 +52,7 @@ class Game < ApplicationRecord
   end
 
   # assuming UTC
-  # yes, I hate this but it
+  # yes, I hate this but it works
   def self.begging_of_day_utc(day)
     day.beginning_of_day + 5.hours
   end
