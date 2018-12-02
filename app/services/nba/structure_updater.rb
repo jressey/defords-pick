@@ -5,7 +5,7 @@ class NBA::StructureUpdater
       conferences.each do |c|
         divisions_for(c).each do |d|
           teams_for(d).each do |t|
-            store_team(t, d, c)
+            update_team(t)
           end
         end
       end
@@ -32,7 +32,7 @@ class NBA::StructureUpdater
       @sport || Sport.find_by_name("Basketball")
     end
 
-    def store_team(team, division, conference)
+    def update_team(team)
       team_record = Team.find_by_api_id(team["id"])
       team_record.update(
         {
