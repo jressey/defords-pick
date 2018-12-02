@@ -28,6 +28,8 @@ class NBA::AbbreviationProcessor
 
     #special rules to convert for espn images
     def get_abbreviation(abbreviation)
+      return "NO" if abbreviation == "NOP"
+      return "UTAH" if abbreviation == "UTA"
       return abbreviation
     end
 

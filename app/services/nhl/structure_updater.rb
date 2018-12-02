@@ -41,7 +41,8 @@ class NHL::StructureUpdater
           wins: team["wins"],
           losses: team["losses"],
           overtime_losses: team["overtime_losses"],
-          win_percentage: team["win_pct"]
+          win_percentage: team["win_pct"],
+          points: team["points"]
         }
       )
     end
