@@ -2,14 +2,14 @@
   <%= image_tag(espn_image_for(team), class: "img-fluid", size: "45") %>
 </div>
 <div class="col-sm-10">
-    <div class="game-team-name"><%= team.name %></div>
-    <div class="game-team-record">
-      <% if team.ties != 0 && team.ties.present? %>
-        <%= "(#{team.wins}-#{team.losses}-#{team.ties})" %>
-      <% elsif team.overtime_losses !=0 && team.overtime_losses.present? %>
-        <%= "(#{team.wins}-#{team.losses}-#{team.overtime_losses})" %>
-      <% else %>
-        <%= "(#{team.wins}-#{team.losses})" %>
-      <% end %>
-    </div>
+  <div class="game-team-name"><%= team.name %></div>
+  <div class="game-team-record">
+    <% if team.ties != 0 && team.ties.present? %>
+      <%= "(#{team.wins}-#{team.losses}-#{team.ties})" %>
+    <% elsif team.overtime_losses !=0 && team.overtime_losses.present? %>
+      <%= "(#{team.wins}-#{team.losses}-#{team.overtime_losses})" %>
+    <% else %>
+      <%= "(#{team.wins}-#{team.losses})" %>
+    <% end %>
+  </div>
 </div>
