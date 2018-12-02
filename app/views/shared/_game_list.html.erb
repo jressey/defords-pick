@@ -3,6 +3,9 @@
     <div class="row justify-content-center">
     <% game_slice.each do |game| %>
       <div class="col-sm-4">
+        <div class="game-time">
+          <%= pretty_time(in_eastern(game.start_time)) %>
+        </div>
         <div class="game-list-card-container">
           <%= render partial: "shared/game_card", locals: { game: game }%>
         </div>
