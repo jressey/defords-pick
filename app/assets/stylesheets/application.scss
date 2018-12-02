@@ -69,7 +69,9 @@
 
 @media (max-width: 567px) {
   .game-card {
-    // margin-left: 30px;
+    .col-sm-2, .col-sm-10 {
+      padding: 0px;
+    }
   }
   ul:first-child {
     margin-top: 0px;
