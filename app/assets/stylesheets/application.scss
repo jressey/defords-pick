@@ -4,10 +4,12 @@
 
 h1 {
   text-align: center;
+  margin-bottom: 25px;
 }
 
 h2 {
   text-align: center;
+  margin-bottom: 25px;
 }
 .page-container {
   margin-top: 20px;
@@ -17,15 +19,12 @@ h2 {
   width: 100%;
 }
 
-.card-block {
-  padding: 10px;
+.salutation {
+  text-align: center;
 }
 
-.portrait {
-  padding: 30px;
-  img {
-    border-radius: 4px;
-  }
+.card-block {
+  padding: 10px;
 }
 
 .card {
