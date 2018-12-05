@@ -8,7 +8,7 @@ class GameCriteria
         power_diffs[game.id] = (game.away_team.win_percentage - game.home_team.win_percentage).abs
       end
       min = power_diffs.min_by{|k,v| v}
-      min[0]
+      games.select{ |g| g["id"] == min[0] }.first
     end
 
     def by_points(games)
@@ -17,7 +17,7 @@ class GameCriteria
         power_diffs[game.id] = (game.away_team.points - game.home_team.points).abs
       end
       min = power_diffs.min_by{|k,v| v}
-      min[0]
+      games.select{ |g| g["id"] == min[0] }.first
     end
 
   end

@@ -2,8 +2,8 @@ class GameService
 
   class << self
 
-    def best_football_game_of_week
-      Game.find(GameCriteria.by_win_percentage(all_football_for_week))
+    def best_football_of_week
+      GameCriteria.by_win_percentage(all_football_for_week)
     end
 
     def all_football_for_week
@@ -13,7 +13,7 @@ class GameService
     end
 
     def best_basketball_of_day
-      Game.find(GameCriteria.by_win_percentage(Game.basketball.for_day))
+      GameCriteria.by_win_percentage(Game.basketball.for_day)
     end
 
     def all_basketball_for_day
@@ -21,7 +21,7 @@ class GameService
     end
 
     def best_hockey_of_day
-      Game.find(GameCriteria.by_points(Game.hockey.for_day))
+      GameCriteria.by_points(Game.hockey.for_day)
     end
 
     def all_hockey_for_day
