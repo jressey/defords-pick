@@ -1,7 +1,7 @@
 class Schedules::NbaController < ApplicationController
 
   def daily
-    @games = Game.basketball.for_day(Date.today).order(:start_time)
+    @games = GameService.all_basketball_for_day.order(:start_time)
   end
 
 end
