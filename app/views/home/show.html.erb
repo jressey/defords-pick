@@ -1,12 +1,7 @@
 <div class="page-container">
   <div class="row justify-content-center">
     <div class="col-sm-12 col-md-8 col-lg-6">
-    <% if @hot_game%>
-      <div class="feature-game-card-container">
-      <%= render partial: "shared/stream_link", locals: { sport_name: @hot_game.sport.name}%>
-        <%= render partial: "shared/hot_game_card", locals: { game: @hot_game } %>
-      </div>
-    <% end %>
+      <%= render partial: "shared/hot_game", locals: { game: @hot_game }%>
       <div class="feature-game-card-container">
         <%= render partial: "shared/game_card_intro", locals: { game: @hockey_game_of_the_day, timeframe: "Today" } %>
         <%= render partial: "shared/game_card", locals: { game: @hockey_game_of_the_day} %>
