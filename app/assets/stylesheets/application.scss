@@ -60,6 +60,9 @@
 .game-team-logo {
   display: inline-block;
   padding: 0 10px;
+  .logo {
+    max-height: 40px;
+  }
 }
 
 .game-team-textbox {
