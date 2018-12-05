@@ -6,6 +6,7 @@ class GameService
       return GameCriteria.by_win_percentage(current_football_games) if current_football_games.present?
       return GameCriteria.by_points(current_hockey_games) if current_hockey_games.present?
       return GameCriteria.by_win_percentage(current_basketball_games) if current_basketball_games.present?
+      nil
     end
 
     def current_football_games
