@@ -7,6 +7,7 @@ class Game < ApplicationRecord
   scope :football, -> { where(sport: Sport.find_by_name("Football")) }
   scope :hockey, -> { where(sport: Sport.find_by_name("Hockey")) }
   scope :for_day, ->(day=Time.zone.now) { where(start_time: day.beginning_of_day..day.end_of_day  )}
+  scope :current, -> { where(start_time: (Time.zone.now - 4.hours)..Time.zone.now) }
 
   def teams
     {

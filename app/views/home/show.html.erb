@@ -1,32 +1,28 @@
 <div class="page-container">
   <div class="row justify-content-center">
     <div class="col-sm-12 col-md-6">
-    <ul class="game-card-list">
-      <li>
-        <div class="feature-game-card">
-          <%= render partial: "shared/game_card_intro", locals: { game: @hockey_game_of_the_day, sport: "Hockey", timeframe: "Today" } %>
-          <%= render partial: "shared/game_card", locals: { game: @hockey_game_of_the_day, sport: "Hockey", timeframe: "Today" } %>
-        </div>
-      </li>
-      <li>
-        <div class="feature-game-card">
-          <%= render partial: "shared/game_card_intro", locals: { game: @football_game_of_the_week, sport: "Football", timeframe: "This Week" } %>
-          <%= render partial: "shared/game_card", locals: { game: @football_game_of_the_week, sport: "Football", timeframe: "This Week" } %>
-        </div>
-      </li>
-      <li>
-        <div class="feature-game-card">
-          <%= render partial: "shared/game_card_intro", locals: { game: @basketball_game_of_the_day, sport: "Basketball", timeframe: "Today" } %>
-          <%= render partial: "shared/game_card", locals: { game: @basketball_game_of_the_day, sport: "Basketball", timeframe: "Today" } %>
-        </div>
-      </li>
-      <li>
-        <div class="feature-game-card">
-          <%= render partial: "shared/game_card_intro", locals: { game: @baseball_game_of_the_day, sport: "Baseball", timeframe: "Today" } %>
-          <%= render partial: "shared/game_card", locals: { game: @baseball_game_of_the_day, sport: "Baseball", timeframe: "Today" } %>
-        </div>
-      </li>
-    </ul>
+    <% if @hot_game%>
+      <div class="feature-game-card-container">
+        <%= render partial: "shared/game_card_intro", locals: { game: @hot_game, timeframe: "On Now" } %>
+        <%= render partial: "shared/hot_game_card", locals: { game: @hot_game } %>
+      </div>
+    <% end %>
+      <div class="feature-game-card-container">
+        <%= render partial: "shared/game_card_intro", locals: { game: @hockey_game_of_the_day, timeframe: "Today" } %>
+        <%= render partial: "shared/game_card", locals: { game: @hockey_game_of_the_day} %>
+      </div>
+      <div class="feature-game-card-container">
+        <%= render partial: "shared/game_card_intro", locals: { game: @football_game_of_the_week, timeframe: "This Week" } %>
+        <%= render partial: "shared/game_card", locals: { game: @football_game_of_the_week} %>
+      </div>
+      <div class="feature-game-card-container">
+        <%= render partial: "shared/game_card_intro", locals: { game: @basketball_game_of_the_day, timeframe: "Today" } %>
+        <%= render partial: "shared/game_card", locals: { game: @basketball_game_of_the_day} %>
+      </div>
+      <div class="feature-game-card-container">
+        <%= render partial: "shared/game_card_intro", locals: { game: @baseball_game_of_the_day, timeframe: "Today" } %>
+        <%= render partial: "shared/game_card", locals: { game: @baseball_game_of_the_day} %>
+      </div>
     </div>
   </div>
 </div>

@@ -28,13 +28,8 @@
 
 //games
 
-.game-card-list {
-  &:last-child {
-    margin-bottom: 30px;
-  }
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.feature-game-card-container {
+  margin-bottom: 20px;
 }
 
 .game-listing {
@@ -46,8 +41,11 @@
   margin-bottom: 30px;
 }
 
-.feature-game-card {
-  margin-top: 30px;
+.hot-game-card {
+  background-color: rgb(247, 222, 222);
+  .game-team-record {
+    color: rgb(56, 56, 56);
+  }
 }
 
 .game-time {
@@ -80,15 +78,10 @@
   font-size: .65em;
 }
 
-@media (max-width: 567px) {
-  ul:first-child {
-    margin-top: 0px;
-  }
-  .portrait {
-    padding-bottom: 0px;
+@media (max-width: 570px) {
+  .col-sm-6 {
+    width: 50%;
   }
 }
-
-
 
 //--------

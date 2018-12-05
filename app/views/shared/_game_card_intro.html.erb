@@ -1,9 +1,8 @@
 <% if game.nil? %>
-  <%= "No #{sport} Games Scheduled #{timeframe}" %>
 <% else %>
   <div class="row">
     <div class="col-sm-6">
-      <%= "#{sport} #{timeframe}:" %>
+      <%= "#{game.sport.name.capitalize} #{timeframe}:" %>
     </div>
     <div class="col-sm-6 game-time">
       <%= pretty_time(in_eastern(game.start_time)) %>
