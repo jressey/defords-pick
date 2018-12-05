@@ -54,10 +54,12 @@ class Game < ApplicationRecord
   # assuming UTC
   # yes, I hate this but it works
   def self.begging_of_day_utc(day)
+    return day.beginning_of_day if Rails.env = "production"
     day.beginning_of_day + 5.hours
   end
 
   def self.end_of_day_utc(day)
+    return day.end_of_day if Rails.env = "production"
     day.end_of_day + 5.hours
   end
 end
