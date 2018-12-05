@@ -17,7 +17,7 @@ class GameService
     end
 
     def all_basketball_for_day
-      Game.basketball.for_day(Date.today)
+      Game.basketball.for_day
     end
 
     def best_hockey_of_day
@@ -25,7 +25,7 @@ class GameService
     end
 
     def all_hockey_for_day
-      Game.hockey.for_day(Date.today)
+      Game.hockey.for_day
     end
 
   end
