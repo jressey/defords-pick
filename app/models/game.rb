@@ -15,42 +15,6 @@ class Game < ApplicationRecord
     }
   end
 
-  def self.football_game_of_week
-    by_win_percentage(football.for_week)
-  end
-
-  def self.for_week
-    week_number = NFL::WeekNumberForDate.call(Date.today)
-    date_range = NFL::DateForWeekNumber.call(week_number)
-    where('start_time BETWEEN ? AND ?', date_range[:start_day], date_range[:end_day])
-  end
-
-  def self.basketball_of_day
-    by_win_percentage(basketball.for_day)
-  end
-
-  def self.hockey_of_day
-    by_points(hockey.for_day)
-  end
-
-  def self.by_win_percentage(games)
-    power_diffs = {}
-    games.each do |game|
-      power_diffs[game.id] = (game.away_team.win_percentage - game.home_team.win_percentage).abs
-    end
-    min = power_diffs.min_by{|k,v| v}
-    find(min[0])
-  end
-
-  def self.by_points(games)
-    power_diffs = {}
-    games.each do |game|
-      power_diffs[game.id] = (game.away_team.points - game.home_team.points).abs
-    end
-    min = power_diffs.min_by{|k,v| v}
-    find(min[0])
-  end
-
   # assuming UTC
   # yes, I hate this but it works
   def self.begging_of_day_utc(day)
