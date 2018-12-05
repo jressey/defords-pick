@@ -32,17 +32,13 @@
   margin-bottom: 20px;
 }
 
-.game-listing {
-  margin-bottom: 20px;
-  background-color: pink;
-}
-
 .game-list-card-container {
   margin-bottom: 30px;
 }
 
 .hot-game-card {
-  background-color: rgb(247, 222, 222);
+  background-image: linear-gradient(to bottom right, rgb(252, 252, 147), rgb(252, 172, 172));
+  background-color: rgb(159, 232, 235);
   .game-team-record {
     color: rgb(56, 56, 56);
   }
