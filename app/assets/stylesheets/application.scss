@@ -1,6 +1,14 @@
 @import "bootstrap";
 
 // universal
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
 .page-container {
   margin-top: 20px;
 }
@@ -36,7 +44,7 @@
   }
   .no-game-container {
     margin-bottom: 50px;
-    color: red;
+    color: rgb(250, 96, 96);
   }
 }
 
