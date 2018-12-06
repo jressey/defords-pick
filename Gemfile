@@ -20,6 +20,9 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
 #keeping this out here keeps config from breaking
 gem 'dotenv-rails'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
 
 group :production do
   gem 'pg'
