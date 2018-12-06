@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   get "login", to: "users#login"
+  get "logout", to: "users#logout"
 
   namespace :schedules do
     get "/nba", to: "nba#daily"
