@@ -1,5 +1,7 @@
 {
   "name": "ruby-bookmaker",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "fetch": "^1.1.0"
+  }
 }

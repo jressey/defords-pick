@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     get "/nhl/game_of_the_day", to: "nhl#game_of_the_day"
   end
 
+  namespace :api do
+    get '/hot_game', to: "games#hot_game"
+  end
+
   root to: "home#index"
 
 end
