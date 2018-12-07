@@ -5,7 +5,10 @@ import styled from 'styled-components';
 class FeaturedGameContainer extends Component {
 
   state = {
-    data: {},
+    data: {
+      home_team: {},
+      away_team: {}
+    },
   };
 
   componentDidMount() {
@@ -25,7 +28,7 @@ class FeaturedGameContainer extends Component {
       <div>
         <div className="card hot-game-card">
           <div className="card-block">
-            {this.state.data.start_time}
+            {this.state.data.home_team.name}
             {/* <%= render partial: "shared/game", locals: { game: game } %> */}
           </div>
         </div>
