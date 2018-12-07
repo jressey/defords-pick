@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
+import Game from '../game/Game';
 import styled from 'styled-components';
 
+const HotGameCard = styled.span`
+  background-image: linear-gradient(to bottom right, rgb(252, 252, 147), rgb(252, 172, 172));
+  background-color: rgb(159, 232, 235);
+`
+const CardBlock = styled.div`
+  padding:10px;
+`
 
 class FeaturedGameContainer extends Component {
 
@@ -25,13 +33,13 @@ class FeaturedGameContainer extends Component {
 
   render() {
     return (
-      <div>
-        <div className="card hot-game-card">
-          <div className="card-block">
-            {this.state.data.home_team.name}
-            {/* <%= render partial: "shared/game", locals: { game: game } %> */}
-          </div>
-        </div>
+      <div className="card">
+        <HotGameCard>
+          <CardBlock>
+          <Game color="pink" />
+          {this.state.data.home_team.name}
+          </CardBlock> 
+        </HotGameCard>
       </div>
     );
   }
