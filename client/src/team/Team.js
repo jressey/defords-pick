@@ -11,9 +11,10 @@ const TextArea = styled.div`
 
 class Team extends Component {
 
+
   render() {
     return (
-      <div class="row">
+      <div className="row">
         <Logo team={this.props.team} />
         <TextArea>
           <Name name={this.props.team.name}>

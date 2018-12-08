@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GameContainer from '../game/GameContainer';
+import Game from '../game/Game';
 import styled from 'styled-components';
 
 const Foobar = styled.div`

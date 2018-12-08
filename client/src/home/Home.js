@@ -13,6 +13,7 @@ const URL = '/api/hot_game.json'
 class Home extends Component {
 
   state = {
+    loading: true,
     data: {
       home_team: {},
       away_team: {}
@@ -24,13 +25,19 @@ class Home extends Component {
       .then(function(response) {
         return response.json();
       }).then(function(data) {
-        this.setState({ data: data });
+        this.setState({ data: data, loading: false });
       }.bind(this)).catch(function(ex) {
         console.log('parsing failed', ex)
       })
   }
 
   render() {
+    const { loading } = this.state;
+
+    if(loading) {
+      return null;
+    }
+
     return (
       <div>
         <Title>Deford's Pick</Title>
