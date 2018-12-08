@@ -6,6 +6,13 @@ const NavbarInnerContainer = styled.div`
   width: 100%;
 `
 
+const NavLink = styled.div`
+  padding: 0 16px;
+  a:hover{
+    text-decoration: none;
+  }
+`
+
 class Navbar extends Component {
   render() {
     return (
@@ -13,10 +20,18 @@ class Navbar extends Component {
         <nav className="navbar navbar-light bg-light">
           <NavbarInnerContainer>
             <div className="d-flex justify-content-center">
-              <Link to="/" className="nav-Link">Home</Link>
-              <Link to="/nba" className="nav-Link" >NBA</Link>
-              <Link to="/nfl" className="nav-Link" >NFL</Link>
-              <Link to="/nhl" className="nav-Link" >NHL</Link>
+              <NavLink>
+                <Link to="/" >Home</Link>
+              </NavLink>
+              <NavLink>
+                <Link to="/nba" >NBA</Link>
+              </NavLink>
+              <NavLink>
+                <Link to="/nfl" >NFL</Link>
+              </NavLink>
+              <NavLink>
+                <Link to="/nhl" >NHL</Link>
+              </NavLink>
             </div>
           </NavbarInnerContainer>
         </nav>
