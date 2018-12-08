@@ -30,5 +30,4 @@ class Api::GamesController < ActionController::API
     render json: GameService.all_hockey_for_day, each_serializer: GameSerializer
   end
 
-
 end

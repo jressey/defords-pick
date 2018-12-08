@@ -3,9 +3,6 @@ import GameContainer from '../game/GameContainer';
 import ErrorMessage from '../shared/ErrorMessage'
 import styled from 'styled-components';
 
-const Section = styled.div`
-  margin-bottom: 60px;
-`
 class SportPanel extends Component {
 
   state = {
@@ -35,13 +32,13 @@ class SportPanel extends Component {
     }
 
     return (
-      <Section>
+      <div className="row justify-content-center">
         {data.length > 0 ? (
           buildContainers(data)
         ) : (
           <ErrorMessage message="No games for this sport today. Come back later to see what's on."/>
         )}
-      </Section>
+      </div>
     );
   }
 }
@@ -49,10 +46,9 @@ class SportPanel extends Component {
 function buildContainers(games) {
   var game_containers = [];
   for (var i=0; i < games.length; i++) {
-    game_containers.push(<GameContainer className="col-sm-3" key={i} game={games[i]} game_type="default" />);
+    game_containers.push(<div className="col-sm-12 col-md-6 col-lg-4"><GameContainer  key={i} game={games[i]} game_type="default" /></div>);
   };
   return game_containers;
 }
-
 
 export default SportPanel;
