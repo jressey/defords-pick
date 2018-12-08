@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TopGameContainer from '../game/TopGameContainer';
+import TopGameContainer from '../layout/TopGameContainer';
 import FeaturedGamesContainer from '../layout/FeaturedGamesContainer';
 
 class Home extends Component {

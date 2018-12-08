@@ -8,10 +8,11 @@ const Content = styled.div`
 
 class Record extends Component {
 
+  fontColor = fontColorFor(this.props.game_type);
 
   render() {
     return (
-      <Content style={{color: font_color_for(this.props.game_type)}}>
+      <Content style={{color: this.fontColor}}>
         ({this.props.record})
       </Content>
     );
@@ -19,11 +20,11 @@ class Record extends Component {
 
 }
 
-function font_color_for(game_type) {
-  if (game_type == "hot") {
-    return "rgb(169, 169, 169)"
+function fontColorFor(game_type) {
+  if (game_type === "hot") {
+    return "rgb(56, 56, 56)"
   }
-  return "rgb(56, 56, 56)"
+  return "rgb(169, 169, 169)"
 }
 
 export default Record;

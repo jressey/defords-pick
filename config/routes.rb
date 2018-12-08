@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    get '/hot_game', to: "games#hot_game"
+    get 'games/hot', to: "games#hot_game"
+    get 'games/featured', to: "games#featured_games"
   end
 
   root to: "home#index"

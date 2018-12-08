@@ -8,9 +8,14 @@ const Title = styled.h1`
   text-align: center;
   margin-bottom: 25px;
 `
-const URL = '/api/hot_game.json'
 
-class TopGameContaner extends Component {
+const GameContainer = styled.div`
+  margin-bottom: 30px;
+`
+
+const URL = '/api/games/hot.json'
+
+class TopGameContainer extends Component {
 
   state = {
     loading: true,
@@ -44,10 +49,10 @@ class TopGameContaner extends Component {
       <div>
         <Title>Deford's Pick</Title>
         {this.state.data ? (
-          <div>
+          <GameContainer>
             <GameLink link={stream_link} />
             <GameCard game={data} game_type="hot"/>
-          </div>
+          </GameContainer>
         ) : (
           <ErrorMessage message="No games in progress. Come back later to see what's on."/>
         )}
@@ -56,4 +61,4 @@ class TopGameContaner extends Component {
   }
 }
 
-export default TopGameContaner;
+export default TopGameContainer;
