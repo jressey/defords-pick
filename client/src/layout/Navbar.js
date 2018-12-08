@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styled from 'styled-components';
 
 const NavbarInnerContainer = styled.div`
@@ -12,13 +13,17 @@ class Navbar extends Component {
         <nav className="navbar navbar-light bg-light">
           <NavbarInnerContainer>
             <div className="d-flex justify-content-center">
-              <a className="nav-link" href="/">Home</a>
-              <a className="nav-link" href="/schedules/nba">NBA</a>
-              <a className="nav-link" href="/schedules/nfl">NFL</a>
-              <a className="nav-link" href="/nhl">NHL</a>
+              <Link to="/" className="nav-Link">Home</Link>
+              <Link to="/nba" className="nav-Link" >NBA</Link>
+              <Link to="/nfl" className="nav-Link" >NFL</Link>
+              <Link to="/nhl" className="nav-Link" >NHL</Link>
             </div>
           </NavbarInnerContainer>
         </nav>
+        <Route path="/" exact component={Home} />
+        <Route path="/nba/" component={Home} />
+        <Route path="/nhl/" component={Home} />
+        <Route path="/nfl/" component={Home} />
       </div>
     );
   }

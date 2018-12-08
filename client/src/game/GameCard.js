@@ -12,8 +12,9 @@ const Card = styled.div`
 
 class GameCard extends Component {
 
-  bgImage = imageFor(this.props.game_type)
+  bgImage = imageFor(this.props.game_type);
   bgColor = bgColorFor(this.props.game_type);
+
   render() {
     return (
       <Card className="card">
