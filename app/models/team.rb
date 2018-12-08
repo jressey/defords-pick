@@ -2,13 +2,11 @@ class Team < ApplicationRecord
   belongs_to :division
   has_many :games
 
+  def league_abbreviation
+    division.conference.sport.league_name
+  end
+
   def record
-    # {
-    #   wins: wins,
-    #   ties: ties,
-    #   losses: losses,
-    #   overtime_losses: overtime_losses
-    # }
     if (ties.present?)
       return "#{wins}-#{losses}-#{ties}"
     elsif (overtime_losses.present?)

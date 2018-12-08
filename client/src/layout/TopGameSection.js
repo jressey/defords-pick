@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import GameCard from '../game/GameCard';
-import GameLink from '../game/GameLink';
+import GameContainer from '../game/GameContainer';
 import ErrorMessage from '../shared/ErrorMessage'
 import styled from 'styled-components';
 
@@ -9,13 +8,9 @@ const Title = styled.h1`
   margin-bottom: 25px;
 `
 
-const GameContainer = styled.div`
-  margin-bottom: 30px;
-`
-
 const URL = '/api/games/hot.json'
 
-class TopGameContainer extends Component {
+class TopGameSection extends Component {
 
   state = {
     loading: true,
@@ -48,11 +43,8 @@ class TopGameContainer extends Component {
     return (
       <div>
         <Title>Deford's Pick</Title>
-        {this.state.data ? (
-          <GameContainer>
-            <GameLink link={stream_link} />
-            <GameCard game={data} game_type="hot"/>
-          </GameContainer>
+        {data ? (
+          <GameContainer game={data} game_type="hot" link={stream_link} />
         ) : (
           <ErrorMessage message="No games in progress. Come back later to see what's on."/>
         )}
@@ -61,4 +53,4 @@ class TopGameContainer extends Component {
   }
 }
 
-export default TopGameContainer;
+export default TopGameSection;

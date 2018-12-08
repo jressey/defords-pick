@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import TopGameContainer from '../layout/TopGameContainer';
-import FeaturedGamesContainer from '../layout/FeaturedGamesContainer';
+import TopGameSection from '../layout/TopGameSection';
+import FeaturedGamesSection from '../layout/FeaturedGamesSection';
 
 class Home extends Component {
 
@@ -8,8 +8,8 @@ class Home extends Component {
 
     return (
       <div>
-        <TopGameContainer />
-        <FeaturedGamesContainer />
+        <TopGameSection />
+        <FeaturedGamesSection />
       </div>
     );
   }
