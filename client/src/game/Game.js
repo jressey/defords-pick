@@ -6,8 +6,9 @@ class Game extends Component {
 
   render() {
     return (
-      <div >
-        <Team />
+      <div>
+        <Team team={this.props.away_team} />
+        <Team team={this.props.home_team} />
       </div>
     );
   }
