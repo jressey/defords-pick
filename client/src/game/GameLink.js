@@ -9,7 +9,7 @@ class GameLink extends Component {
   render() {
     return (
       <LinkBox>
-        <a href={this.props.link}>Watch</a>
+        <a href={this.props.link} target="_blank">Watch</a>
       </LinkBox>
     );
   }

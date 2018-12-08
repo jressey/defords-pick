@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const Title = styled.h2`
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
 `
 const URL = '/api/games/featured.json'
 
