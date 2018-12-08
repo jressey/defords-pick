@@ -10,15 +10,15 @@ class GameService
     end
 
     def current_football_games
-      Game.football.current
+      Game.football.current.with_teams
     end
 
     def current_hockey_games
-      Game.hockey.current
+      Game.hockey.current.with_teams
     end
 
     def current_basketball_games
-      Game.basketball.current
+      Game.basketball.current.with_teams
     end
 
     def best_football_of_week
@@ -28,7 +28,7 @@ class GameService
     def all_football_for_week
       week_number = NFL::WeekNumberForDate.call(Date.today)
       date_range = NFL::DateForWeekNumber.call(week_number)
-      Game.football.where('start_time BETWEEN ? AND ?', date_range[:start_day], date_range[:end_day])
+      Game.football.where('start_time BETWEEN ? AND ?', date_range[:start_day], date_range[:end_day]).with_teams
     end
 
     def best_basketball_of_day
@@ -36,7 +36,7 @@ class GameService
     end
 
     def all_basketball_for_day
-      Game.basketball.for_day
+      Game.basketball.for_day.with_teams
     end
 
     def best_hockey_of_day
@@ -44,7 +44,7 @@ class GameService
     end
 
     def all_hockey_for_day
-      Game.hockey.for_day
+      Game.hockey.for_day.with_teams
     end
 
 

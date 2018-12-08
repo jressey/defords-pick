@@ -11,6 +11,7 @@ class AppRouter extends Component {
           <Route path="/nba/" component={NBA} />
           <Route path="/nfl/" component={NFL} />
           <Route path="/nhl/" component={NHL} />
+          <Route path="/users/auth/google_oauth2" component={Login} />
         </div>
     );
   }
@@ -19,6 +20,12 @@ class AppRouter extends Component {
 const Homepage = () => (
   <div>
     <Home />
+  </div>
+)
+
+const Login = () => (
+  <div>
+    <Login />
   </div>
 )
 

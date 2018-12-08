@@ -32,6 +32,9 @@ class Navbar extends Component {
               <NavLink>
                 <Link to="/nhl" >NHL</Link>
               </NavLink>
+              <NavLink>
+                <Link to="/users/auth/google_oauth2">Login</Link>
+              </NavLink>
             </div>
           </NavbarInnerContainer>
         </nav>
