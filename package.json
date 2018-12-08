@@ -2,6 +2,8 @@
   "name": "ruby-bookmaker",
   "private": true,
   "dependencies": {
-    "fetch": "^1.1.0"
+    "fetch": "^1.1.0",
+    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.23"
   }
 }
