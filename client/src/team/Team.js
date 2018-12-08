@@ -13,7 +13,7 @@ class Team extends Component {
 
   render() {
     return (
-      <div>
+      <div class="row">
         <Logo team={this.props.team} />
         <TextArea>
           <Name name={this.props.team.name}>

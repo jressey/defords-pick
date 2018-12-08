@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GameContainer from '../game/GameContainer';
+import GameCard from '../game/GameCard';
 import FeaturedGamesContainer from '../layout/FeaturedGamesContainer';
 import ErrorMessage from '../shared/ErrorMessage'
 import styled from 'styled-components';
@@ -35,7 +35,7 @@ class Home extends Component {
       <div>
         <Title>Deford's Pick</Title>
         {this.state.data ? (
-          <GameContainer game={this.state.data} game_type="hot"/>
+          <GameCard game={this.state.data} game_type="hot"/>
         ) : (
           <ErrorMessage message="No games in progress. Come back later to see what's on."/>
         )}
