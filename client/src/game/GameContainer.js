@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GameCard from './GameCard';
 import GameLink from './GameLink';
+import GameTime from './GameTime';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -12,6 +13,11 @@ class GameContainer extends Component {
   render() {
     return (
       <Container>
+        {this.props.game_type !== "hot" ? (
+          <GameTime time={this.props.game.start_time} />
+        ) : (
+          null
+        )}
         {this.props.game_type === "hot" ? (
           <GameLink link={this.props.link} />
         ) : (

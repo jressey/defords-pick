@@ -1,9 +1,9 @@
 class Api::GamesController < ActionController::API
 
   def hot_game
-    # hot_game = GameService.best_current_game
     # hot_game = nil
-    hot_game = Game.first
+    # hot_game = Game.first
+    hot_game = GameService.best_current_game
     render json: hot_game
   end
 
