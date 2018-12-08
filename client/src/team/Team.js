@@ -8,9 +8,7 @@ const TextArea = styled.div`
   display: inline-block;
   padding-top: 4px;
 `
-
 class Team extends Component {
-
 
   render() {
     return (

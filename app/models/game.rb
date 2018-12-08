@@ -16,6 +16,10 @@ class Game < ApplicationRecord
     }
   end
 
+  def stream_link
+    sport.stream_link
+  end
+
   def self.begging_of_day_etc(day)
     day.beginning_of_day + 5.hours
   end

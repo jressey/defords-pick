@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GameCard from '../game/GameCard';
+import GameLink from '../game/GameLink';
 import FeaturedGamesContainer from '../layout/FeaturedGamesContainer';
 import ErrorMessage from '../shared/ErrorMessage'
 import styled from 'styled-components';
@@ -14,6 +15,7 @@ class Home extends Component {
 
   state = {
     loading: true,
+    stream_link: "",
     data: {
       home_team: {},
       away_team: {}
@@ -42,7 +44,10 @@ class Home extends Component {
       <div>
         <Title>Deford's Pick</Title>
         {this.state.data ? (
-          <GameCard game={this.state.data} game_type="hot"/>
+          <div>
+            <GameLink link={this.state.data.stream_link} />
+            <GameCard game={this.state.data} game_type="hot"/>
+          </div>
         ) : (
           <ErrorMessage message="No games in progress. Come back later to see what's on."/>
         )}
