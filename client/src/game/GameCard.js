@@ -17,8 +17,8 @@ class GameCard extends Component {
 
   render() {
     return (
-      <Card className="card">
-        <CardBlock style={{backgroundImage: this.bgImage, backgroundColor: this.bgColor}}>
+      <Card className="card" style={{backgroundImage: this.bgImage, backgroundColor: this.bgColor}}>
+        <CardBlock>
           <Game away_team={this.props.game.away_team} home_team={this.props.game.home_team} game_type={this.props.game_type}/>
         </CardBlock>
       </Card>
