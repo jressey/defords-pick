@@ -19,7 +19,7 @@ class Team extends Component {
         <TextArea>
           <Name name={this.props.team.name}>
           </Name>
-          <Record record="(6-2-1)">
+          <Record record={this.props.team.record}>
           </Record>
         </TextArea>
       </div>

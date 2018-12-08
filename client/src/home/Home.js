@@ -25,6 +25,7 @@ class Home extends Component {
       .then(function(response) {
         return response.json();
       }).then(function(data) {
+        console.log(data);
         this.setState({ data: data, loading: false });
       }.bind(this)).catch(function(ex) {
         console.log('parsing failed', ex)
@@ -34,10 +35,9 @@ class Home extends Component {
   render() {
     const { loading } = this.state;
 
-    if(loading) {
-      return null;
+    if(loading) { // if your component doesn't have to wait for an async action, remove this block
+      return null; // render null when app is not ready
     }
-
     return (
       <div>
         <Title>Deford's Pick</Title>

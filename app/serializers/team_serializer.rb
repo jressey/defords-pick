@@ -1,3 +1,3 @@
 class TeamSerializer < ActiveModel::Serializer
-  attributes *Team.column_names
+  attributes *Team.column_names, :record
 end

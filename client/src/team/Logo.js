@@ -23,7 +23,6 @@ class Logo extends Component {
 }
 
 function logoUrl(league_abbreviation, team_abbreviation) {
-  console.log(team_abbreviation);
   return `http://a1.espncdn.com/combiner/i?img=/i/teamlogos/${league_abbreviation.toUpperCase()}/500/scoreboard/${team_abbreviation.toUpperCase()}.png&h=55&w=55`
 }
 
