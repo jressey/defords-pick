@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const Title = styled.h2`
   text-align: center;
-  margin-bottom: 50kpx;
+  margin-bottom: 50px;
 `
 const URL = '/api/games/featured.json'
 
@@ -36,7 +36,7 @@ class FeaturedGamesSection extends Component {
 
     return (
       <div>
-        <Title>Featured Games</Title>
+        <Title>Featured Upcoming Games</Title>
         {data.length > 0 ? (
           buildContainers(data)
         ) : (

@@ -3,30 +3,31 @@ import moment from 'moment-timezone';
 import styled from 'styled-components';
 
 const TimeBox = styled.div`
-  padding-top: 6px;
+  padding-top: 20px;
 `
 
 const Time = styled.div`
-  font-size: .8em;
+  font-size: .9em;
   color: darkgray;
   text-align: right;
 `
+
 class GameTime extends Component {
 
-  timezoneOffset = getUserTZOffset();
+  time = moment(this.props.time).subtract(userTZOffset(), "minutes").format("ddd, MMM D @ h:mmA");
 
   render() {
     return (
       <TimeBox className="row">
-        <Time className="col-sm-6 offset-sm-6">
-          {moment(this.props.time).subtract(this.timezoneOffset, 'minutes').format("ddd, MMM D @ hh:mma")}
+        <Time className="col-sm-12">
+          {this.time}
         </Time>
       </TimeBox>
     );
   }
 }
 
-function getUserTZOffset() {
+function userTZOffset() {
   new Date().getTimezoneOffset();
 }
 
