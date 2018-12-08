@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
 
 const NavbarInnerContainer = styled.div`
@@ -20,10 +20,6 @@ class Navbar extends Component {
             </div>
           </NavbarInnerContainer>
         </nav>
-        <Route path="/" exact component={Home} />
-        <Route path="/nba/" component={Home} />
-        <Route path="/nhl/" component={Home} />
-        <Route path="/nfl/" component={Home} />
       </div>
     );
   }
