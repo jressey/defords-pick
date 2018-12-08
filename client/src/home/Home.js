@@ -8,7 +8,6 @@ const Title = styled.h1`
   text-align: center;
   margin-bottom: 25px;
 `
-
 const URL = '/api/hot_game.json'
 
 class Home extends Component {
@@ -36,7 +35,7 @@ class Home extends Component {
       <div>
         <Title>Deford's Pick</Title>
         {this.state.data ? (
-          <GameContainer game={this.state.data} />
+          <GameContainer game={this.state.data} game_type="hot"/>
         ) : (
           <ErrorMessage message="No games in progress. Come back later to see what's on."/>
         )}
