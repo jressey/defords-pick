@@ -8,6 +8,10 @@ const Title = styled.h1`
   margin-bottom: 25px;
 `
 
+const Section = styled.div`
+  margin-bottom: 40px;
+`
+
 const URL = '/api/games/hot.json'
 
 class TopGameSection extends Component {
@@ -15,10 +19,7 @@ class TopGameSection extends Component {
   state = {
     loading: true,
     stream_link: "",
-    data: {
-      TopGameContaner_team: {},
-      away_team: {}
-    },
+    data: {},
   };
 
   componentDidMount() {
@@ -41,14 +42,14 @@ class TopGameSection extends Component {
     }
 
     return (
-      <div>
+      <Section>
         <Title>Deford's Pick</Title>
         {data ? (
           <GameContainer game={data} game_type="hot" link={stream_link} />
         ) : (
           <ErrorMessage message="No games in progress. Come back later to see what's on."/>
         )}
-      </div>
+      </Section>
     );
   }
 }

@@ -3,8 +3,6 @@ import Game from './Game';
 import styled from 'styled-components';
 
 const CardBlock = styled.div`
-  background-image: linear-gradient(to bottom right, rgb(252, 252, 147), rgb(252, 172, 172));
-  background-color: rgb(159, 232, 235);
   padding: 10px;
 `
 const Card = styled.div`
@@ -14,15 +12,31 @@ const Card = styled.div`
 
 class GameCard extends Component {
 
+  bgImage = imageFor(this.props.game_type)
+  bgColor = bgColorFor(this.props.game_type);
   render() {
     return (
       <Card className="card">
-        <CardBlock>
+        <CardBlock style={{backgroundImage: this.bgImage, backgroundColor: this.bgColor}}>
           <Game away_team={this.props.game.away_team} home_team={this.props.game.home_team} game_type={this.props.game_type}/>
         </CardBlock>
       </Card>
     );
   }
+}
+
+function imageFor(game_type) {
+  if (game_type === "hot") {
+    return "linear-gradient(to bottom right, rgb(252, 252, 147), rgb(252, 172, 172))"
+  }
+  return ""
+}
+
+function bgColorFor(game_type) {
+  if (game_type === "hot") {
+    return "background-color: rgb(159, 232, 235)"
+  }
+  return ""
 }
 
 export default GameCard;
