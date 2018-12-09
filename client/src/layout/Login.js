@@ -10,14 +10,6 @@ class Login extends Component {
   };
 
   componentDidMount() {
-    fetch(URL)
-      .then(function(response) {
-        return response.json();
-      }).then(function(data) {
-        this.setState({ data: data, loading: false });
-      }.bind(this)).catch(function(ex) {
-        console.log('parsing failed', ex)
-      })
   }
 
   render() {

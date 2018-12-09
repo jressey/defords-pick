@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   get "login", to: "users#login"
   get "logout", to: "users#logout"
@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
+    scope :auth do
+      get 'is_signed_in', to: 'auth#is_signed_in?'
+    end
+
     get 'games/hot', to: "games#hot_game"
     get 'games/featured', to: "games#featured_games"
     get 'games/nba', to: "games#nba"

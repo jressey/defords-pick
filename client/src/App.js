@@ -3,6 +3,10 @@ import AppRouter from './AppRouter'
 import Navbar from './layout/Navbar';
 import styled from 'styled-components';
 
+const AppBody = styled.div`
+  min-height: 100vh;
+`
+
 const AppContainer = styled.div`
   margin-top: 20px;
 `
@@ -10,14 +14,14 @@ const AppContainer = styled.div`
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <AppBody className="App">
         <Navbar />
         <AppContainer>
           <div className="container">
             <AppRouter />
           </div>
         </AppContainer>
-      </div>
+      </AppBody>
     );
   }
 }
