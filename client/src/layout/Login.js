@@ -29,7 +29,6 @@ class Login extends Component {
 
     fetch('/login.json', {
       method: 'post',
-      redirect: 'follow',
       credentials: 'same-origin',
       mode: 'same-origin',
       headers: {
@@ -39,7 +38,7 @@ class Login extends Component {
       body: JSON.stringify({
         email: this.state.email,
         password: this.state.password
-      })
+    })
     }).then(function(response) {
       return response.json();
     }).then(function(data) {

@@ -1,6 +1,11 @@
 class SessionsController < Devise::SessionsController
   respond_to :json
 
+  def create
+    @user = User.find_by_email(params[:email])
+    render json: @user
+  end
+
   private
 
   def respond_with(resource, _opts = {})
