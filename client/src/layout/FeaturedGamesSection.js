@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import GameContainer from '../game/GameContainer';
 import ErrorMessage from '../shared/ErrorMessage'
 import styled from 'styled-components';
+import FadeIn from 'react-fade-in';
 
 const Title = styled.h2`
   text-align: center;
@@ -37,11 +38,13 @@ class FeaturedGamesSection extends Component {
     return (
       <div>
         <Title>Featured Upcoming Games</Title>
-        {data.length > 0 ? (
-          buildContainers(data)
-        ) : (
-          <ErrorMessage message="There are no upcoming games. Please, check back later."/>
-        )}
+        <FadeIn>
+          {data.length > 0 ? (
+            buildContainers(data)
+          ) : (
+            <ErrorMessage message="There are no upcoming games. Please, check back later."/>
+          )}
+        </FadeIn>
       </div>
     );
   }

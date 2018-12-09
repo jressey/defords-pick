@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import GameContainer from '../game/GameContainer';
 import ErrorMessage from '../shared/ErrorMessage'
 import styled from 'styled-components';
+import FadeIn from 'react-fade-in';
 
 const Title = styled.h1`
   text-align: center;
@@ -43,11 +44,13 @@ class TopGameSection extends Component {
     return (
       <Section>
         <Title>Deford's Pick</Title>
-        {data ? (
-          <GameContainer game={data} game_type="hot" link={data.stream_link} />
-        ) : (
-          <ErrorMessage message="No games in progress. Come back later to see what's on."/>
-        )}
+        <FadeIn>
+          {data ? (
+            <GameContainer game={data} game_type="hot" link={data.stream_link} />
+          ) : (
+            <ErrorMessage message="No games in progress. Come back later to see what's on."/>
+          )}
+        </FadeIn>
       </Section>
     );
   }

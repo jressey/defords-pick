@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import GameContainer from '../game/GameContainer';
 import ErrorMessage from '../shared/ErrorMessage'
+import FadeIn from 'react-fade-in';
 import styled from 'styled-components';
+
+const Title = styled.h1`
+  text-align: center;
+  margin-bottom: 25px;
+`
+
 
 class SportPanel extends Component {
 
@@ -32,12 +39,15 @@ class SportPanel extends Component {
     }
 
     return (
-      <div className="row justify-content-center">
-        {data.length > 0 ? (
-          buildContainers(data)
-        ) : (
-          <ErrorMessage message="No games for this sport today. Come back later to see what's on."/>
-        )}
+      <div>
+        <Title>{this.props.league.toUpperCase()} Games Today</Title>
+        <div className="row justify-content-center">
+          {data.length > 0 ? (
+            buildContainers(data)
+          ) : (
+            <ErrorMessage message="No games for this sport today. Come back later to see what's on."/>
+          )}
+        </div>
       </div>
     );
   }
@@ -46,7 +56,7 @@ class SportPanel extends Component {
 function buildContainers(games) {
   var game_containers = [];
   for (var i=0; i < games.length; i++) {
-    game_containers.push(<div className="col-sm-12 col-md-6 col-lg-4"><GameContainer  key={i} game={games[i]} game_type="default" /></div>);
+    game_containers.push(<div className="col-sm-12 col-md-6 col-lg-4"><FadeIn><GameContainer  key={i} game={games[i]} game_type="default" /></FadeIn></div>);
   };
   return game_containers;
 }

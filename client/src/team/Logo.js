@@ -13,7 +13,7 @@ class Logo extends Component {
     return (
       <div>
         {this.props.team.abbreviation ? (
-          <Content src={logoUrl(this.props.team.league_abbreviation.toUpperCase(), this.props.team.abbreviation)} className="img-fluid" />
+          <Content src={logoUrl(this.props.league_abbreviation.toUpperCase(), this.props.team.abbreviation)} className="img-fluid" />
         ) : (
           <p>sorry</p>
         )}

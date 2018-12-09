@@ -19,7 +19,12 @@ class GameCard extends Component {
     return (
       <Card className="card" style={{backgroundImage: this.bgImage, backgroundColor: this.bgColor}}>
         <CardBlock>
-          <Game away_team={this.props.game.away_team} home_team={this.props.game.home_team} game_type={this.props.game_type}/>
+          <Game
+            away_team={this.props.game.away_team}
+            home_team={this.props.game.home_team}
+            game_type={this.props.game_type}
+            league_abbreviation={this.props.game.sport.league_name}
+          />
         </CardBlock>
       </Card>
     );
