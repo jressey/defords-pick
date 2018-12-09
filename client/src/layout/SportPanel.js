@@ -24,7 +24,6 @@ class SportPanel extends Component {
       .then(function(response) {
         return response.json();
       }).then(function(data) {
-        console.log(data);
         this.setState({ data: data, loading: false });
       }.bind(this)).catch(function(ex) {
         console.log('parsing failed', ex)
@@ -56,7 +55,7 @@ class SportPanel extends Component {
 function buildContainers(games) {
   var game_containers = [];
   for (var i=0; i < games.length; i++) {
-    game_containers.push(<div className="col-sm-12 col-md-6 col-lg-4"><FadeIn><GameContainer  key={i} game={games[i]} game_type="default" /></FadeIn></div>);
+    game_containers.push(<div key={i} className="col-sm-12 col-md-6 col-lg-4"><FadeIn><GameContainer game={games[i]} game_type="default" /></FadeIn></div>);
   };
   return game_containers;
 }

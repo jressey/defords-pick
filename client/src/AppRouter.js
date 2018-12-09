@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import Home from './home/Home';
+import AuthenticatedComponent from './layout/AuthenticatedComponent';
+import Home from './layout/Home';
+import Login from './layout/Login';
 import SportPanel from './layout/SportPanel';
 
 class AppRouter extends Component {
   render() {
     return (
       <div>
+          <Route path="/secret" exact component={AuthPage} />
           <Route path="/" exact component={Homepage} />
-          <Route path="/nba/" component={NBA} />
-          <Route path="/nfl/" component={NFL} />
-          <Route path="/nhl/" component={NHL} />
-          <Route path="/users/auth/google_oauth2" component={Login} />
+          <Route path="/nba" component={NBA} />
+          <Route path="/nfl" component={NFL} />
+          <Route path="/nhl" component={NHL} />
+          <Route path="/login" component={LoginPage} />
         </div>
     );
   }
@@ -23,7 +26,13 @@ const Homepage = () => (
   </div>
 )
 
-const Login = () => (
+const AuthPage = () => (
+  <div>
+    <AuthenticatedComponent />
+  </div>
+)
+
+const LoginPage = () => (
   <div>
     <Login />
   </div>

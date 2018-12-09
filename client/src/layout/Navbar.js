@@ -21,6 +21,9 @@ class Navbar extends Component {
           <NavbarInnerContainer>
             <div className="d-flex justify-content-center">
               <NavLink>
+                <Link to="/secret" >Secretpage</Link>
+              </NavLink>
+              <NavLink>
                 <Link to="/" >Home</Link>
               </NavLink>
               <NavLink>
@@ -33,7 +36,7 @@ class Navbar extends Component {
                 <Link to="/nhl" >NHL</Link>
               </NavLink>
               <NavLink>
-                <Link to="/users/auth/google_oauth2">Login</Link>
+                <Link to="/login">Login</Link>
               </NavLink>
             </div>
           </NavbarInnerContainer>
