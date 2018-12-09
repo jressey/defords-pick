@@ -58,4 +58,9 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+
+  def decode_token(token)
+    JWT.decode(token.split(" ")[1], ENV['DEVISE_JWT_SECRET_KEY'])
+  end
 end

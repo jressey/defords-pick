@@ -8,6 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.1.6'
+gem 'active_model_serializers'
 gem 'puma', '~> 3.7'
 gem 'foreman'
 gem 'sass-rails', '~> 5.0'
@@ -19,12 +20,11 @@ gem 'httparty'
 gem "mini_racer"
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
-#keeping this out here keeps config from breaking
 gem 'dotenv-rails'
 gem 'devise'
-gem 'omniauth'
-gem 'omniauth-google-oauth2'
-gem 'active_model_serializers'
+gem 'jwt'
+gem 'devise-jwt'
+
 
 group :production do
   gem 'pg'

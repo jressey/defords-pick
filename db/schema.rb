@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181206014346) do
+ActiveRecord::Schema.define(version: 20181209140713) do
 
   create_table "conferences", force: :cascade do |t|
     t.string "name"
@@ -40,6 +40,12 @@ ActiveRecord::Schema.define(version: 20181206014346) do
     t.datetime "updated_at", null: false
     t.string "api_id"
     t.string "is_playoff", default: "f"
+  end
+
+  create_table "jwt_blacklists", force: :cascade do |t|
+    t.string "jti", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sports", force: :cascade do |t|

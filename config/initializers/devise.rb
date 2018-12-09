@@ -288,11 +288,16 @@ Devise.setup do |config|
   #   include Turbolinks::Controller
   # end
 
-  # config.omniauth :google_oauth2, ENV["GOOGLE_OAUTH_CLIENT_ID"], ENV["GOOGLE_OAUTH_CLIENT_SECRET"],
-  # {
-  #   scope: 'userinfo.email, userinfo.profile, plus.me',
-  #   prompt: 'select_account',
-  #   image_aspect_ratio: 'square',
-  #   image_size: 50
-  # }
+  config.jwt do |jwt|
+    jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
+    jwt.dispatch_requests = [
+      ['POST', %r{^/login$}]
+    ]
+    jwt.revocation_requests = [
+      ['DELETE', %r{^/logout$}]
+    ]
+    jwt.expiration_time = 1.day.to_i
+  end
+
+  config.navigational_formats = []
 end
