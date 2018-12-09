@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     get 'games/nba', to: "games#nba"
     get 'games/nfl', to: "games#nfl"
     get 'games/nhl', to: "games#nhl"
+    get 'user/favorite_team', to: "user_profiles#favorite_team"
   end
 
   root to: "home#index"
