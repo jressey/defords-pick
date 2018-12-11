@@ -4,10 +4,11 @@ class ApplicationController < ActionController::API
 
 
   def authenticate_user_from_token!
-    auth_token = request.cookies['Authorization']
+    user_id = request.cookies['user_id']
+    auth_token = request.cookies['access_token']
 
     if auth_token
-      authenticate_with_auth_token auth_token
+      authenticate_with_auth_token(user_id, auth_token)
     else
       authentication_error
     end
@@ -15,14 +16,9 @@ class ApplicationController < ActionController::API
 
   private
 
-  def authenticate_with_auth_token auth_token
-    unless auth_token.include?(':')
-      authentication_error
-      return
-    end
-
-    user_id = auth_token.split(':').first
-    user = User.where(id: user_id).first
+  def authenticate_with_auth_token(user_id, auth_token)
+    authentication_error unless user_id
+    user = User.find(user_id)
 
     if user && Devise.secure_compare(user.access_token, auth_token)
       # User can access

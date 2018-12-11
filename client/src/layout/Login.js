@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from "react-router-dom";
 import Cookies from 'js-cookie';
 
 import styled from 'styled-components';
@@ -12,7 +13,8 @@ class Login extends Component {
 
   state = {
     email: '',
-    password: ''
+    password: '',
+    logged_in: false,
   }
 
   change = this.change.bind(this);
@@ -42,8 +44,10 @@ class Login extends Component {
     }).then(function(response) {
       return response.json();
     }).then(function(data) {
-      Cookies.set("Authorization", data.access_token)
-    }).catch(function(ex) {
+      Cookies.set("access_token", data.access_token);
+      Cookies.set("user_id", data.user_id);
+      this.setState({ logged_in: true })
+    }.bind(this)).catch(function(ex) {
       console.log('parsing failed', ex)
     })
   }
@@ -51,30 +55,37 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <Title>Login</Title>
-        <form onSubmit={this.processLogin}>
-          <label>Email</label>
-          <input
-            className="form-item"
-            placeholder="email..."
-            name="email"
-            type="text"
-            onChange={this.change}
-          />
-          <label>Password</label>
-          <input
-            className="form-item"
-            placeholder="password..."
-            name="password"
-            type="password"
-            onChange={this.change}
-          />
-          <input
-            className="form-submit btn btn-primary"
-            value="SUBMIT"
-            type="submit"
-          />
-        </form>
+        { (this.state.logged_in) ?
+          (
+            <Redirect to="/" />
+          ) : (
+          <div>
+            <Title>Login</Title>
+            <form onSubmit={this.processLogin}>
+              <label>Email</label>
+              <input
+                className="form-item"
+                placeholder="email..."
+                name="email"
+                type="text"
+                onChange={this.change}
+              />
+              <label>Password</label>
+              <input
+                className="form-item"
+                placeholder="password..."
+                name="password"
+                type="password"
+                onChange={this.change}
+              />
+              <input
+                className="form-submit btn btn-primary"
+                value="SUBMIT"
+                type="submit"
+              />
+            </form>
+          </div>
+        )}
       </div>
     );
   }

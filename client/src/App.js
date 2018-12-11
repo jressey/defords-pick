@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import AppRouter from './AppRouter'
+import Cookies from 'js-cookie';
 import Navbar from './layout/Navbar';
 import styled from 'styled-components';
+
 
 const AppBody = styled.div`
   min-height: 100vh;
@@ -12,6 +14,13 @@ const AppContainer = styled.div`
 `
 
 class App extends Component {
+
+  componentWillMount() {
+    if (Cookies.get("access_token") === undefined) {
+      Cookies.set("access_token", "");
+    }
+  }
+
   render() {
     return (
       <AppBody className="App">
