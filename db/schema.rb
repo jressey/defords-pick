@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181209140713) do
+ActiveRecord::Schema.define(version: 20181211000826) do
 
   create_table "conferences", force: :cascade do |t|
     t.string "name"
@@ -42,12 +42,6 @@ ActiveRecord::Schema.define(version: 20181209140713) do
     t.string "is_playoff", default: "f"
   end
 
-  create_table "jwt_blacklists", force: :cascade do |t|
-    t.string "jti", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "sports", force: :cascade do |t|
     t.string "name"
     t.string "league_name"
@@ -69,18 +63,6 @@ ActiveRecord::Schema.define(version: 20181209140713) do
     t.decimal "win_percentage"
     t.string "abbreviation"
     t.index ["division_id"], name: "index_teams_on_division_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

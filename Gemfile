@@ -21,10 +21,6 @@ gem "mini_racer"
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
 gem 'dotenv-rails'
-gem 'devise'
-gem 'jwt'
-gem 'devise-jwt'
-
 
 group :production do
   gem 'pg'

@@ -23,13 +23,5 @@ module RubyBookmaker
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.to_prepare do
-      DeviseController.respond_to :html, :json
-    end
-
-    config.action_dispatch.default_headers = {
-      'Access-Control-Allow-Origin' => 'http://localhost:3000/**',
-      'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
-    }
   end
 end
