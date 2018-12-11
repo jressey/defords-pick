@@ -6,7 +6,17 @@ import styled from 'styled-components';
 
 const Title = styled.h1`
   text-align: center;
+  margin-top: 30px;
   margin-bottom: 25px;
+`
+
+const FormBox = styled.div`
+  margin-top: 60px;
+  text-align: center;
+`
+
+const CenteredInput = styled.input`
+  text-align: center;
 `
 
 class Login extends Component {
@@ -44,9 +54,11 @@ class Login extends Component {
     }).then(function(response) {
       return response.json();
     }).then(function(data) {
-      Cookies.set("access_token", data.access_token);
-      Cookies.set("user_id", data.user_id);
-      this.setState({ logged_in: true })
+      if (data.access_token) {
+        Cookies.set("access_token", data.access_token);
+        Cookies.set("user_id", data.user_id);
+        this.setState({ logged_in: true })
+      }
     }.bind(this)).catch(function(ex) {
       console.log('parsing failed', ex)
     })
@@ -60,30 +72,32 @@ class Login extends Component {
             <Redirect to="/" />
           ) : (
           <div>
-            <Title>Login</Title>
-            <form onSubmit={this.processLogin}>
-              <label>Email</label>
-              <input
-                className="form-item"
-                placeholder="email..."
-                name="email"
-                type="text"
-                onChange={this.change}
-              />
-              <label>Password</label>
-              <input
-                className="form-item"
-                placeholder="password..."
-                name="password"
-                type="password"
-                onChange={this.change}
-              />
-              <input
-                className="form-submit btn btn-primary"
-                value="SUBMIT"
-                type="submit"
-              />
-            </form>
+            <Title>Welcome Back</Title>
+            <div className="row justify-content-center">
+            <FormBox className="col-sm-4">
+              <form onSubmit={this.processLogin}>
+                <div className="form-group">
+                  <CenteredInput
+                    className="form-item form-control"
+                    placeholder="email..."
+                    name="email"
+                    type="text"
+                    onChange={this.change}
+                  />
+                </div>
+                <div className="form-group">
+                  <CenteredInput
+                    className="form-item form-control"
+                    placeholder="password..."
+                    name="password"
+                    type="password"
+                    onChange={this.change}
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </FormBox>
+            </div>
           </div>
         )}
       </div>
