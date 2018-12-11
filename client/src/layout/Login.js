@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Cookies from 'js-cookie';
 
 import styled from 'styled-components';
 
@@ -41,7 +42,7 @@ class Login extends Component {
     }).then(function(response) {
       return response.json();
     }).then(function(data) {
-      console.log(data)
+      Cookies.set("Authorization", data.access_token)
     }).catch(function(ex) {
       console.log('parsing failed', ex)
     })

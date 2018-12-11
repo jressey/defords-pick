@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
+import LogoutLink from "./LogoutLink";
 import styled from 'styled-components';
 
 const NavbarInnerContainer = styled.div`
@@ -36,7 +38,11 @@ class Navbar extends Component {
                 <Link to="/nhl" >NHL</Link>
               </NavLink>
               <NavLink>
-                <Link to="/login">Login</Link>
+                { Cookies.get("Authorization") ? (
+                  <Link to="" onClick={logout}>Logout</Link>
+                ) : (
+                  <Link to="/login">Login</Link>
+                )}
               </NavLink>
             </div>
           </NavbarInnerContainer>
@@ -45,5 +51,11 @@ class Navbar extends Component {
     );
   }
 }
+
+function logout() {
+  console.log("logout");
+  Cookies.set("Authorization", undefined);
+}
+
 
 export default Navbar;
