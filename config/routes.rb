@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, only: []
+
   namespace :api do
-    get 'games/hot', to: "games#hot_game"
-    get 'games/featured', to: "games#featured_games"
-    get 'games/nba', to: "games#nba"
-    get 'games/nfl', to: "games#nfl"
-    get 'games/nhl', to: "games#nhl"
-    get 'user/favorite_team', to: "user_profiles#favorite_team"
+    resource :login, only: [:create], controller: :sessions
+    get 'user_profiles/show', to: "user_profiles#show"
+
+    resource :games do
+      get 'hot', to: "games#hot_game"
+      get 'featured', to: "games#featured_games"
+      get 'nba', to: "games#nba"
+      get 'nfl', to: "games#nfl"
+      get 'nhl', to: "games#nhl"
+    end
   end
 
   root to: "home#index"

@@ -18,7 +18,6 @@ class Login extends Component {
   processLogin = this.processLogin.bind(this);
 
   change(e) {
-    console.log(this.state);
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -27,7 +26,7 @@ class Login extends Component {
   processLogin(e) {
     e.preventDefault();
 
-    fetch('/login.json', {
+    fetch('api/login.json', {
       method: 'post',
       credentials: 'same-origin',
       mode: 'same-origin',
@@ -38,13 +37,12 @@ class Login extends Component {
       body: JSON.stringify({
         email: this.state.email,
         password: this.state.password
-    })
+      })
     }).then(function(response) {
       return response.json();
     }).then(function(data) {
       console.log(data)
-    }.bind(this)
-    ).catch(function(ex) {
+    }).catch(function(ex) {
       console.log('parsing failed', ex)
     })
   }

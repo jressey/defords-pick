@@ -1,4 +1,4 @@
-class Api::GamesController < ActionController::API
+class Api::GamesController < ApplicationController
 
   def hot_game
     hot_game = GameService.best_current_game
