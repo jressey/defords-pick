@@ -38,7 +38,7 @@ class Navbar extends Component {
                 <Link to="/nhl" >NHL</Link>
               </NavLink>
               <NavLink>
-                { Cookies.get("Authorization") ? (
+                { Cookies.get("Authorization").length > 0 ? (
                   <Link to="" onClick={logout}>Logout</Link>
                 ) : (
                   <Link to="/login">Login</Link>
@@ -54,7 +54,7 @@ class Navbar extends Component {
 
 function logout() {
   console.log("logout");
-  Cookies.set("Authorization", undefined);
+  Cookies.set("Authorization", "");
 }
 
 
