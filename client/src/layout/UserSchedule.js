@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FadeIn from 'react-fade-in';
 
-class AuthenticatedComponent extends Component {
+class UserSchedule extends Component {
 
   state = {
     data: {},
@@ -9,7 +9,7 @@ class AuthenticatedComponent extends Component {
   }
 
   componentDidMount() {
-    fetch('api/users/calender/show.json')
+    fetch('api/user_schedules.json')
       .then(function(response) {
         if (response.status === 401) {
           this.setState({ authenticated: false })
@@ -35,4 +35,4 @@ class AuthenticatedComponent extends Component {
   }
 }
 
-export default AuthenticatedComponent;
+export default UserSchedule;
