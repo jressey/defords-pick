@@ -28,19 +28,14 @@ class Navbar extends Component {
       headers: {
         'Accept':       'application/json',
         'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password
-      })
+      }
     }).then(function(response) {
       return response;
     }).then(function(response) {
-      console.log(response.status);
       if (response.status === 204) {
         Cookies.set("auth_token", "");
         Cookies.set("user_id", "");
-
+        this.forceUpdate();
       }
     }.bind(this)).catch(function(ex) {
       console.log('parsing failed', ex)
@@ -69,8 +64,8 @@ class Navbar extends Component {
                 <Link to="/nhl" >NHL</Link>
               </NavLink>
               <NavLink>
-                { Cookies.get("auth_token").length > 0 ? (
-                  <Link to="" onClick={this.processLogout}>Logout</Link>
+                { Cookies.get("auth_token").length != "" ? (
+                  <Link to="/" onClick={this.processLogout}>Logout</Link>
                 ) : (
                   <Link to="/login">Login</Link>
                 )}
