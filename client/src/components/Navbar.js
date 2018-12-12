@@ -51,9 +51,6 @@ class Navbar extends Component {
           <NavbarInnerContainer>
             <div className="d-flex justify-content-center">
               <NavLink>
-                <Link to="/secret" >Secretpage</Link>
-              </NavLink>
-              <NavLink>
                 <Link to="/" >Home</Link>
               </NavLink>
               <NavLink>
@@ -66,18 +63,17 @@ class Navbar extends Component {
                 <Link to="/nhl" >NHL</Link>
               </NavLink>
               <NavLink>
-                { Cookies.get("auth_token").length != "" ? (
-                  <Link to="/" onClick={this.processLogout}>Logout</Link>
-                ) : (
-                  <span></span>
-                  // <Link to="/login">Login</Link>
-                )}
-              </NavLink>
-              <NavLink>
                 <UserNavbarLink />
               </NavLink>
+              { Cookies.get("auth_token").length != "" ? (
+                  <NavLink>
+                    <Link to="/" onClick={this.processLogout}>Logout</Link>
+                  </NavLink>
+                ) : (
+                  ""
+                  // <Link to="/login">Login</Link>
+                )}
             </div>
-
           </NavbarInnerContainer>
         </nav>
       </div>

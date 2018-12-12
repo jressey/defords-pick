@@ -14,7 +14,7 @@ class UserNavbarLink extends Component {
       <UserLink>
         {Cookies.get("auth_token").length > 0 ?
         (
-          <span>{Cookies.get("email")}</span>
+          <Link to="/secret">{Cookies.get("email")}</Link>
         ) : (
           <Link to="/Login">Login</Link>
         )}
