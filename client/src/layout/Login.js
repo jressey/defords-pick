@@ -54,8 +54,8 @@ class Login extends Component {
     }).then(function(response) {
       return response.json();
     }).then(function(data) {
-      if (data.access_token) {
-        Cookies.set("access_token", data.access_token);
+      if (data.auth_token) {
+        Cookies.set("auth_token", data.auth_token);
         Cookies.set("user_id", data.user_id);
         this.setState({ logged_in: true })
       }
@@ -94,7 +94,7 @@ class Login extends Component {
                     onChange={this.change}
                   />
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Submit</button>
               </form>
             </FormBox>
             </div>

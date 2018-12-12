@@ -16,8 +16,8 @@ const AppContainer = styled.div`
 class App extends Component {
 
   componentWillMount() {
-    if (Cookies.get("access_token") === undefined) {
-      Cookies.set("access_token", "");
+    if (Cookies.get("auth_token") === undefined) {
+      Cookies.set("auth_token", "");
     }
   }
 

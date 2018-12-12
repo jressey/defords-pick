@@ -22,6 +22,7 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
 gem 'dotenv-rails'
 gem 'devise'
+gem 'aes'
 
 group :production do
   gem 'pg'

@@ -10,8 +10,7 @@ class User < ApplicationRecord
   private
 
   def update_access_token!
-    self.access_token = "#{Devise.friendly_token}"
-    save
+    update(access_token: CryptionService.create_access_token)
   end
 
 end

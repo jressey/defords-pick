@@ -5,7 +5,7 @@ class ApplicationController < ActionController::API
 
   def authenticate_user_from_token!
     user_id = request.cookies['user_id']
-    auth_token = request.cookies['access_token']
+    auth_token = request.cookies['auth_token']
 
     if auth_token
       authenticate_with_auth_token(user_id, auth_token)
@@ -17,10 +17,11 @@ class ApplicationController < ActionController::API
   private
 
   def authenticate_with_auth_token(user_id, auth_token)
-    authentication_error unless user_id
+    authentication_error unless (user_id && auth_token)
+
     user = User.find(user_id)
 
-    if user && Devise.secure_compare(user.access_token, auth_token)
+    if user && Devise.secure_compare(user.access_token, CryptionService.decrypt(auth_token))
       # User can access
       sign_in user, store: false
     else
