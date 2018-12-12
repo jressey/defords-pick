@@ -9,7 +9,7 @@ class AuthenticatedComponent extends Component {
   }
 
   componentDidMount() {
-    fetch('api/user_profiles/show.json')
+    fetch('api/users/calender/show.json')
       .then(function(response) {
         if (response.status === 401) {
           this.setState({ authenticated: false })

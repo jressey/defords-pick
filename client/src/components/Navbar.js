@@ -66,13 +66,12 @@ class Navbar extends Component {
                 <UserNavbarLink />
               </NavLink>
               { Cookies.get("auth_token").length != "" ? (
-                  <NavLink>
-                    <Link to="/" onClick={this.processLogout}>Logout</Link>
-                  </NavLink>
-                ) : (
-                  ""
-                  // <Link to="/login">Login</Link>
-                )}
+                <NavLink>
+                  <Link to="/" onClick={this.processLogout}>Logout</Link>
+                </NavLink>
+              ) : (
+                ""
+              )}
             </div>
           </NavbarInnerContainer>
         </nav>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import AuthenticatedComponent from './layout/AuthenticatedComponent';
+import GamePicker from './layout/GamePicker';
 import Home from './layout/Home';
 import Login from './authentication/Login';
 import Register from './authentication/Register';
@@ -10,7 +10,7 @@ class AppRouter extends Component {
   render() {
     return (
       <div>
-          <Route path="/secret" exact component={AuthPage} />
+          <Route path="/game_picker" exact component={GamePickerPage} />
           <Route path="/" exact component={Homepage} />
           <Route path="/nba" component={NBA} />
           <Route path="/nfl" component={NFL} />
@@ -22,9 +22,9 @@ class AppRouter extends Component {
   }
 }
 
-const AuthPage = () => (
+const GamePickerPage = () => (
   <div>
-    <AuthenticatedComponent />
+    <GamePicker />
   </div>
 )
 

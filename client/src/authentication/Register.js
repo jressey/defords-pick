@@ -53,11 +53,11 @@ class Login extends Component {
     }).then(function(response) {
       return response.json();
     }).then(function(data) {
-      if (data.auth_token) {
-        Cookies.set("auth_token", data.auth_token);
+      if (data.access_token) {
+        Cookies.set("auth_token", data.access_token);
         Cookies.set("user_id", data.user_id);
         Cookies.set("email", data.email);
-        this.setState({ logged_in: true })
+        this.setState({ logged_in: true });
       }
     }.bind(this)).catch(function(ex) {
       console.log('parsing failed', ex)
@@ -67,7 +67,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-        { (this.state.logged_in) ?
+        { (this.state.logged_in === true) ?
         (
           <Redirect to="/" />
         ) : (
