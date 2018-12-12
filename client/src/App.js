@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AppRouter from './AppRouter'
 import Cookies from 'js-cookie';
 import Navbar from './components/Navbar';
+import UserProvider from './providers/UserProvider'
 import styled from 'styled-components';
 
 
@@ -23,6 +24,7 @@ class App extends Component {
 
   render() {
     return (
+      <UserProvider>
       <AppBody className="App">
         <Navbar />
         <AppContainer>
@@ -31,6 +33,7 @@ class App extends Component {
           </div>
         </AppContainer>
       </AppBody>
+      </UserProvider>
     );
   }
 }
