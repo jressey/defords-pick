@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import styled from 'styled-components';
 
@@ -32,7 +32,7 @@ class Navbar extends Component {
     }).then(function(response) {
       return response;
     }).then(function(response) {
-      if (response.status === 204) {
+      if (response.status === 200) {
         Cookies.set("auth_token", "");
         Cookies.set("user_id", "");
         this.forceUpdate();

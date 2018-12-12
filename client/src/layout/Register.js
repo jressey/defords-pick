@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from "react-router-dom";
 import Cookies from 'js-cookie';
-
 import styled from 'styled-components';
 
 const Title = styled.h1`
@@ -28,7 +26,7 @@ class Login extends Component {
   }
 
   change = this.change.bind(this);
-  processLogin = this.processLogin.bind(this);
+  processRegistration = this.processRegistration.bind(this);
 
   change(e) {
     this.setState({
@@ -39,7 +37,7 @@ class Login extends Component {
   processRegistration(e) {
     e.preventDefault();
 
-    fetch('api/login.json', {
+    fetch('api/users.json', {
       method: 'post',
       credentials: 'same-origin',
       mode: 'same-origin',
@@ -67,39 +65,34 @@ class Login extends Component {
   render() {
     return (
       <div>
-        { (this.state.logged_in) ?
-          (
-            <Redirect to="/" />
-          ) : (
-          <div>
-            <Title>Register to Enjoy Benefit</Title>
-            <div className="row justify-content-center">
-            <FormBox className="col-sm-6 col-lg4">
-              <form onSubmit={this.processRegistration}>
-                <div className="form-group">
-                  <CenteredInput
-                    className="form-item form-control"
-                    placeholder="email..."
-                    name="email"
-                    type="text"
-                    onChange={this.change}
-                  />
-                </div>
-                <div className="form-group">
-                  <CenteredInput
-                    className="form-item form-control"
-                    placeholder="password..."
-                    name="password"
-                    type="password"
-                    onChange={this.change}
-                  />
-                </div>
-                <button type="submit" className="btn btn-primary">Register</button>
-              </form>
-            </FormBox>
-            </div>
+        <div>
+          <Title>Register to Enjoy Benefit</Title>
+          <div className="row justify-content-center">
+          <FormBox className="col-sm-6 col-lg4">
+            <form onSubmit={this.processRegistration}>
+              <div className="form-group">
+                <CenteredInput
+                  className="form-item form-control"
+                  placeholder="email..."
+                  name="email"
+                  type="text"
+                  onChange={this.change}
+                />
+              </div>
+              <div className="form-group">
+                <CenteredInput
+                  className="form-item form-control"
+                  placeholder="password..."
+                  name="password"
+                  type="password"
+                  onChange={this.change}
+                />
+              </div>
+              <button type="submit" className="btn btn-primary">Register</button>
+            </form>
+          </FormBox>
           </div>
-        )}
+        </div>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Cookies from 'js-cookie';
 
 import styled from 'styled-components';
@@ -13,6 +13,10 @@ const Title = styled.h1`
 const FormBox = styled.div`
   margin-top: 40px;
   text-align: center;
+`
+
+const LinkBox = styled.div`
+  margin-top: 20px;
 `
 
 const CenteredInput = styled.input`
@@ -96,6 +100,9 @@ class Login extends Component {
                 </div>
                 <button type="submit" className="btn btn-primary">Login</button>
               </form>
+              <LinkBox>
+                <Link to="/register">New Here? Register.</Link>
+              </LinkBox>
             </FormBox>
             </div>
           </div>

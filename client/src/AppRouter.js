@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import AuthenticatedComponent from './layout/AuthenticatedComponent';
 import Home from './layout/Home';
 import Login from './layout/Login';
+import Register from './layout/Register';
 import SportPanel from './layout/SportPanel';
 
 class AppRouter extends Component {
@@ -15,16 +16,11 @@ class AppRouter extends Component {
           <Route path="/nfl" component={NFL} />
           <Route path="/nhl" component={NHL} />
           <Route path="/login" component={LoginPage} />
+          <Route path="/register" component={RegisterPage} />
         </div>
     );
   }
 }
-
-const Homepage = () => (
-  <div>
-    <Home />
-  </div>
-)
 
 const AuthPage = () => (
   <div>
@@ -32,9 +28,21 @@ const AuthPage = () => (
   </div>
 )
 
+const Homepage = () => (
+  <div>
+    <Home />
+  </div>
+)
+
 const LoginPage = () => (
   <div>
     <Login />
+  </div>
+)
+
+const RegisterPage = () => (
+  <div>
+    <Register />
   </div>
 )
 
