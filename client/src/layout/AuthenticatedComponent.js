@@ -21,7 +21,11 @@ class AuthenticatedComponent extends Component {
   render() {
     return (
       <div>
-        {this.state.data.team}
+        { this.state.data.team ? (
+          this.state.data.team
+        ) : (
+          <p>Sorry you can't be here</p>
+        )}
       </div>
     );
   }

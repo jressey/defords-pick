@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Cookies from "js-cookie";
 import styled from 'styled-components';
 
@@ -15,6 +15,38 @@ const NavLink = styled.div`
 `
 
 class Navbar extends Component {
+
+  processLogout = this.processLogout.bind(this);
+
+  processLogout(e) {
+    e.preventDefault();
+
+    fetch('api/login.json', {
+      method: 'delete',
+      credentials: 'same-origin',
+      mode: 'same-origin',
+      headers: {
+        'Accept':       'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password
+      })
+    }).then(function(response) {
+      return response;
+    }).then(function(response) {
+      console.log(response.status);
+      if (response.status === 204) {
+        Cookies.set("auth_token", "");
+        Cookies.set("user_id", "");
+
+      }
+    }.bind(this)).catch(function(ex) {
+      console.log('parsing failed', ex)
+    })
+  }
+
   render() {
     return (
       <div>
@@ -38,7 +70,7 @@ class Navbar extends Component {
               </NavLink>
               <NavLink>
                 { Cookies.get("auth_token").length > 0 ? (
-                  <Link to="" onClick={logout}>Logout</Link>
+                  <Link to="" onClick={this.processLogout}>Logout</Link>
                 ) : (
                   <Link to="/login">Login</Link>
                 )}
@@ -50,12 +82,5 @@ class Navbar extends Component {
     );
   }
 }
-
-function logout() {
-  console.log("logout");
-  Cookies.set("auth_token", "");
-  Cookies.set("user_id", "");
-}
-
 
 export default Navbar;

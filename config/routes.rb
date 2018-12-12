@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-  devise_for :users, only: []
+  devise_for :users, only: [:create]
 
   namespace :api do
-    resource :login, only: [:create], controller: :sessions
+
+    resource :login, only: [:create, :destroy], controller: :sessions
     get 'user_profiles/show', to: "user_profiles#show"
 
     resource :games do

@@ -36,7 +36,7 @@ class Login extends Component {
     })
   }
 
-  processLogin(e) {
+  processRegistration(e) {
     e.preventDefault();
 
     fetch('api/login.json', {
@@ -72,10 +72,10 @@ class Login extends Component {
             <Redirect to="/" />
           ) : (
           <div>
-            <Title>Welcome Back</Title>
+            <Title>Register to Enjoy Benefit</Title>
             <div className="row justify-content-center">
             <FormBox className="col-sm-6 col-lg4">
-              <form onSubmit={this.processLogin}>
+              <form onSubmit={this.processRegistration}>
                 <div className="form-group">
                   <CenteredInput
                     className="form-item form-control"
@@ -94,7 +94,7 @@ class Login extends Component {
                     onChange={this.change}
                   />
                 </div>
-                <button type="submit" className="btn btn-primary">Login</button>
+                <button type="submit" className="btn btn-primary">Register</button>
               </form>
             </FormBox>
             </div>

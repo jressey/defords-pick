@@ -1,7 +1,6 @@
 class Api::SessionsController < ApplicationController
 
   def create
-    puts params
     @user = User.find_for_database_authentication(email: params[:email])
     return invalid_login_attempt unless @user
 
@@ -11,6 +10,11 @@ class Api::SessionsController < ApplicationController
     else
       invalid_login_attempt
     end
+  end
+
+  def destroy
+    @user = User.find_for_database_authentication(email: params[:email])
+    sign_out :user
   end
 
   private
