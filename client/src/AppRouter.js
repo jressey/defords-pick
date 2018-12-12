@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import AuthenticatedComponent from './layout/AuthenticatedComponent';
 import Home from './layout/Home';
-import Login from './layout/Login';
-import Register from './layout/Register';
+import Login from './authentication/Login';
+import Register from './authentication/Register';
 import SportPanel from './layout/SportPanel';
 
 class AppRouter extends Component {

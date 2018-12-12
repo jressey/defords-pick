@@ -22,10 +22,10 @@ class Game < ApplicationRecord
   end
 
   def self.begging_of_day_etc(day)
-    day.beginning_of_day + 5.hours
+    day.beginning_of_day
   end
 
   def self.end_of_day_etc(day)
-    day.end_of_day + 5.hours
+    day.end_of_day
   end
 end

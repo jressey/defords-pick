@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
+import UserNavbarLink from "./UserNavbarLink";
 import styled from 'styled-components';
 
 const NavbarInnerContainer = styled.div`
@@ -35,6 +36,7 @@ class Navbar extends Component {
       if (response.status === 200) {
         Cookies.set("auth_token", "");
         Cookies.set("user_id", "");
+        Cookies.set("email", "");
         this.forceUpdate();
       }
     }.bind(this)).catch(function(ex) {
@@ -67,10 +69,15 @@ class Navbar extends Component {
                 { Cookies.get("auth_token").length != "" ? (
                   <Link to="/" onClick={this.processLogout}>Logout</Link>
                 ) : (
-                  <Link to="/login">Login</Link>
+                  <span></span>
+                  // <Link to="/login">Login</Link>
                 )}
               </NavLink>
+              <NavLink>
+                <UserNavbarLink />
+              </NavLink>
             </div>
+
           </NavbarInnerContainer>
         </nav>
       </div>
