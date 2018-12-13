@@ -64,7 +64,7 @@ class NFL::DateForWeekNumber
     },
     15 => {
       start_day: Date.new(2018, 12, 12),
-      end_day: Date.new(2018, 9, 19)
+      end_day: Date.new(2018, 12, 19)
     },
     16 => {
       start_day: Date.new(2018, 9, 19),

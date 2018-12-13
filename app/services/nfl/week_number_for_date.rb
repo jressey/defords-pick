@@ -30,7 +30,7 @@ class NFL::WeekNumberForDate
         13
       elsif (Date.new(2018, 12, 5)..Date.new(2018, 12, 12)).include?(date)
         14
-      elsif (Date.new(2018, 12, 12)..Date.new(2018, 9, 19)).include?(date)
+      elsif (Date.new(2018, 12, 12)..Date.new(2018, 12, 19)).include?(date)
         15
       elsif (Date.new(2018, 12, 19)..Date.new(2018, 12, 26)).include?(date)
         16
