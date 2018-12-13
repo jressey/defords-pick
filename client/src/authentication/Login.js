@@ -38,7 +38,7 @@ class Login extends Component {
               <Title>Welcome Back</Title>
               <div className="row justify-content-center">
                 <FormBox className="col-sm-6 col-lg4">
-                  <form>
+                  <form onSubmit={context.state.login} >
                     <div className="form-group">
                       <CenteredInput
                         className="form-item form-control"
@@ -57,8 +57,8 @@ class Login extends Component {
                         onChange={context.state.change}
                       />
                     </div>
+                    <button className="btn btn-primary">Login</button>
                   </form>
-                  <button onClick={context.state.login} className="btn btn-primary">Login</button>
                   <LinkBox>
                     <Link to="/register">New Here? Register.</Link>
                   </LinkBox>

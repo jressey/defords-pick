@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 
 export const UserContext = React.createContext();
 
+
 class UserProvider extends Component {
   state = {
     user_id: "",
@@ -15,7 +16,10 @@ class UserProvider extends Component {
         [e.target.name]: e.target.value
       })
     },
-    login: () => {
+    login: (e) => {
+      console.log("huh?")
+      e.preventDefault();
+
       fetch('api/login.json', {
         method: 'post',
         credentials: 'same-origin',
@@ -35,13 +39,15 @@ class UserProvider extends Component {
           Cookies.set("auth_token", data.auth_token);
           Cookies.set("user_id", data.user_id);
           Cookies.set("email", data.email);
-          this.setState({ logged_in: true })
+          this.setState({ logged_in: true, password: "" })
         }
       }.bind(this)).catch(function(ex) {
         console.log('parsing failed', ex)
       });
     },
-    logout: () => {
+    logout: (e) => {
+      e.preventDefault();
+
       fetch('api/login.json', {
         method: 'delete',
         credentials: 'same-origin',
@@ -54,14 +60,21 @@ class UserProvider extends Component {
         return response;
       }).then(function(response) {
         if (response.status === 200) {
-          Cookies.set("auth_token", "");
-          Cookies.set("user_id", "");
-          Cookies.set("email", "");
-          this.setState({ logged_in: false, auth_token: "", email: "", user_id: "" });
+          Cookies.remove("auth_token");
+          Cookies.remove("user_id", "");
+          Cookies.remove("email", "");
+          this.setState(
+            { logged_in: false, auth_token: "",
+              email: "", user_id: "", password: ""
+            }
+          );
         }
       }.bind(this)).catch(function(ex) {
         console.log('parsing failed', ex)
       })
+    },
+    is_logged_in: () => {
+      if (this.state.logged_in === true || Cookies.get("auth_token")) { return true; }
     },
   }
 

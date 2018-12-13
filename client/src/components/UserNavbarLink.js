@@ -12,7 +12,7 @@ class UserNavbarLink extends Component {
   render() {
     return (
       <UserLink>
-        {Cookies.get("auth_token").length > 0 ?
+        {Cookies.get("auth_token") ?
         (
           <Link to="/user_schedule">{Cookies.get("email")}</Link>
         ) : (

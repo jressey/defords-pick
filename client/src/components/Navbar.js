@@ -41,7 +41,7 @@ class Navbar extends Component {
                   <NavLink>
                     <UserNavbarLink />
                   </NavLink>
-                  { context.state.logged_in ? (
+                  { context.state.is_logged_in() ? (
                     <NavLink>
                       <Link to="/" onClick={context.state.logout}>Logout</Link>
                     </NavLink>
