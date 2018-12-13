@@ -25,11 +25,6 @@ const CenteredInput = styled.input`
 
 class Login extends Component {
 
-  state = {
-    email: '',
-    password: '',
-  }
-
   render() {
     return (
       <UserContext.Consumer>

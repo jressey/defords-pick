@@ -11,6 +11,11 @@ class UserProvider extends Component {
     logged_in: false,
     email: "",
     password: "",
+    change: (e) => {
+      this.setState({
+        [e.target.name]: e.target.value
+      })
+    },
     login: () => {
       fetch('api/login.json', {
         method: 'post',
@@ -37,9 +42,26 @@ class UserProvider extends Component {
         console.log('parsing failed', ex)
       });
     },
-    change: (e) => {
-      this.setState({
-        [e.target.name]: e.target.value
+    logout: () => {
+      fetch('api/login.json', {
+        method: 'delete',
+        credentials: 'same-origin',
+        mode: 'same-origin',
+        headers: {
+          'Accept':       'application/json',
+          'Content-Type': 'application/json',
+        }
+      }).then(function(response) {
+        return response;
+      }).then(function(response) {
+        if (response.status === 200) {
+          Cookies.set("auth_token", "");
+          Cookies.set("user_id", "");
+          Cookies.set("email", "");
+          this.setState({ logged_in: false, auth_token: "", email: "", user_id: "" });
+        }
+      }.bind(this)).catch(function(ex) {
+        console.log('parsing failed', ex)
       })
     },
   }
