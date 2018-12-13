@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from "react-router-dom";
+import { UserContext } from "../providers/UserContext";
 import Cookies from 'js-cookie';
 
 import styled from 'styled-components';
@@ -71,44 +72,52 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
-        { (this.state.logged_in) ?
-          (
-            <Redirect to="/" />
-          ) : (
-          <div>
-            <Title>Welcome Back</Title>
-            <div className="row justify-content-center">
-            <FormBox className="col-sm-6 col-lg4">
-              <form onSubmit={this.processLogin}>
-                <div className="form-group">
-                  <CenteredInput
-                    className="form-item form-control"
-                    placeholder="email..."
-                    name="email"
-                    type="text"
-                    onChange={this.change}
-                  />
-                </div>
-                <div className="form-group">
-                  <CenteredInput
-                    className="form-item form-control"
-                    placeholder="password..."
-                    name="password"
-                    type="password"
-                    onChange={this.change}
-                  />
-                </div>
-                <button type="submit" className="btn btn-primary">Login</button>
-              </form>
-              <LinkBox>
-                <Link to="/register">New Here? Register.</Link>
-              </LinkBox>
-            </FormBox>
+      <UserContext.Consumer>
+        {(context) => (
+          <React.Fragment>
+          {context.state.number}
+          { (this.state.logged_in) ?
+            (
+              <Redirect to="/" />
+            ) : (
+            <div>
+              <Title>Welcome Back</Title>
+              <div className="row justify-content-center">
+                <FormBox className="col-sm-6 col-lg4">
+                  <form onSubmit={this.processLogin}>
+                    <div className="form-group">
+                      <CenteredInput
+                        className="form-item form-control"
+                        placeholder="email..."
+                        name="email"
+                        type="text"
+                        onChange={this.change}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <CenteredInput
+                        className="form-item form-control"
+                        placeholder="password..."
+                        name="password"
+                        type="password"
+                        onChange={this.change}
+                      />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Login</button>
+                  </form>
+                  <LinkBox>
+                    <Link to="/register">New Here? Register.</Link>
+                  </LinkBox>
+                  <LinkBox>
+                    <button onClick={context.state.add}>Add</button>
+                  </LinkBox>
+                </FormBox>
+              </div>
             </div>
-          </div>
-        )}
-      </div>
+          )}
+        </React.Fragment>
+      )}
+      </UserContext.Consumer>
     );
   }
 }

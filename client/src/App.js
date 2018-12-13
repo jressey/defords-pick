@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AppRouter from './AppRouter'
 import Cookies from 'js-cookie';
 import Navbar from './components/Navbar';
-import UserProvider from './providers/UserProvider'
+import UserProvider from './providers/UserContext'
 import styled from 'styled-components';
 
 
@@ -24,16 +24,16 @@ class App extends Component {
 
   render() {
     return (
-      <UserProvider>
       <AppBody className="App">
-        <Navbar />
-        <AppContainer>
-          <div className="container">
-            <AppRouter />
-          </div>
-        </AppContainer>
+        <UserProvider>
+          <Navbar />
+          <AppContainer>
+            <div className="container">
+              <AppRouter />
+            </div>
+          </AppContainer>
+        </UserProvider>
       </AppBody>
-      </UserProvider>
     );
   }
 }
