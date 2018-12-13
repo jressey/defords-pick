@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import { UserContext } from "../providers/UserContext";
 import Cookies from 'js-cookie';
 
 import styled from 'styled-components';
@@ -11,14 +12,20 @@ class UserNavbarLink extends Component {
 
   render() {
     return (
-      <UserLink>
-        {Cookies.get("auth_token") ?
-        (
-          <Link to="/user_schedule">{Cookies.get("email")}</Link>
-        ) : (
-          <Link to="/Login">Login</Link>
+      <UserContext.Consumer>
+        {(context) => (
+          <React.Fragment>
+            <UserLink>
+              {context.state.is_logged_in() ?
+              (
+                <Link to="/user_schedule">{Cookies.get("email")}</Link>
+              ) : (
+                <Link to="/Login">Login</Link>
+              )}
+            </UserLink>
+          </React.Fragment>
         )}
-      </UserLink>
+      </UserContext.Consumer>
     );
   }
 }
