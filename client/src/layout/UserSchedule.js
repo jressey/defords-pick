@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
+import { UserContext } from "../providers/UserContext";
 import FadeIn from 'react-fade-in';
 
 class UserSchedule extends Component {
 
   state = {
-    data: {},
-    authenticated: false
+    data: {}
   }
 
   componentDidMount() {
     fetch('api/user_schedules.json')
       .then(function(response) {
-        if (response.status === 401) {
-          this.setState({ authenticated: false })
-        }
         return response.json();
       }.bind(this)).then(function(data) {
         this.setState({ data: data, loading: false, authenticated: true });
@@ -24,13 +21,19 @@ class UserSchedule extends Component {
 
   render() {
     return (
-      <FadeIn>
-        { this.state.authenticated ? (
-          this.state.data.team
-        ) : (
-          <p>Sorry you can't be here</p>
+      <UserContext.Consumer>
+        {(context) => (
+          <React.Fragment>
+            <FadeIn>
+              { context.state.logged_in ? (
+                this.state.data.team
+              ) : (
+                <p>Sorry you can't be here</p>
+              )}
+            </FadeIn>
+          </React.Fragment>
         )}
-      </FadeIn>
+      </UserContext.Consumer>
     );
   }
 }

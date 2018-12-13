@@ -30,7 +30,6 @@ class Login extends Component {
       <UserContext.Consumer>
         {(context) => (
           <React.Fragment>
-          {context.state.number}
           { (context.state.logged_in) ?
             (
               <Redirect to="/" />
