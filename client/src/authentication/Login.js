@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from "react-router-dom";
 import { UserContext } from "../providers/UserContext";
-import Cookies from 'js-cookie';
 
 import styled from 'styled-components';
 
@@ -29,45 +28,6 @@ class Login extends Component {
   state = {
     email: '',
     password: '',
-    logged_in: false,
-  }
-
-  change = this.change.bind(this);
-  processLogin = this.processLogin.bind(this);
-
-  change(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
-
-  processLogin(e) {
-    e.preventDefault();
-
-    fetch('api/login.json', {
-      method: 'post',
-      credentials: 'same-origin',
-      mode: 'same-origin',
-      headers: {
-        'Accept':       'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password
-      })
-    }).then(function(response) {
-      return response.json();
-    }).then(function(data) {
-      if (data.auth_token) {
-        Cookies.set("auth_token", data.auth_token);
-        Cookies.set("user_id", data.user_id);
-        Cookies.set("email", data.email);
-        this.setState({ logged_in: true })
-      }
-    }.bind(this)).catch(function(ex) {
-      console.log('parsing failed', ex)
-    })
   }
 
   render() {
@@ -76,7 +36,7 @@ class Login extends Component {
         {(context) => (
           <React.Fragment>
           {context.state.number}
-          { (this.state.logged_in) ?
+          { (context.state.logged_in) ?
             (
               <Redirect to="/" />
             ) : (
@@ -84,14 +44,14 @@ class Login extends Component {
               <Title>Welcome Back</Title>
               <div className="row justify-content-center">
                 <FormBox className="col-sm-6 col-lg4">
-                  <form onSubmit={this.processLogin}>
+                  <form>
                     <div className="form-group">
                       <CenteredInput
                         className="form-item form-control"
                         placeholder="email..."
                         name="email"
                         type="text"
-                        onChange={this.change}
+                        onChange={context.state.change}
                       />
                     </div>
                     <div className="form-group">
@@ -100,16 +60,13 @@ class Login extends Component {
                         placeholder="password..."
                         name="password"
                         type="password"
-                        onChange={this.change}
+                        onChange={context.state.change}
                       />
                     </div>
-                    <button type="submit" className="btn btn-primary">Login</button>
                   </form>
+                  <button onClick={context.state.login} className="btn btn-primary">Login</button>
                   <LinkBox>
                     <Link to="/register">New Here? Register.</Link>
-                  </LinkBox>
-                  <LinkBox>
-                    <button onClick={context.state.add}>Add</button>
                   </LinkBox>
                 </FormBox>
               </div>
