@@ -3,6 +3,7 @@ import GameContainer from '../game/GameContainer';
 import ErrorMessage from '../shared/ErrorMessage'
 import styled from 'styled-components';
 import FadeIn from 'react-fade-in';
+import moment from 'moment-timezone';
 
 const Title = styled.h2`
   text-align: center;

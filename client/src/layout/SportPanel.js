@@ -3,6 +3,7 @@ import GameContainer from '../game/GameContainer';
 import ErrorMessage from '../shared/ErrorMessage'
 import FadeIn from 'react-fade-in';
 import styled from 'styled-components';
+import moment from 'moment-timezone';
 
 const Title = styled.h1`
   text-align: center;
@@ -17,7 +18,7 @@ class SportPanel extends Component {
     data: [],
   };
 
-  url = `/api/games/${this.props.league}.json`
+  url = `/api/games/${this.props.league}.json?timezone_offset=${timezoneOffset()}`
 
   componentDidMount() {
     fetch(this.url)
@@ -50,6 +51,9 @@ class SportPanel extends Component {
       </div>
     );
   }
+}
+function timezoneOffset() {
+  return moment(new Date().getTimezoneOffset()).format("Z");
 }
 
 function buildContainers(games) {

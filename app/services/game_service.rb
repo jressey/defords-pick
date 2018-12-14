@@ -21,30 +21,30 @@ class GameService
       Game.basketball.current.with_teams
     end
 
-    def best_football_of_week
-      GameCriteria.by_win_percentage(all_football_for_week)
+    def best_football_of_week(offset)
+      GameCriteria.by_win_percentage(all_football_for_week(offset))
     end
 
-    def all_football_for_week
+    def all_football_for_week(offset)
       week_number = NFL::WeekNumberForDate.call(Date.today)
       date_range = NFL::DateForWeekNumber.call(week_number)
       Game.football.where('start_time BETWEEN ? AND ?', date_range[:start_day], date_range[:end_day]).with_teams
     end
 
-    def best_basketball_of_day
-      GameCriteria.by_win_percentage(Game.basketball.for_day)
+    def best_basketball_of_day(offset)
+      GameCriteria.by_win_percentage(Game.basketball.for_day(offset))
     end
 
-    def all_basketball_for_day
-      Game.basketball.for_day.with_teams
+    def all_basketball_for_day(offset)
+      Game.basketball.for_day(offset).with_teams
     end
 
-    def best_hockey_of_day
-      GameCriteria.by_points(Game.hockey.for_day)
+    def best_hockey_of_day(offset)
+      GameCriteria.by_points(Game.hockey.for_day(offset))
     end
 
-    def all_hockey_for_day
-      Game.hockey.for_day.with_teams
+    def all_hockey_for_day(offset)
+      Game.hockey.for_day(offset).with_teams
     end
 
 

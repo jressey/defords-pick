@@ -3,6 +3,7 @@ import GameContainer from '../game/GameContainer';
 import ErrorMessage from '../shared/ErrorMessage'
 import styled from 'styled-components';
 import FadeIn from 'react-fade-in';
+import moment from 'moment-timezone';
 
 const Title = styled.h1`
   text-align: center;
@@ -13,7 +14,7 @@ const Section = styled.div`
   margin-bottom: 60px;
 `
 
-const URL = '/api/games/hot.json'
+const URL = '/api/games/hot.json?offset=${timezoneOffset()}'
 
 class TopGameSection extends Component {
 
@@ -53,6 +54,10 @@ class TopGameSection extends Component {
       </Section>
     );
   }
+}
+
+function timezoneOffset() {
+  return moment(new Date().getTimezoneOffset()).format("Z");
 }
 
 export default TopGameSection;

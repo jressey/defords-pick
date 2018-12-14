@@ -7,8 +7,11 @@ class Game < ApplicationRecord
   scope :basketball, -> { where(sport: Sport.find_by_name("Basketball")) }
   scope :football, -> { where(sport: Sport.find_by_name("Football")) }
   scope :hockey, -> { where(sport: Sport.find_by_name("Hockey")) }
-  scope :for_day, ->(day=Time.zone.now) { where(start_time: begging_of_day_etc(day)..end_of_day_etc(day)  )}
   scope :current, -> { where(start_time: (Time.zone.now - 3.hours)..Time.zone.now) }
+
+  def self.for_day(offset="+00:00")
+    where(start_time: self.user_time(offset).beginning_of_day..self.user_time(offset).end_of_day)
+  end
 
   def teams
     {
@@ -21,11 +24,10 @@ class Game < ApplicationRecord
     sport.stream_link
   end
 
-  def self.begging_of_day_etc(day)
-    day.beginning_of_day + 5.hours
+  private
+
+  def self.user_time(offset)
+    Time.now.getlocal(offset)
   end
 
-  def self.end_of_day_etc(day)
-    day.end_of_day + 5.hours
-  end
 end

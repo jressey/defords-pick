@@ -15,29 +15,29 @@ class Api::GamesController < ApplicationController
   end
 
   def nba
-    render json: GameService.all_basketball_for_day, each_serializer: GameSerializer
+    render json: GameService.all_basketball_for_day(params[:offset]), each_serializer: GameSerializer
   end
 
   def nfl
-    render json: GameService.all_football_for_week, each_serializer: GameSerializer
+    render json: GameService.all_football_for_week(params[:offset]), each_serializer: GameSerializer
   end
 
   def nhl
-    render json: GameService.all_hockey_for_day, each_serializer: GameSerializer
+    render json: GameService.all_hockey_for_day(params[:offset]), each_serializer: GameSerializer
   end
 
   private
 
   def best_football_of_week
-    @best_football_of_week || GameService.best_football_of_week
+    @best_football_of_week || GameService.best_football_of_week(params[:offset])
   end
 
   def best_hockey_of_day
-    @best_hockey_of_day || GameService.best_hockey_of_day
+    @best_hockey_of_day || GameService.best_hockey_of_day(params[:offset])
   end
 
   def best_basketball_of_day
-    @best_basketball_of_day || GameService.best_basketball_of_day
+    @best_basketball_of_day || GameService.best_basketball_of_day(params[:offset])
   end
 
 end
