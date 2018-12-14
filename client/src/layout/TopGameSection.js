@@ -14,8 +14,6 @@ const Section = styled.div`
   margin-bottom: 60px;
 `
 
-const URL = '/api/games/hot.json?offset=${timezoneOffset()}'
-
 class TopGameSection extends Component {
 
   state = {
@@ -23,8 +21,10 @@ class TopGameSection extends Component {
     data: {},
   };
 
+  url = `/api/games/hot.json?timezone_offset=${timezoneOffset()}`
+
   componentDidMount() {
-    fetch(URL)
+    fetch(this.url)
       .then(function(response) {
         return response.json();
       }).then(function(data) {

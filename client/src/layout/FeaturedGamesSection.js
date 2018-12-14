@@ -9,8 +9,6 @@ const Title = styled.h2`
   text-align: center;
   margin-bottom: 50px;
 `
-const URL = '/api/games/featured.json'
-
 class FeaturedGamesSection extends Component {
 
   state = {
@@ -18,8 +16,10 @@ class FeaturedGamesSection extends Component {
     data: []
   };
 
+  url = `/api/games/featured.json?timezone_offset=${timezoneOffset()}`
+
   componentDidMount() {
-    fetch(URL)
+    fetch(this.url)
       .then(function(response) {
         return response.json();
       }).then(function(data) {
@@ -50,6 +50,12 @@ class FeaturedGamesSection extends Component {
     );
   }
 }
+
+
+function timezoneOffset() {
+  return moment(new Date().getTimezoneOffset()).format("Z");
+}
+
 
 function buildContainers(games) {
   var game_containers = [];
