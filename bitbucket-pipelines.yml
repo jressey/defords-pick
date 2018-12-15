@@ -3,16 +3,34 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: ruby:2.4.0
-
+image: ruby:2.4.2
 pipelines:
   default:
     - step:
         caches:
           - bundler
-        script: # Modify the commands below to build your repository.
-          - bundle install
-
+          - pip
+        script:
+          - apt-get update && apt-get install -y python-dev
+          - curl -O https://bootstrap.pypa.io/get-pip.py
+          - python get-pip.py
+          - pip install awsebcli --upgrade
+          - pip install awscli --upgrade
+          - bundle install --path vendor/bundle
+          - bundle exec rake
+          - aws --version
+          - eb init My-Application -r eu-west-2 -p arn:aws:elasticbeanstalk:eu-west-2::platform/Puma with Ruby 2.4 running on 64bit Amazon Linux/2.5.0
+          - eb deploy MyApplication-staging
+        services:
+          - postgres
 definitions:
   caches:
-    bundler: ./vendor
+    bundler: vendor/bundle
+    pip: ~/.cache/pip
+  services:
+    postgres:
+      image: postgres
+      environment:
+        POSTGRES_DB: 'bookmaker-test'
+        POSTGRES_USER: 'root'
+        POSTGRES_PASSWORD: 'bookmaker-test'

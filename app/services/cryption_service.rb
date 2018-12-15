@@ -9,7 +9,7 @@ class CryptionService
       text = text.to_s unless text.is_a? String
 
       salt  = SecureRandom.hex len
-      key   = ActiveSupport::KeyGenerator.new(ENV['AUTHENTICATION_SECRET_KEY']).generate_key salt, len
+      key   = ActiveSupport::KeyGenerator.new(ENV['SECRET_KEY']).generate_key salt, len
       crypt = ActiveSupport::MessageEncryptor.new key
       encrypted_data = crypt.encrypt_and_sign text
       "#{salt}$$#{encrypted_data}"
@@ -18,7 +18,7 @@ class CryptionService
     def decrypt text
       salt, data = text.split "$$"
 
-      key   = ActiveSupport::KeyGenerator.new(ENV['AUTHENTICATION_SECRET_KEY']).generate_key salt, len
+      key   = ActiveSupport::KeyGenerator.new(ENV['SECRET_KEY']).generate_key salt, len
       crypt = ActiveSupport::MessageEncryptor.new key
       crypt.decrypt_and_verify data
     end
