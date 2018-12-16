@@ -7,3 +7,4 @@ You'll need the following:
 - NFL v5
 
 Create an `.env` file and copy the contents of `sample.env`. Fill in the API keys you got from sportradar.
+
