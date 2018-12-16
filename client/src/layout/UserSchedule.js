@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from "react-router-dom";
 import { UserContext } from "../providers/UserContext";
 import FadeIn from 'react-fade-in';
 
@@ -28,7 +29,7 @@ class UserSchedule extends Component {
               { context.state.logged_in ? (
                 this.state.data.team
               ) : (
-                <p>Sorry you can't be here</p>
+                <Redirect to="/" />
               )}
             </FadeIn>
           </React.Fragment>
