@@ -2,16 +2,14 @@
   "name": "ruby-bookmaker",
   "private": true,
   "engines": {
-    "node": "10.6.0",
     "npm": "6.4.1"
   },
   "dependencies": {
     "react-scripts": "2.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "cd client && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
   }
 }
