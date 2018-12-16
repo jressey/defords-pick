@@ -1,7 +1,7 @@
 class Api::GamesController < ApplicationController
 
   def hot_game
-    hot_game = GameService.best_current_game
+    hot_game = game_service.best_current_game
     render json: hot_game
   end
 
@@ -15,29 +15,33 @@ class Api::GamesController < ApplicationController
   end
 
   def nba
-    render json: GameService.all_basketball_for_day(params[:offset]), each_serializer: GameSerializer
+    render json: game_service.all_basketball_for_day, each_serializer: GameSerializer
   end
 
   def nfl
-    render json: GameService.all_football_for_week(params[:offset]), each_serializer: GameSerializer
+    render json: game_service.all_football_for_week, each_serializer: GameSerializer
   end
 
   def nhl
-    render json: GameService.all_hockey_for_day(params[:offset]), each_serializer: GameSerializer
+    render json: game_service.all_hockey_for_day, each_serializer: GameSerializer
   end
 
   private
 
+  def game_service
+    @game_service || GameService.new(params[:offset])
+  end
+
   def best_football_of_week
-    @best_football_of_week || GameService.best_football_of_week(params[:offset])
+    @best_football_of_week || game_service.best_football_of_week
   end
 
   def best_hockey_of_day
-    @best_hockey_of_day || GameService.best_hockey_of_day(params[:offset])
+    @best_hockey_of_day || game_service.best_hockey_of_day
   end
 
   def best_basketball_of_day
-    @best_basketball_of_day || GameService.best_basketball_of_day(params[:offset])
+    @best_basketball_of_day || game_service.best_basketball_of_day
   end
 
 end
