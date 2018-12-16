@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181211012418) do
+ActiveRecord::Schema.define(version: 20181216195724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 20181211012418) do
     t.decimal "win_percentage"
     t.string "abbreviation"
     t.index ["division_id"], name: "index_teams_on_division_id"
+  end
+
+  create_table "user_preferences", force: :cascade do |t|
+    t.integer "favorite_football_team_id"
+    t.integer "favorite_baseball_team_id"
+    t.integer "favorite_hockey_team_id"
+    t.integer "favorite_basketball_team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
