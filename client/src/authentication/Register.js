@@ -72,7 +72,7 @@ class Login extends Component {
           <Redirect to="/" />
         ) : (
           <div>
-          <Title>Register to Enjoy Benefit</Title>
+          <Title>Register Now to Enjoy Free Features During our Beta Phase</Title>
           <div className="row justify-content-center">
           <FormBox className="col-sm-6 col-lg4">
             <form onSubmit={this.processRegistration}>
