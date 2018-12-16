@@ -23,12 +23,9 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'dotenv-rails'
 gem 'devise'
 gem 'aes'
+gem 'pg'
 
-group :production do
-  gem 'pg'
-end
-
-  group :development, :test do
+group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
@@ -36,7 +33,6 @@ end
   gem 'pry'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'sqlite3'
 end
 
 group :development do

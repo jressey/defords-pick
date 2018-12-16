@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 20181211012418) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "conferences", force: :cascade do |t|
     t.string "name"
-    t.integer "sport_id"
+    t.bigint "sport_id"
     t.string "api_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,7 +28,7 @@ ActiveRecord::Schema.define(version: 20181211012418) do
     t.string "name"
     t.string "api_id"
     t.string "abbreviation"
-    t.integer "conference_id"
+    t.bigint "conference_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["conference_id"], name: "index_divisions_on_conference_id"
@@ -39,7 +42,7 @@ ActiveRecord::Schema.define(version: 20181211012418) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "api_id"
-    t.string "is_playoff", default: "f"
+    t.boolean "is_playoff", default: false
   end
 
   create_table "sports", force: :cascade do |t|
@@ -51,7 +54,7 @@ ActiveRecord::Schema.define(version: 20181211012418) do
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
-    t.integer "division_id"
+    t.bigint "division_id"
     t.integer "wins"
     t.integer "losses"
     t.integer "ties"
@@ -87,4 +90,7 @@ ActiveRecord::Schema.define(version: 20181211012418) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "conferences", "sports"
+  add_foreign_key "divisions", "conferences"
+  add_foreign_key "teams", "divisions"
 end
