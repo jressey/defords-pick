@@ -19,7 +19,7 @@ pipelines:
           - bundle install --path vendor/bundle
           - bundle exec rake
           - aws --version
-          - eb init Bookmaker -r us-east-1 -p arn:aws:elasticbeanstalk:us-east-1::platform/Puma with Ruby 2.5 running on 64bit Amazon Linux/2.8.6
+          - eb init Bookmaker -r us-east-1 -p arn:aws:elasticbeanstalk:us-east-1::platform/ruby-2.5-(puma)
           - eb deploy Bookmaker-production
         services:
           - postgres
