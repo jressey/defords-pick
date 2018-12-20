@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
 
     # protected endpoints
-    resource :user_schedules, only: [:show]
+    resource :user_preferences, only: [:show]
   end
 
   root to: "home#index"

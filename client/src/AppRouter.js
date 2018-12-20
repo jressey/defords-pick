@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import UserSchedule from './layout/UserSchedule';
+import UserPreferences from './layout/UserPreferences';
 import Home from './layout/Home';
 import Login from './authentication/Login';
 import Register from './authentication/Register';
@@ -10,7 +10,7 @@ class AppRouter extends Component {
   render() {
     return (
       <div>
-          <Route path="/user_schedule" exact component={UserSchedulePage} />
+          <Route path="/user_preferences" exact component={UserPreferencesPage} />
           <Route path="/" exact component={Homepage} />
           <Route path="/nba" component={NBA} />
           <Route path="/nfl" component={NFL} />
@@ -22,9 +22,9 @@ class AppRouter extends Component {
   }
 }
 
-const UserSchedulePage = () => (
+const UserPreferencesPage = () => (
   <div>
-    <UserSchedule />
+    <UserPreferences />
   </div>
 )
 
