@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import UserPreferences from './layout/UserPreferences';
+import UserPreferences from './pages/UserPreferences';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
