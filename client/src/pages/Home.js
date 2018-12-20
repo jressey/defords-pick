@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import TopGameSection from '../layout/TopGameSection';
-import FeaturedGamesSection from '../layout/FeaturedGamesSection';
+import TopGameSection from '../home/TopGameSection';
+import FeaturedGamesSection from '../home/FeaturedGamesSection';
 
 class Home extends Component {
 
