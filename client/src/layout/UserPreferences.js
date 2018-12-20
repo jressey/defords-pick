@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from "react-router-dom";
-import { UserContext } from "../providers/UserContext";
+import { UserContext } from "../contexts/UserContext";
 import FadeIn from 'react-fade-in';
 
 class UserPreferences extends Component {

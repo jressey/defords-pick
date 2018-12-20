@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { UserContext } from "../providers/UserContext";
+import { UserContext } from "../contexts/UserContext";
 import Cookies from 'js-cookie';
 
 import styled from 'styled-components';

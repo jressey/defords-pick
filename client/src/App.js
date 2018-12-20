@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AppRouter from './AppRouter'
 import Cookies from 'js-cookie';
 import Navbar from './components/Navbar';
-import UserProvider from './providers/UserContext'
+import UserProvider from './contexts/UserContext'
 import styled from 'styled-components';
 
 

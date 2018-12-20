@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import UserPreferences from './layout/UserPreferences';
-import Home from './layout/Home';
-import Login from './authentication/Login';
-import Register from './authentication/Register';
-import SportPanel from './layout/SportPanel';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import SportPanel from './pages/SportPanel';
 
 class AppRouter extends Component {
   render() {
