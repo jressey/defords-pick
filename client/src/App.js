@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AppRouter from './AppRouter'
 import Cookies from 'js-cookie';
-import Navbar from './components/Navbar';
+import Navbar from './layout/Navbar';
 import UserProvider from './contexts/UserContext'
 import styled from 'styled-components';
 

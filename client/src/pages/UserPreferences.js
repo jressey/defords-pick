@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
 import FadeIn from 'react-fade-in';
+import LeagueTablesContainer from '../user_preferences/LeagueTablesContainer';
 
 class UserPreferences extends Component {
 
@@ -42,7 +43,9 @@ class UserPreferences extends Component {
             </React.Fragment>
           )}
         </UserContext.Consumer>
+        <LeagueTablesContainer />
       </FadeIn>
+
     );
   }
 }

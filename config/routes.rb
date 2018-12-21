@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       get 'nhl', to: "games#nhl"
     end
 
+    resources :teams, only: :index
+
     # protected endpoints
     resource :user_preferences, only: [:show]
   end

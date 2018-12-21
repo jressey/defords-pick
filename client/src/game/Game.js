@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Team from '../team/Team';
+import Team from '../shared/team/Team';
 
 class Game extends Component {
 
