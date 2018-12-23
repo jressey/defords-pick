@@ -35,22 +35,28 @@ class User extends Component {
           {(context) => (
             <React.Fragment>
                 { context.state.is_logged_in() ? (
-                  <div>
-                    { this.state.data.favorite_football_team ? (
-                      <FavoriteTeamContainer team={this.state.data.favorite_football_team} />
-                    ) : (
-                      <LeagueTablesContainer league="NFL"/>
-                    ) }
-                    { this.state.data.favorite_basketball_team ? (
-                      <FavoriteTeamContainer team={this.state.data.favorite_basketball_team} />
-                    ) : (
-                      <LeagueTablesContainer league="NBA"/>
-                    ) }
-                    { this.state.data.favorite_hockey_team ? (
-                      <FavoriteTeamContainer team={this.state.data.favorite_hockey_team} />
-                    ) : (
-                      <LeagueTablesContainer league="NHL"/>
-                    ) }
+                  <div className="row">
+                    <div className="col-sm-6">
+                      { this.state.data.favorite_football_team ? (
+                        <FavoriteTeamContainer team={this.state.data.favorite_football_team} />
+                      ) : (
+                        <LeagueTablesContainer league="NFL"/>
+                      ) }
+                    </div>
+                    <div className="col-sm-6">
+                      { this.state.data.favorite_basketball_team ? (
+                        <FavoriteTeamContainer team={this.state.data.favorite_basketball_team} />
+                      ) : (
+                        <LeagueTablesContainer league="NBA"/>
+                      ) }
+                    </div>
+                    <div className="col-sm-6">
+                      { this.state.data.favorite_hockey_team ? (
+                        <FavoriteTeamContainer team={this.state.data.favorite_hockey_team} />
+                      ) : (
+                        <LeagueTablesContainer league="NHL"/>
+                      ) }
+                    </div>
                   </div>
                 ) : (
                   <Redirect to="/" />

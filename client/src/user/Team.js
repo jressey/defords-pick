@@ -6,11 +6,8 @@ class Team extends Component {
     const { team } = this.props;
 
     return (
-      <div className="form-check">
-        <label className="form-check-label">
-        <input className="form-check-input" type="radio" name="team-select" id={team.id} value={team.id} />
-          {team.name}
-        </label>
+      <div className="col-sm-4">
+        {team.name}
       </div>
     );
   }

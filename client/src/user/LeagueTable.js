@@ -29,11 +29,11 @@ class LeagueTable extends Component {
     }
 
     return (
-      <div>
+      <div className="card">
         {data.length > 0 ? (
-            <form>
+            <div className="row justify-content-center">
               {buildContainers(data)}
-            </form>
+            </div>
           ) : (
             <div></div>
           )}

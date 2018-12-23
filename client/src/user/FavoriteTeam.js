@@ -6,7 +6,7 @@ class FavoriteTeam extends Component {
     const { team } = this.props;
 
     return (
-      <div>
+      <div className="card">
         {team.name}
       </div>
     );
