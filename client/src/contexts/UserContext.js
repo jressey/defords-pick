@@ -17,7 +17,6 @@ class UserProvider extends Component {
       })
     },
     login: (e) => {
-      console.log("huh?")
       e.preventDefault();
 
       fetch('api/login.json', {

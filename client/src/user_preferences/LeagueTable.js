@@ -15,7 +15,6 @@ class LeagueTable extends Component {
       .then(function(response) {
         return response.json();
       }).then(function(data) {
-        console.log(data);
         this.setState({ data: data, loading: false });
       }.bind(this)).catch(function(ex) {
         console.log('parsing failed', ex)
@@ -32,7 +31,9 @@ class LeagueTable extends Component {
     return (
       <div>
         {data.length > 0 ? (
-            buildContainers(data)
+            <form>
+              {buildContainers(data)}
+            </form>
           ) : (
             <div></div>
           )}
