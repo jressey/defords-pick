@@ -84,7 +84,7 @@ class UserProvider extends Component {
   };
 
   render() {
-    return <UserContext.Provider value={{ state: this.state}}>
+    return <UserContext.Provider value={{ state: this.state }}>
       {this.props.children}
     </UserContext.Provider>
   }

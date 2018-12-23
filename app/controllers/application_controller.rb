@@ -23,18 +23,15 @@ class ApplicationController < ActionController::API
     user = User.find(user_id)
 
     if user && Devise.secure_compare(user.access_token, token_token)
-      # User can access
       sign_in user, store: false
     else
       authentication_error
     end
   end
 
-  ##
   # Authentication Failure
   # Renders a 401 error
   def authentication_error
-    # User's token is either invalid or not in the right format
-    render json: {error: ('unauthorized')}, status: 401  # Authentication timeout
+    render json: {error: ('unauthorized')}, status: 401
   end
 end

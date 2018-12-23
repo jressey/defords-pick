@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
+import TeamButton from './TeamButton';
 
-class Team extends Component {
+class TeamButtonContainer extends Component {
 
   render() {
     const { team } = this.props;
 
     return (
       <div className="col-sm-4">
-        {team.name}
+        <TeamButton team={team} />
       </div>
     );
   }
 
 }
 
-export default Team;
+export default TeamButtonContainer;

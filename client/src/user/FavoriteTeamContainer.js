@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import FavoriteTeam from "./FavoriteTeam";
-import styled from 'styled-components';
 
 class FavoriteTeamContainer extends Component {
 

@@ -16,13 +16,6 @@ const AppContainer = styled.div`
 
 class App extends Component {
 
-  componentDidMount() {
-    if (Cookies.get("auth_token") === undefined) {
-      Cookies.set("auth_token", "");
-    }
-    // check for logged in on api with cookie values, update user context state
-  }
-
   render() {
     return (
       <AppBody className="App">

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Team from './Team';
+import TeamButtonContainer from './TeamButtonContainer';
 
 class LeagueTable extends Component {
 
@@ -45,7 +45,7 @@ class LeagueTable extends Component {
 function buildContainers(teams) {
   var team_containers = [];
   for (var i=0; i < teams.length; i++) {
-    team_containers.push(<Team key={i} team={teams[i]} />);
+    team_containers.push(<TeamButtonContainer key={i} team={teams[i]} />);
   };
   return team_containers;
 }

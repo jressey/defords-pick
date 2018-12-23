@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   namespace :api do
     devise_for :users
 
-    resource :login, only: [:create, :destroy], controller: :sessions
+    resource :login, only: [:create, :destroy, :show], controller: :sessions do
+    end
 
     resource :games do
       get 'hot', to: "games#hot_game"

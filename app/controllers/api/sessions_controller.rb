@@ -12,6 +12,10 @@ class Api::SessionsController < ApplicationController
     end
   end
 
+  def show
+    render json: api_current_user
+  end
+
   def destroy
     @user = User.find_for_database_authentication(email: params[:email])
     sign_out :user
