@@ -36,8 +36,6 @@ class UserProvider extends Component {
       }).then(function(data) {
         if (data.auth_token) {
           Cookies.set("auth_token", data.auth_token);
-          Cookies.set("user_id", data.user_id);
-          Cookies.set("email", data.email);
           this.setState({ logged_in: true, password: "" })
         }
       }.bind(this)).catch(function(ex) {
@@ -60,8 +58,6 @@ class UserProvider extends Component {
       }).then(function(response) {
         if (response.status === 200) {
           Cookies.remove("auth_token");
-          Cookies.remove("user_id", "");
-          Cookies.remove("email", "");
           this.setState(
             { logged_in: false, auth_token: "",
               email: "", user_id: "", password: ""

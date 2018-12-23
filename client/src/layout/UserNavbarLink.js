@@ -18,7 +18,7 @@ class UserNavbarLink extends Component {
             <UserLink>
               {context.state.is_logged_in() ?
               (
-                <Link to="/user">{Cookies.get("email")}</Link>
+                <Link to="/user">{context.state.email}</Link>
               ) : (
                 <Link to="/Login">Login</Link>
               )}

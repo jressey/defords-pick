@@ -28,7 +28,8 @@ class User < ApplicationRecord
   private
 
   def update_access_token!
-    update(access_token: CryptionService.create_access_token)
+    token = "#{id}:#{CryptionService.create_access_token}"
+    update(access_token: token)
   end
 
 end

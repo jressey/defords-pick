@@ -55,8 +55,6 @@ class Login extends Component {
     }).then(function(data) {
       if (data.auth_token) {
         Cookies.set("auth_token", data.auth_token);
-        Cookies.set("user_id", data.user_id);
-        Cookies.set("email", data.email);
         this.setState({ logged_in: true });
       }
     }.bind(this)).catch(function(ex) {
