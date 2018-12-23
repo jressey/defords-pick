@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
-
 import styled from 'styled-components';
 
 const Title = styled.h1`

@@ -1,4 +1,16 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const Buttin = styled.button`
+  margin-bottom: 3px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
+const ButtonText = styled.span`
+  font-size: .9em;
+`
 
 class TeamButton extends Component {
 
@@ -6,9 +18,9 @@ class TeamButton extends Component {
     const { team } = this.props;
 
     return (
-      <button className="btn btn-light">
-        {team.name}
-      </button>
+      <Buttin className="btn btn-light">
+        <ButtonText>{team.name}</ButtonText>
+      </Buttin>
     );
   }
 
