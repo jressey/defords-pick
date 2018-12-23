@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import UserPreferences from './pages/UserPreferences';
+import User from './pages/User';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -10,7 +10,7 @@ class AppRouter extends Component {
   render() {
     return (
       <div>
-          <Route path="/user_preferences" exact component={UserPreferencesPage} />
+          <Route path="/user" exact component={UserPage} />
           <Route path="/" exact component={Homepage} />
           <Route path="/nba" component={NBA} />
           <Route path="/nfl" component={NFL} />
@@ -22,9 +22,9 @@ class AppRouter extends Component {
   }
 }
 
-const UserPreferencesPage = () => (
+const UserPage = () => (
   <div>
-    <UserPreferences />
+    <User />
   </div>
 )
 
