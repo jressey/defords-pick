@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FavoriteTeam from "./FavoriteTeam";
+import styled from 'styled-components';
 
 class FavoriteTeamContainer extends Component {
 
@@ -7,7 +8,11 @@ class FavoriteTeamContainer extends Component {
     const { team } = this.props;
 
     return (
-      <FavoriteTeam team={team} />
+      <div className="card">
+        <div className="card-body">
+          <FavoriteTeam team={team} />
+        </div>
+      </div>
     );
   }
 

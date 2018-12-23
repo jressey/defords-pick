@@ -29,14 +29,14 @@ class LeagueTable extends Component {
     }
 
     return (
-      <div className="card">
+      <div>
         {data.length > 0 ? (
-            <div className="row justify-content-center">
-              {buildContainers(data)}
-            </div>
-          ) : (
-            <div></div>
-          )}
+          <div className="row justify-content-center">
+            {buildContainers(data)}
+          </div>
+        ) : (
+          <div></div>
+        )}
       </div>
     );
   }
