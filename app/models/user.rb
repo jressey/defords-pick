@@ -3,7 +3,9 @@ class User < ApplicationRecord
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :trackable,
         :recoverable, :rememberable, :validatable#, :confirmable
-        after_create :update_access_token!
+
+  after_create :update_access_token!
+  after_create :create_user_preference
 
   validates :email, presence: true
 
@@ -30,6 +32,10 @@ class User < ApplicationRecord
   def update_access_token!
     token = "#{id}:#{CryptionService.create_access_token}"
     update(access_token: token)
+  end
+
+  def create_user_preference
+    UserPreference.create(user: self)
   end
 
 end

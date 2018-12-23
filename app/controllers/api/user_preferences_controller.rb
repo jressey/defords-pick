@@ -29,6 +29,8 @@ class Api::UserPreferencesController < ApplicationController
     return team
   end
 
+  private
+
   def user_preference
     @user_preference || current_api_user.user_preference
   end

@@ -10,17 +10,28 @@ const LeagueTableLayout = styled.div`
 
 class LeagueContainer extends Component {
 
+
+  setFavorite = (e) => {
+    console.log("setting favorite");
+    debugger;
+  }
+
+  unsetFavorite = (e) => {
+
+  }
+
   render() {
+    const { team, league } = this.props;
 
     return (
-      <div className="col-sm-6">
+      <div className="col-sm-12 col-md-6">
       <FadeIn>
-        { this.propsfavorite_football_team ? (
-          <FavoriteTeamContainer team={this.props.favorite_football_team} />
+        { team ? (
+          <FavoriteTeamContainer team={team} />
         ) : (
           <LeagueTableLayout className="card">
             <div className="card-body">
-              <LeagueTable league={this.props.league} />
+              <LeagueTable league={league} setFavorite={this.setFavorite} />
             </div>
           </LeagueTableLayout>
         ) }

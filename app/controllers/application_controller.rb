@@ -18,11 +18,11 @@ class ApplicationController < ActionController::API
     authentication_error unless (auth_token)
     token = CryptionService.decrypt(auth_token)
 
-    user_id, token_token= token.split(":", 2)
+    user_id = token.split(":")[0]
 
     user = User.find(user_id)
 
-    if user && Devise.secure_compare(user.access_token, token_token)
+    if user && Devise.secure_compare(user.access_token, token)
       sign_in user, store: false
     else
       authentication_error

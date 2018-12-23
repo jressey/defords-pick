@@ -22,7 +22,7 @@ class LeagueTable extends Component {
   }
 
   render() {
-    const { loading, data } = this.state;
+    const { loading, data, setFavorite } = this.state;
 
     if(loading) {
       return null;
@@ -32,7 +32,7 @@ class LeagueTable extends Component {
       <div>
         {data.length > 0 ? (
           <div className="row justify-content-center">
-            {buildContainers(data)}
+            {buildContainers(data, setFavorite)}
           </div>
         ) : (
           <div></div>
@@ -42,10 +42,10 @@ class LeagueTable extends Component {
   }
 }
 
-function buildContainers(teams) {
+function buildContainers(teams, func) {
   var team_containers = [];
   for (var i=0; i < teams.length; i++) {
-    team_containers.push(<TeamButtonContainer key={i} team={teams[i]} />);
+    team_containers.push(<TeamButtonContainer key={i} team={teams[i]} setFavorite={func}/>);
   };
   return team_containers;
 }
