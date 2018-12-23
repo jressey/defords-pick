@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 export const UserContext = React.createContext();
 
 
+
 class UserProvider extends Component {
   state = {
     user_id: "",
@@ -36,6 +37,7 @@ class UserProvider extends Component {
       }).then(function(data) {
         if (data.auth_token) {
           Cookies.set("auth_token", data.auth_token);
+          Cookies.set("email", data.email);
           this.setState({ logged_in: true, password: "" })
         }
       }.bind(this)).catch(function(ex) {
@@ -58,6 +60,7 @@ class UserProvider extends Component {
       }).then(function(response) {
         if (response.status === 200) {
           Cookies.remove("auth_token");
+          Cookies.remove("email", "");
           this.setState(
             { logged_in: false, auth_token: "",
               email: "", user_id: "", password: ""
@@ -68,10 +71,17 @@ class UserProvider extends Component {
         console.log('parsing failed', ex)
       })
     },
-    is_logged_in: () => {
-      if (this.state.logged_in === true || Cookies.get("auth_token")) { return true; }
-    },
   }
+
+  componentDidMount() {
+    this.setState(
+      {
+        auth_token: Cookies.get("auth_token"),
+        email: Cookies.get("email"),
+        logged_in: this.state.logged_in || Cookies.get("auth_token")
+      }
+    )
+  };
 
   render() {
     return <UserContext.Provider value={{ state: this.state}}>

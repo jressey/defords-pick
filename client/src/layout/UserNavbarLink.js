@@ -3,11 +3,6 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
 import Cookies from 'js-cookie';
 
-import styled from 'styled-components';
-
-const UserLink = styled.div`
-`
-
 class UserNavbarLink extends Component {
 
   render() {
@@ -15,14 +10,14 @@ class UserNavbarLink extends Component {
       <UserContext.Consumer>
         {(context) => (
           <React.Fragment>
-            <UserLink>
-              {context.state.is_logged_in() ?
+            <div>
+              {context.state.logged_in ?
               (
-                <Link to="/user">{context.state.email}</Link>
+                <Link to="/user">{Cookies.get("email")}</Link>
               ) : (
                 <Link to="/Login">Login</Link>
               )}
-            </UserLink>
+            </div>
           </React.Fragment>
         )}
       </UserContext.Consumer>

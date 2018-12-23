@@ -34,7 +34,7 @@ class User extends Component {
         <UserContext.Consumer>
           {(context) => (
             <React.Fragment>
-                { context.state.is_logged_in() ? (
+                { context.state.logged_in ? (
                   <div className="row">
                     <div className="col-sm-6">
                       { this.state.data.favorite_football_team ? (
