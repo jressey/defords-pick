@@ -9,7 +9,7 @@ class UserProvider extends Component {
   state = {
     user_id: "",
     auth_token: "",
-    logged_in: false,
+    logged_in: true,
     email: "",
     password: "",
     change: (e) => {

@@ -5,6 +5,22 @@ class Api::UserPreferencesController < ApplicationController
     render json: favorite_teams
   end
 
+  def favorite_NBA_team
+    render json: user_preference.favorite_basketball_team
+  end
+
+  def favorite_NFL_team
+    render json: user_preference.favorite_football_team
+  end
+
+  def favorite_NHL_team
+    render json: user_preference.favorite_hockey_team
+  end
+
+  def favorite_MLB_team
+    render json: user_preference.favorite_baseball_team
+  end
+
   def favorite_teams
     {
       favorite_basketball_team: user_preference.favorite_basketball_team,
@@ -16,7 +32,7 @@ class Api::UserPreferencesController < ApplicationController
 
   def set_favorite_team
     team = Team.find(params[:team_id])
-    case params[:league]
+    case team.sport.league_name
     when "NFL"
       user_preference.update(favorite_football_team: team)
     when "NHL"
@@ -26,7 +42,7 @@ class Api::UserPreferencesController < ApplicationController
     when "MLB"
       user_preference.update(favorite_baseball_team: team)
     end
-    return team
+    render json: team
   end
 
   private

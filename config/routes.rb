@@ -18,6 +18,10 @@ Rails.application.routes.draw do
 
     # protected endpoints
     resource :user_preferences, only: [:show] do
+      get 'favorite_NBA_team', to: "favorite_NBA_team"
+      get 'favorite_NFL_team', to: "favorite_NFL_team"
+      get 'favorite_NHL_team', to: "favorite_NHL_team"
+      get 'favorite_MLB_team', to: "favorite_MLB_team"
       post 'set_favorite_team', to: "user_preferences#set_favorite_team"
     end
   end

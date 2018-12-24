@@ -12,4 +12,8 @@ class Team < ApplicationRecord
       return "#{wins}-#{losses}"
     end
   end
+
+  def sport
+    division.conference.sport
+  end
 end
