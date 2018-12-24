@@ -9,13 +9,20 @@ const Card = styled.div`
 class FavoriteTeamContainer extends Component {
 
   render() {
-    const { team } = this.props;
+    const { team, unsetFavorite } = this.props;
 
     return (
       <Card className="card">
         <div className="card-body">
-          <FavoriteTeam team={team} />
-        </div>
+          <div className="row">
+            <div className="col-sm-6">
+              <FavoriteTeam team={team} />
+            </div>
+            <div className="col-sm-6">
+              <button className="btn btn-secondary" onClick={unsetFavorite}>Change Favorite Team</button>
+            </div>
+          </div>
+          </div>
       </Card>
     );
   }

@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import TeamButtonContainer from './TeamButtonContainer';
+import styled from 'styled-components';
+
+const LeagueTableLayout = styled.div`
+  margin-bottom: 30px;
+`
 
 class LeagueTable extends Component {
 
@@ -31,9 +36,13 @@ class LeagueTable extends Component {
     return (
       <div>
         {data.length > 0 ? (
-          <div className="row justify-content-center">
-            {buildContainers(data, this.props.setFavorite)}
-          </div>
+           <LeagueTableLayout className="card">
+            <div className="card-body">
+              <div className="row justify-content-center">
+                {buildContainers(data, this.props.setFavorite)}
+              </div>
+            </div>
+          </LeagueTableLayout>
         ) : (
           <div></div>
         )}

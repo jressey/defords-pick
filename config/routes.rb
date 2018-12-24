@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get 'favorite_NHL_team', to: "favorite_NHL_team"
       get 'favorite_MLB_team', to: "favorite_MLB_team"
       post 'set_favorite_team', to: "user_preferences#set_favorite_team"
+      post 'unset_favorite_team', to: "user_preferences#unset_favorite_team"
     end
   end
 

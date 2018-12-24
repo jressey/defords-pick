@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 import LeagueTable from './LeagueTable';
-import styled from 'styled-components';
 import FavoriteTeamContainer from "../user/FavoriteTeamContainer";
 import FadeIn from 'react-fade-in';
-
-const LeagueTableLayout = styled.div`
-  margin-bottom: 30px;
-`
 
 class LeagueContainer extends Component {
 
   state = {
     favorite_team: {},
     setFavorite: (team) => {
+      this.setState({ loading: true });
       const url = `/api/user_preferences/set_favorite_team.json`
-      console.log("setting favorite to ", team.id);
       fetch(url, {
         method: 'post',
         credentials: 'same-origin',
@@ -30,12 +25,32 @@ class LeagueContainer extends Component {
       }).then(function(response) {
           return response.json();
         }).then(function(data) {
-          this.setState({ data: data });
+          this.setState({ favorite_team: data, loading: false });
         }.bind(this)).catch(function(ex) {
           console.log('parsing failed', ex)
         })
     },
     unsetFavorite: () => {
+      this.setState({ loading: true });
+      const url = `/api/user_preferences/unset_favorite_team.json`
+      fetch(url, {
+        method: 'post',
+        credentials: 'same-origin',
+        mode: 'same-origin',
+        headers: {
+          'Accept':       'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          league: this.props.league
+        })
+      }).then(function(response) {
+          return response.json();
+        }).then(function() {
+          this.setState({ favorite_team: null, loading: false });
+        }.bind(this)).catch(function(ex) {
+          console.log('parsing failed', ex)
+        })
     },
   }
 
@@ -45,26 +60,22 @@ class LeagueContainer extends Component {
       .then(function(response) {
         return response.json();
       }).then(function(data) {
-        this.setState({ data: { favorite_team: data} , loading: false });
+        this.setState({ favorite_team: data, loading: false });
       }.bind(this)).catch(function(ex) {
         console.log('parsing failed', ex)
       })
   }
 
   render() {
-    const { team, league } = this.props;
+    const { league } = this.props;
 
     return (
       <div className="col-sm-12 col-md-6">
       <FadeIn>
-        { this.state.team ? (
-          <FavoriteTeamContainer team={this.state.favorite_team} />
+        { this.state.favorite_team ? (
+          <FavoriteTeamContainer team={this.state.favorite_team} unsetFavorite={this.state.unsetFavorite}/>
         ) : (
-          <LeagueTableLayout className="card">
-            <div className="card-body">
-              <LeagueTable league={league} setFavorite={this.state.setFavorite} />
-            </div>
-          </LeagueTableLayout>
+          <LeagueTable league={league} setFavorite={this.state.setFavorite} />
         ) }
         </FadeIn>
       </div>

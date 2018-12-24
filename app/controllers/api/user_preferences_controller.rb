@@ -32,17 +32,13 @@ class Api::UserPreferencesController < ApplicationController
 
   def set_favorite_team
     team = Team.find(params[:team_id])
-    case team.sport.league_name
-    when "NFL"
-      user_preference.update(favorite_football_team: team)
-    when "NHL"
-      user_preference.update(favorite_hockey_team: team)
-    when "NBA"
-      user_preference.update(favorite_basketball_team: team)
-    when "MLB"
-      user_preference.update(favorite_baseball_team: team)
-    end
+    user_preference.update_favorite_team_for_league(team.sport.league_name, team)
     render json: team
+  end
+
+  def unset_favorite_team
+    user_preference.update_favorite_team_for_league(params[:league], nil)
+    render json: {}
   end
 
   private

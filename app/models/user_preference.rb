@@ -7,4 +7,16 @@ class UserPreference < ApplicationRecord
 
   default_scope { includes(:favorite_basketball_team, :favorite_hockey_team, :favorite_baseball_team, :favorite_football_team)}
 
+  def update_favorite_team_for_league(league_name, team)
+    case league_name
+    when "NFL"
+      update(favorite_football_team: team)
+    when "NHL"
+      update(favorite_hockey_team: team)
+    when "NBA"
+      update(favorite_basketball_team: team)
+    when "MLB"
+      update(favorite_baseball_team: team)
+    end
+  end
 end
