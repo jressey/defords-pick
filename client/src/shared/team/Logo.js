@@ -13,7 +13,7 @@ class Logo extends Component {
     return (
       <div>
         {this.props.team.abbreviation ? (
-          <Content src={logoUrl(this.props.league_abbreviation.toUpperCase(), this.props.team.abbreviation)} className="img-fluid" />
+          <Content src={logoUrl(this.props.league_abbreviation, this.props.team.abbreviation)} className="img-fluid" />
         ) : (
           <p>sorry</p>
         )}
@@ -23,7 +23,7 @@ class Logo extends Component {
 }
 
 function logoUrl(league_abbreviation, team_abbreviation) {
-  return `http://a1.espncdn.com/combiner/i?img=/i/teamlogos/${league_abbreviation.toUpperCase()}/500/scoreboard/${team_abbreviation.toUpperCase()}.png&h=55&w=55`
+  return `https://a.espncdn.com/i/teamlogos/${league_abbreviation.toLowerCase()}/500/${team_abbreviation.toLowerCase()}.png`
 }
 
 export default Logo;

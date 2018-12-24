@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LeagueTable from './LeagueTable';
-import FavoriteTeamContainer from "../user/FavoriteTeamContainer";
+import FavoriteTeamContainer from "../user/favorite_team/FavoriteTeamContainer";
 import FadeIn from 'react-fade-in';
 
 class LeagueContainer extends Component {

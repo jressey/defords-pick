@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class FavoriteTeam extends Component {
+class FavoriteTeamName extends Component {
 
   render() {
     const { team } = this.props;
@@ -14,4 +14,4 @@ class FavoriteTeam extends Component {
 
 }
 
-export default FavoriteTeam;
+export default FavoriteTeamName;

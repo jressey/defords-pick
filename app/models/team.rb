@@ -3,6 +3,8 @@ class Team < ApplicationRecord
   has_many :games
   has_many :user_preferences
 
+  default_scope { includes({ division: [{ conference: [:sport] }] }) }
+
   def record
     if (ties.present?)
       return "#{wins}-#{losses}-#{ties}"
