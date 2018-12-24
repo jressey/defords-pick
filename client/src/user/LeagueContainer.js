@@ -10,10 +10,28 @@ const LeagueTableLayout = styled.div`
 
 class LeagueContainer extends Component {
 
-
-  setFavorite = (e) => {
-    console.log("setting favorite");
-    debugger;
+  setFavorite = (team_id) => {
+    const url = `/api/user_preferences/set_favorite_team.json`
+    console.log("setting favorite to ", team_id);
+    fetch(url, {
+      method: 'post',
+      credentials: 'same-origin',
+      mode: 'same-origin',
+      headers: {
+        'Accept':       'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        league: this.props.league,
+        team_id: team_id,
+      })
+    }).then(function(response) {
+        return response.json();
+      }).then(function(data) {
+        this.setState({ data: data });
+      }.bind(this)).catch(function(ex) {
+        console.log('parsing failed', ex)
+      })
   }
 
   unsetFavorite = (e) => {

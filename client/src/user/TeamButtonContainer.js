@@ -4,11 +4,11 @@ import TeamButton from './TeamButton';
 class TeamButtonContainer extends Component {
 
   render() {
-    const { team } = this.props;
+    const { team, setFavorite } = this.props;
 
     return (
       <div className="col-sm-4">
-        <TeamButton team={team} />
+        <TeamButton team={team} setFavorite={setFavorite}/>
       </div>
     );
   }

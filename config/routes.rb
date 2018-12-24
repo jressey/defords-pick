@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     resources :teams, only: :index
 
     # protected endpoints
-    resource :user_preferences, only: [:show]
+    resource :user_preferences, only: [:show] do
+      post 'set_favorite_team', to: "user_preferences#set_favorite_team"
+    end
   end
 
   root to: "home#index"

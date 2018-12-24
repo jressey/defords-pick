@@ -22,7 +22,7 @@ class LeagueTable extends Component {
   }
 
   render() {
-    const { loading, data, setFavorite } = this.state;
+    const { loading, data } = this.state;
 
     if(loading) {
       return null;
@@ -32,7 +32,7 @@ class LeagueTable extends Component {
       <div>
         {data.length > 0 ? (
           <div className="row justify-content-center">
-            {buildContainers(data, setFavorite)}
+            {buildContainers(data, this.props.setFavorite)}
           </div>
         ) : (
           <div></div>

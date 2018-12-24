@@ -15,10 +15,10 @@ const ButtonText = styled.span`
 class TeamButton extends Component {
 
   render() {
-    const { team } = this.props;
+    const { team, setFavorite } = this.props;
 
     return (
-      <Buttin className="btn btn-light">
+      <Buttin className="btn btn-light" onClick={() => setFavorite(team.id)}>
         <ButtonText>{team.name}</ButtonText>
       </Buttin>
     );
