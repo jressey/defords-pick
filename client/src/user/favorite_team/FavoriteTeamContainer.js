@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FavoriteTeamName from "./FavoriteTeamName";
 import FavoriteTeamNextGame from "./FavoriteTeamNextGame";
+import FavoriteTeamNextGamesPanel from "./FavoriteTeamNextGamesPanel";
 import Logo from "../../shared/team/Logo";
 import styled from 'styled-components';
 
@@ -28,6 +29,7 @@ class FavoriteTeamContainer extends Component {
 
   render() {
     const { team, unsetFavorite } = this.props;
+    const { next_games } = this.state;
 
     if(this.state.loading) {
       return null;
@@ -40,8 +42,8 @@ class FavoriteTeamContainer extends Component {
           <div>
             <Logo league_abbreviation={team.sport.league_name} team={team} />
             <FavoriteTeamName team={team} />
-            <FavoriteTeamNextGame game={this.state.next_games[0]} />
-            {/* <FavoriteTeamNextGame team={team} /> */}
+            <FavoriteTeamNextGame game={next_games[0]} />
+            <FavoriteTeamNextGamesPanel games={next_games} />
             <button className="btn btn-sm btn-secondary" onClick={unsetFavorite}>Change Favorite Team</button>
           </div>
         ) : (
