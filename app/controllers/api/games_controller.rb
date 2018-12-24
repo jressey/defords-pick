@@ -14,6 +14,10 @@ class Api::GamesController < ApplicationController
     render json: list, each_serializer: GameSerializer
   end
 
+  def next_games_for_team
+    render json: game_service.next_games_for_team(3, params[:team_id])
+  end
+
   def nba
     render json: game_service.all_basketball_for_day, each_serializer: GameSerializer
   end

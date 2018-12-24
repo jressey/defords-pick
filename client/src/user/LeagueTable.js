@@ -22,7 +22,6 @@ class LeagueTable extends Component {
       }).then(function(data) {
         this.setState({ data: data, loading: false });
       }.bind(this)).catch(function(ex) {
-        console.log('parsing failed', ex)
       })
   }
 

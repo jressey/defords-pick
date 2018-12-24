@@ -58,7 +58,6 @@ class Login extends Component {
         this.setState({ logged_in: true });
       }
     }.bind(this)).catch(function(ex) {
-      console.log('parsing failed', ex)
     })
   }
 

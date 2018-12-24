@@ -7,6 +7,7 @@ class LeagueContainer extends Component {
 
   state = {
     favorite_team: {},
+    loading: true,
     setFavorite: (team) => {
       this.setState({ loading: true });
       const url = `/api/user_preferences/set_favorite_team.json`
@@ -27,7 +28,6 @@ class LeagueContainer extends Component {
         }).then(function(data) {
           this.setState({ favorite_team: data, loading: false });
         }.bind(this)).catch(function(ex) {
-          console.log('parsing failed', ex)
         })
     },
     unsetFavorite: () => {
@@ -49,7 +49,6 @@ class LeagueContainer extends Component {
         }).then(function() {
           this.setState({ favorite_team: null, loading: false });
         }.bind(this)).catch(function(ex) {
-          console.log('parsing failed', ex)
         })
     },
   }
@@ -62,12 +61,15 @@ class LeagueContainer extends Component {
       }).then(function(data) {
         this.setState({ favorite_team: data, loading: false });
       }.bind(this)).catch(function(ex) {
-        console.log('parsing failed', ex)
       })
   }
 
   render() {
     const { league } = this.props;
+
+    if(this.state.loading) {
+      return null;
+    }
 
     return (
       <div className="col-sm-12 col-md-6">

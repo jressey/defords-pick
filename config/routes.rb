@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get 'nba', to: "games#nba"
       get 'nfl', to: "games#nfl"
       get 'nhl', to: "games#nhl"
+      get 'next_games', to: "games#next_games_for_team"
     end
 
     resources :teams, only: :index

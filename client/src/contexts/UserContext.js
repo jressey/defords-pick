@@ -41,7 +41,6 @@ class UserProvider extends Component {
           this.setState({ logged_in: true, password: "" })
         }
       }.bind(this)).catch(function(ex) {
-        console.log('parsing failed', ex)
       });
     },
     logout: (e) => {
@@ -68,7 +67,6 @@ class UserProvider extends Component {
           );
         }
       }.bind(this)).catch(function(ex) {
-        console.log('parsing failed', ex)
       })
     },
   }

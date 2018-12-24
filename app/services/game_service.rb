@@ -11,6 +11,12 @@ class GameService
     nil
   end
 
+  def next_games_for_team(count, team_id)
+    home_games = Game.where(home_team_id: team_id).where("start_time > ?", DateTime.now).limit(3).order(:start_time)
+    away_games = Game.where(away_team_id: team_id).where("start_time > ?", DateTime.now).limit(3).order(:start_time)
+    (home_games + away_games).sort_by { |g| g.start_time }.take(count)
+  end
+
   def current_football_games
     @current_football_games || Game.football.current
   end
