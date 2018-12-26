@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import FavoriteTeamName from "./FavoriteTeamName";
-import FavoriteTeamNextGame from "./FavoriteTeamNextGame";
+import FavoriteTeamNextGameContainer from "./FavoriteTeamNextGameContainer";
 import FavoriteTeamNextGamesPanel from "./FavoriteTeamNextGamesPanel";
-import Logo from "../../shared/team/Logo";
+import Logo from "./Logo";
 import styled from 'styled-components';
 
 const Card = styled.div`
   margin-bottom: 30px;
+`
+
+const PaddinglessCol = styled.div`
+  padding: 0px;
+`
+
+const ImageContainer = styled.div`
+  height: 100px;
 `
 
 class FavoriteTeamContainer extends Component {
@@ -40,11 +48,21 @@ class FavoriteTeamContainer extends Component {
         <div className="card-body">
         { team.sport ? (
           <div>
-            <Logo league_abbreviation={team.sport.league_name} team={team} />
-            <FavoriteTeamName team={team} />
-            <FavoriteTeamNextGame game={next_games[0]} />
+            <div className="row">
+              <PaddinglessCol className="col-sm-2">
+                <ImageContainer>
+                  <Logo league_abbreviation={team.sport.league_name} team={team} />
+                </ImageContainer>
+              </PaddinglessCol>
+              <div className="col-sm-6">
+                <FavoriteTeamName team={team} />
+              </div>
+              <div className="col-sm-4">
+                <FavoriteTeamNextGameContainer game={next_games[0]} />
+              </div>
+              <button className="btn btn-sm btn-secondary" onClick={unsetFavorite}>Change Favorite Team</button>
+            </div>
             <FavoriteTeamNextGamesPanel games={next_games} />
-            <button className="btn btn-sm btn-secondary" onClick={unsetFavorite}>Change Favorite Team</button>
           </div>
         ) : (
           <div></div>

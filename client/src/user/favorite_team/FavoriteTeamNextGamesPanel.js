@@ -7,7 +7,7 @@ class FavoriteTeamNextGamesPanel extends Component {
     const { games } = this.props;
 
     return (
-      <div>
+      <div className="row">
         {buildGameContainers(games)}
       </div>
     );

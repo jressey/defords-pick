@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const Title = styled.h3`
+  margin-top: -7px;
+`
 
 class FavoriteTeamName extends Component {
 
@@ -6,9 +11,9 @@ class FavoriteTeamName extends Component {
     const { team } = this.props;
 
     return (
-      <div>
+      <Title>
         {team.name}
-      </div>
+      </Title>
     );
   }
 
