@@ -29,7 +29,7 @@ class LeagueTable extends Component {
     const { loading, data } = this.state;
 
     if(loading) {
-      return null;
+      return <LeagueTableLayout className="card"></LeagueTableLayout>
     }
 
     return (
@@ -43,7 +43,7 @@ class LeagueTable extends Component {
             </div>
           </LeagueTableLayout>
         ) : (
-          <div></div>
+          <LeagueTableLayout className="card"></LeagueTableLayout>
         )}
       </div>
     );

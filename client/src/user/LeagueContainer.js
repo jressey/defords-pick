@@ -68,7 +68,7 @@ class LeagueContainer extends Component {
     const { league } = this.props;
 
     if(this.state.loading) {
-      return null;
+      return <div className="col-sm-12 col-md-6"></div>
     }
 
     return (
