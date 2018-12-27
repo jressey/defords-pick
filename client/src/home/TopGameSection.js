@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GameContainer from '../game/GameContainer';
+import GameContainer from '../shared/game/GameContainer';
 import ErrorMessage from '../shared/ErrorMessage'
 import styled from 'styled-components';
 import FadeIn from 'react-fade-in';

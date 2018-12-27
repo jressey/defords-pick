@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GameCard from '../../game/GameCard'
+import GameCard from '../../shared/game/GameCard'
 
 class NextGameContainer extends Component {
 
