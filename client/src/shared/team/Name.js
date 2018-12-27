@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-
-const Content = styled.div`
-`
 
 class Name extends Component {
 
   render() {
     return (
-      <Content>
+      <div>
         {this.props.name}
-      </Content>
+      </div>
     );
   }
 

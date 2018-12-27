@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TeamButtonContainer from './favorite_team/TeamButtonContainer';
+import TeamButtonContainer from './TeamButtonContainer';
 import styled from 'styled-components';
 
 const LeagueTableLayout = styled.div`
