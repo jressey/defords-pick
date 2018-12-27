@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Content = styled.img`
-  max-height: 40px;
   display: inline-block;
   padding: 0 10px;
 `
@@ -33,7 +32,7 @@ function maxHeightFor(game_type) {
   if (game_type === "compact") {
     return "30px"
   }
-  return ""
+  return "40px"
 }
 
 export default Logo;
