@@ -54,7 +54,7 @@ class LeagueContainer extends Component {
   }
 
   componentDidMount() {
-    const url = `api/user_preferences/favorite_${this.props.league}_team`
+    const url = `api/user_preferences/favorite_${this.props.league}_team.json`
     fetch(url)
       .then(function(response) {
         return response.json();
