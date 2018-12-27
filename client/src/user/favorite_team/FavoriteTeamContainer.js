@@ -53,7 +53,7 @@ class FavoriteTeamContainer extends Component {
                 <FavoriteTeamName team={team} />
               </div>
               <div className="col-sm-2">
-              <button className="btn btn-sm btn-secondary" onClick={unsetFavorite}>Change</button>
+              <button className="btn btn-sm btn-outline-danger" onClick={unsetFavorite}>Change</button>
               </div>
             </div>
             <hr />
