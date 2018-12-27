@@ -49,11 +49,11 @@ class FavoriteTeamContainer extends Component {
                   <Logo league_abbreviation={team.sport.league_name} team={team} />
                 </div>
               </PaddinglessCol>
-              <div className="col-sm-8">
+              <div className="col-sm-7">
                 <FavoriteTeamName team={team} />
               </div>
-              <div className="col-sm-2">
-              <button className="btn btn-sm btn-outline-danger" onClick={unsetFavorite}>Change</button>
+              <div className="col-sm-3">
+              <button className="btn btn-sm btn-outline-danger float-right" onClick={unsetFavorite}>Change</button>
               </div>
             </div>
             <hr />
