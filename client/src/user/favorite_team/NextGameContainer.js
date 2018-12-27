@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Game from '../../game/Game'
+import GameCard from '../../game/GameCard'
 
 class NextGameContainer extends Component {
 
@@ -8,7 +8,7 @@ class NextGameContainer extends Component {
 
     return (
       <div>
-        <Game game={game} game_type="default" league_abbreviation={game.sport.league_name}/>
+        <GameCard game={game} game_type="default" league_abbreviation={game.sport.league_name}/>
       </div>
     );
   }
