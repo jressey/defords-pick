@@ -18,7 +18,7 @@ class FavoriteTeamNextGamesPanel extends Component {
 function buildGameContainers(games) {
   var game_containers = [];
   for (var i=0; i < games.length; i++) {
-    game_containers.push(<NextGameContainer key={i} game={games[i]} />);
+    game_containers.push(<div className="col-sm-3" key={i}><NextGameContainer game={games[i]} /></div>);
   };
   return game_containers;
 }

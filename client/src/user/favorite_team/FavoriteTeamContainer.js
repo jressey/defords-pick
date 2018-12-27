@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import FavoriteTeamName from "./FavoriteTeamName";
-import FavoriteTeamNextGameContainer from "./FavoriteTeamNextGameContainer";
 import FavoriteTeamNextGamesPanel from "./FavoriteTeamNextGamesPanel";
 import Logo from "./Logo";
 import styled from 'styled-components';
@@ -11,10 +10,6 @@ const Card = styled.div`
 
 const PaddinglessCol = styled.div`
   padding: 0px;
-`
-
-const ImageContainer = styled.div`
-  height: 100px;
 `
 
 class FavoriteTeamContainer extends Component {
@@ -50,18 +45,18 @@ class FavoriteTeamContainer extends Component {
           <div>
             <div className="row">
               <PaddinglessCol className="col-sm-2">
-                <ImageContainer>
+                <div>
                   <Logo league_abbreviation={team.sport.league_name} team={team} />
-                </ImageContainer>
+                </div>
               </PaddinglessCol>
-              <div className="col-sm-6">
+              <div className="col-sm-8">
                 <FavoriteTeamName team={team} />
               </div>
-              <div className="col-sm-4">
-                <FavoriteTeamNextGameContainer game={next_games[0]} />
+              <div className="col-sm-2">
+              <button className="btn btn-sm btn-secondary" onClick={unsetFavorite}>Change</button>
               </div>
-              <button className="btn btn-sm btn-secondary" onClick={unsetFavorite}>Change Favorite Team</button>
             </div>
+            <hr />
             <FavoriteTeamNextGamesPanel games={next_games} />
           </div>
         ) : (

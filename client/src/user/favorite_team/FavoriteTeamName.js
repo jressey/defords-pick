@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const Title = styled.h3`
+const Title = styled.h1`
   margin-top: -7px;
 `
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Game from '../../game/Game'
 
 class NextGameContainer extends Component {
 
@@ -7,7 +8,7 @@ class NextGameContainer extends Component {
 
     return (
       <div>
-        {game.home_team.name}
+        <Game game={game} game_type="default" league_abbreviation={game.sport.league_name}/>
       </div>
     );
   }

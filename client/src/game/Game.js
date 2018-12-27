@@ -5,10 +5,12 @@ class Game extends Component {
 
 
   render() {
+    const { game, game_type } = this.props;
+
     return (
       <div>
-        <Team team={this.props.away_team} game_type={this.props.game_type} league_abbreviation={this.props.league_abbreviation}/>
-        <Team team={this.props.home_team} game_type={this.props.game_type} league_abbreviation={this.props.league_abbreviation} />
+        <Team team={game.away_team} game_type={game_type} league_abbreviation={game.sport.league_name}/>
+        <Team team={game.home_team} game_type={game_type} league_abbreviation={game.sport.league_name} />
       </div>
     );
   }
