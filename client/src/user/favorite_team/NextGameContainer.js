@@ -8,7 +8,7 @@ class NextGameContainer extends Component {
 
     return (
       <div>
-        <GameCard game={game} game_type="default" league_abbreviation={game.sport.league_name}/>
+        <GameCard game={game} game_type="compact" league_abbreviation={game.sport.league_name}/>
       </div>
     );
   }

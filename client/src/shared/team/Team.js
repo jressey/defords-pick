@@ -11,13 +11,15 @@ const TextArea = styled.div`
 class Team extends Component {
 
   render() {
+    const { team, league_abbreviation, game_type } = this.props;
+
     return (
       <div className="row">
-        <Logo team={this.props.team} league_abbreviation={this.props.league_abbreviation} />
+        <Logo team={team} league_abbreviation={league_abbreviation} game_type={game_type} />
         <TextArea>
-          <Name name={this.props.team.name}>
+          <Name name={team.name} game_type={game_type}>
           </Name>
-          <Record record={this.props.team.record} game_type={this.props.game_type}>
+          <Record record={team.record} game_type={game_type}>
           </Record>
         </TextArea>
       </div>

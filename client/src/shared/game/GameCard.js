@@ -13,13 +13,12 @@ const Card = styled.div`
 class GameCard extends Component {
 
   bgImage = imageFor(this.props.game_type);
-  bgColor = bgColorFor(this.props.game_type);
 
   render() {
     const { game, game_type } = this.props;
 
     return (
-      <Card className="card" style={{backgroundImage: this.bgImage, backgroundColor: this.bgColor}}>
+      <Card className="card" style={{backgroundImage: this.bgImage}}>
         <CardBlock>
           <Game game={game} game_type={game_type} />
         </CardBlock>
@@ -31,13 +30,6 @@ class GameCard extends Component {
 function imageFor(game_type) {
   if (game_type === "hot") {
     return "linear-gradient(to bottom right, rgb(252, 252, 147), rgb(252, 172, 172))"
-  }
-  return ""
-}
-
-function bgColorFor(game_type) {
-  if (game_type === "hot") {
-    return "background-color: rgb(159, 232, 235)"
   }
   return ""
 }

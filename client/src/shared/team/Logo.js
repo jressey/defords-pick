@@ -9,11 +9,13 @@ const Content = styled.img`
 
 class Logo extends Component {
 
+  maxHeight = maxHeightFor(this.props.game_type);
+
   render() {
     return (
       <div>
         {this.props.team.abbreviation ? (
-          <Content src={logoUrl(this.props.league_abbreviation, this.props.team.abbreviation)} className="img-fluid" />
+          <Content src={logoUrl(this.props.league_abbreviation, this.props.team.abbreviation)} style={{maxHeight: this.maxHeight}} className="img-fluid" />
         ) : (
           <p>sorry</p>
         )}
@@ -24,6 +26,14 @@ class Logo extends Component {
 
 function logoUrl(league_abbreviation, team_abbreviation) {
   return `https://a.espncdn.com/i/teamlogos/${league_abbreviation.toLowerCase()}/500/${team_abbreviation.toLowerCase()}.png`
+}
+
+
+function maxHeightFor(game_type) {
+  if (game_type === "compact") {
+    return "30px"
+  }
+  return ""
 }
 
 export default Logo;

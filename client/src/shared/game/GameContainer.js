@@ -11,19 +11,21 @@ const Container = styled.div`
 class GameContainer extends Component {
 
   render() {
+    const { game, game_type, link} = this.props;
+
     return (
       <Container>
-        {this.props.game_type !== "hot" ? (
-          <GameTime time={this.props.game.start_time} />
+        {game_type !== "hot" ? (
+          <GameTime time={game.start_time} game_type={game_type}/>
         ) : (
           null
         )}
-        {this.props.game_type === "hot" ? (
-          <GameLink link={this.props.link} />
+        {game_type === "hot" ? (
+          <GameLink link={link} />
         ) : (
           null
         )}
-        <GameCard game={this.props.game} game_type={this.props.game_type} />
+        <GameCard game={game} game_type={game_type} />
       </Container>
     );
   }
